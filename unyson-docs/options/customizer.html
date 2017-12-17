@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html lang="en" class="no-js oldie"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customizer &mdash; Unyson Framework  documentation</title>
+
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+    
+
+    
+    
+        <link rel="stylesheet" href="../_static/css/bootstrap.min.css" type="text/css" />
+    
+        <link rel="stylesheet" href="../_static/css/pygments.theme.css" type="text/css" />
+    
+        <link rel="stylesheet" href="../_static/css/animate.css" type="text/css" />
+    
+
+    
+    
+    <!--<link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />-->
+    
+
+    <link rel="stylesheet" href="../_static/css/styles.css" type="text/css" />
+            <link rel="index" title="Index" href="../genindex.html"/>
+            <link rel="search" title="Search" href="../search.html"/>
+        <link rel="top" title="Unyson Framework  documentation" href="../index.html"/>
+            <link rel="up" title="Options" href="index.html"/>
+            <link rel="next" title="Option Types" href="option-types.html"/>
+            <link rel="prev" title="Theme Integration" href="integrate.html"/>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT: '../',
+            VERSION: '',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE: 'true'
+        };
+    </script>
+
+    <!--[if lt IE 9]><script src="../_static/js/respond.min.js"></script><![endif]-->
+
+    <script type="text/javascript">
+        var tfVars = {
+            'logo_src': "../_static/img/logo.png",
+            'header_bg_src': "../_static/img/header-bg.jpg"
+        };
+    </script>
+
+    
+        <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../_static/js/jquery.slicknav.min.js"></script>
+        <script type="text/javascript" src="../_static/js/scripts.js"></script>
+        <script type="text/javascript" src="//use.typekit.net/dmy3vly.js"></script>
+        <script type="text/javascript">try{ Typekit.load(); }catch(e){}</script>
+     
+</head>
+
+<body>
+    <a id="banner-bitblox"
+   href="http://www.bitblox.me/?utm_source=unyson&utm_medium=banner&utm_campaign=unyson"
+   target="_blank"><img src="../_static/img/bitblox.jpg" alt="Bitblox">
+</a>
+
+<header id="masthead" class="site-header">
+    <!-- Logo & Menu -->
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-16">
+                    <div class="site-logo invisible"><a href="http://unyson.io/"><img src="../_static/img/unyson-logo.png" alt="" ></a></div>
+					
+					<nav id="primary-navigation" class="site-navigation primary-navigation invisible" role="navigation">
+						<ul class="nav-menu clearfix">
+							<li>
+								<a href="http://unyson.io/">Unyson</a>
+								<ul>
+									<li><a href="http://unyson.io/#section-extensions"><i class="icon-matrix"></i>extensions<span>Built in extensions</span></a></li>
+									<li><a href="http://unyson.io/#parallax3"><i class="icon-gear"></i>test unyson<span>Try it for free</span></a></li>
+									<li><a href="http://unyson.io/#section-download"><i class="icon-unyson"></i>Get Unyson<span>WP Framework</span></a></li>
+								</ul>
+							</li>
+							<li>
+								<a target="_blank" href="http://demo.unyson.io">Scratch Theme</a>
+								<ul>
+									<li><a target="_blank" href="http://demo.unyson.io"><i class="icon-notebook"></i>Live demo<span>Check it out</span></a></li>
+									<li><a target="_blank" href="https://github.com/ThemeFuse/Scratch-Theme/releases/latest"><i class="icon-download"></i>Get Theme<span>Scratch Theme</span></a></li>
+								</ul>
+							</li>
+							<li class="active">
+								<a href="http://manual.unyson.io/en/latest/">Support</a>
+								<ul>
+									<li><a href="http://manual.unyson.io/en/latest/"><i class="icon-tools"></i>Dev Manual<span>Develop themes</span></a></li>
+									<li class="menu-submit-request"><a target="_blank" href="https://github.com/ThemeFuse/Unyson/issues"><i class="icon-support-1"></i>Post a ticket<span>Ask us a question</span></a></li>
+								</ul>
+							</li>
+							
+							<!--<li class="divider"><span>|</span></li>
+							<li>
+								<a href="http://docs.unyson.io/login">DOCS Creator</a>
+								<ul>
+									<li><a href="http://docs.unyson.io/login"><i class="icon-register"></i>Register<span>Create an account</span></a></li>
+									<li><a href="http://docs.unyson.io/login"><i class="icon-login"></i>Login<span>Create/Edit docs</span></a></li>
+									</ul>
+								</li>-->  
+								<!--<li>
+									<a href="http://docs.unyson.io/login">Account</a>
+									<ul>
+										<li><a href="http://docs.unyson.io/login"><i class="icon-register"></i>Register<span>Create an account</span></a></li>
+										<li><a href="http://docs.unyson.io/login"><i class="icon-login"></i>Login<span>Download themes</span></a></li>
+									</ul>
+								</li>-->
+							</ul>
+						</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Logo & Menu -->
+</header>
+
+<!-- Main Header -->
+<section class="main-header margin-bottom-60">
+    <!-- Loading Spinner -->
+    <div class="spinner">
+        <div class="wBall" id="wBall_1">
+            <div class="wInnerBall">
+            </div>
+        </div>
+        <div class="wBall" id="wBall_2">
+            <div class="wInnerBall">
+            </div>
+        </div>
+        <div class="wBall" id="wBall_3">
+            <div class="wInnerBall">
+            </div>
+        </div>
+        <div class="wBall" id="wBall_4">
+            <div class="wInnerBall">
+            </div>
+        </div>
+        <div class="wBall" id="wBall_5">
+            <div class="wInnerBall">
+            </div>
+        </div>
+    </div>
+    <!--/ Loading Spinner -->
+
+    <div class="page-header invisible" style="background-image: url(../_static/img/header-bg.jpg);">
+        <div class="page-title-block">
+            <div class="page-title-before invisible">Need help in the process of creating your own WordPress theme?</div>
+            <h1 class="page-title invisible">Check out our extended</h1>
+            <h2 class="page-subtitle invisible">Developer Manual</h2>
+            <form accept-charset="UTF-8" action="../search.html" id="search-form" class="invisible" method="get" role="search">
+    <input id="query" class="query" name="q" placeholder="Search" type="search" autocomplete="off">
+    <button id="search-submit" type="submit"><i class="icon-search"></i></button>
+</form>
+        </div>
+    </div>
+</section>
+<!-- Main Header -->
+
+
+
+
+
+
+
+
+
+    <div id="content-anchor">
+        <a name="content"></a>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-lg-offset-2">
+                <div class="row" id="before-content">
+                    <div class="col-sm-12">
+                        <nav class="clearfix">
+                            <ol id="breadcrumbs">
+                                <li><a href="../index.html">Unyson Framework</a></li>
+
+                                
+                                <li><a href="index.html">Options</a></li>
+                                
+
+                                <li>Customizer</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-sm-4">
+                        
+<div class="versions">
+    <div class="current-version">
+        <span>latest version</span>
+        <div class="other-versions hidden">
+            <dl>
+                <dt>Versions:</dt>
+                <dd><a href="/en/latest/">Latest</a>,</dd>
+                <dd><a href="/en/latest/">0.6.1</a></dd>
+            </dl>
+            <dl>
+                <dt>Downloads:</dt>
+                <dd><a href="https://media.readthedocs.org/pdf/generity/latest/generity.pdf">PDF</a>,</dd>
+                <dd><a href="https://media.readthedocs.org/htmlzip/generity/latest/generity.zip">HTML</a>,</dd>
+                <dd><a href="https://media.readthedocs.org/epub/generity/latest/generity.epub">Epub</a></dd>
+            </dl>
+            <dl>
+                <dt>On Read the Docs:</dt>
+                <dd>
+                    <a href="//readthedocs.org/projects/generity/?fromdocs=generity">Project Home</a>,
+                </dd>
+                <dd>
+                    <a href="//readthedocs.org/builds/generity/?fromdocs=generity">Builds</a>
+                </dd>
+            </dl>
+            <div class="sign">Hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(function($){
+        $(".current-version").hover(function(){
+            var $this = $(this),
+                dropdown = $this.children(".other-versions");
+
+            dropdown.removeClass('hidden animated fadeOutUpSmall fadeInDownSmall');
+
+            var menuItemWidth = $this.outerWidth(),
+                submenuItemWidth = dropdown.outerWidth();
+
+            dropdown.css('left' , (menuItemWidth-submenuItemWidth)/2);
+
+            dropdown.addClass('animated fadeInDownSmall').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                dropdown.removeClass('animated fadeInDownSmall');
+            });
+        }, function(){
+            var $this = $(this),
+                dropdown = $this.children(".other-versions");
+
+            dropdown.addClass('animated fadeOutUpSmall').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                $(this).removeClass('animated fadeOutUpSmall').addClass('hidden');
+            });
+        });
+    });
+</script>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="body">
+                            
+  <div class="section" id="customizer">
+<h1>Customizer<a class="headerlink" href="#customizer" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#examples" id="id2">Examples</a></li>
+<li><a class="reference internal" href="#additional-arguments" id="id3">Additional Arguments</a></li>
+<li><a class="reference internal" href="#live-preview" id="id4">Live Preview</a></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#contents">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Customizer Options <code class="docutils literal"><span class="pre">{theme}/framework-customizations/theme/options/customizer.php</span></code>
+are turned into <a class="reference external" href="https://codex.wordpress.org/Theme_Customization_API">Customizer</a> elements (panels, sections and controls).</p>
+<p>The customizer elements have a strict structure which also applies to options array structure:</p>
+<ul>
+<li><p class="first">Containers can be nested only 2 levels</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">container</span> <span class="pre">&gt;</span> <span class="pre">option</span></code> is turned into <code class="docutils literal"><span class="pre">section</span> <span class="pre">&gt;</span> <span class="pre">control</span></code></li>
+<li><code class="docutils literal"><span class="pre">container</span> <span class="pre">&gt;</span> <span class="pre">container</span> <span class="pre">&gt;</span> <span class="pre">option</span></code> is turned into <code class="docutils literal"><span class="pre">panel</span> <span class="pre">&gt;</span> <span class="pre">section</span> <span class="pre">&gt;</span> <span class="pre">control</span></code></li>
+<li><code class="docutils literal"><span class="pre">container</span> <span class="pre">&gt;</span> <span class="pre">container</span> <span class="pre">&gt;</span> <span class="pre">container</span> <span class="pre">&gt;</span> <span class="pre">option</span></code> will not work <code class="docutils literal"><span class="pre">panel</span> <span class="pre">&gt;</span> <span class="pre">section</span> <span class="pre">&gt;</span> <span class="pre">ERROR</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Containers must contain only options or only containers, because a panel can’t contain both sections and controls.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#contents">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Try the below arrays in <code class="docutils literal"><span class="pre">{theme}/framework-customizations/theme/options/customizer.php</span></code>.</p>
+<ul>
+<li><p class="first">Create a Section</p>
+<blockquote>
+<div><div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;section_1&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Section&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+
+            <span class="s1">&#39;option_1&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Default Value&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Option&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;desc&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Option Description&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+            <span class="p">),</span>
+
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Create a Panel with Sections</p>
+<blockquote>
+<div><div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;panel_1&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Panel&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+
+            <span class="s1">&#39;section_1&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Section #1&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+
+                    <span class="s1">&#39;option_1&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                        <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Default Value&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Option #1&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                        <span class="s1">&#39;desc&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Option Description&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                    <span class="p">),</span>
+
+                <span class="p">),</span>
+            <span class="p">),</span>
+
+            <span class="s1">&#39;section_2&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Section #2&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+
+                    <span class="s1">&#39;option_2&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                        <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Default Value&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Option #2&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                        <span class="s1">&#39;desc&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Option Description&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                    <span class="p">),</span>
+                    <span class="s1">&#39;option_3&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                        <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Default Value&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Option #3&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                        <span class="s1">&#39;desc&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Option Description&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                    <span class="p">),</span>
+
+                <span class="p">),</span>
+            <span class="p">),</span>
+
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Get option database/saved value in template</p>
+<blockquote>
+<div><div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$value</span> <span class="o">=</span> <span class="nx">fw_get_db_customizer_option</span><span class="p">(</span><span class="s1">&#39;option_1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="additional-arguments">
+<span id="customizer-options-additional-args"></span><h2><a class="toc-backref" href="#contents">Additional Arguments</a><a class="headerlink" href="#additional-arguments" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><a class="reference external" href="https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_control#Arguments">Control arguments</a> can be set in <code class="docutils literal"><span class="pre">wp-customizer-args</span></code> option parameter.</p>
+<blockquote>
+<div><div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;section_1&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Section&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+
+            <span class="s1">&#39;option_1&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Default Value&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Option&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;desc&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Option Description&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+
+                <span class="s1">&#39;wp-customizer-args&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="s1">&#39;priority&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_setting#Arguments">Setting arguments</a> can be set in <code class="docutils literal"><span class="pre">wp-customizer-setting-args</span></code> option parameter.</p>
+<blockquote>
+<div><div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;section_1&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Section&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;options&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+
+            <span class="s1">&#39;option_1&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Default Value&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Unyson Option&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;desc&#39;</span> <span class="o">=&gt;</span> <span class="nx">__</span><span class="p">(</span><span class="s1">&#39;Option Description&#39;</span><span class="p">,</span> <span class="s1">&#39;{domain}&#39;</span><span class="p">),</span>
+
+                <span class="s1">&#39;wp-customizer-setting-args&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+                    <span class="s1">&#39;capability&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;edit_posts&#39;</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">),</span>
+
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="live-preview">
+<span id="customizer-options-live-preview"></span><h2><a class="toc-backref" href="#contents">Live Preview</a><a class="headerlink" href="#live-preview" title="Permalink to this headline">¶</a></h2>
+<p>In background, customizer options are converted into <a class="reference external" href="https://codex.wordpress.org/Theme_Customization_API#Part_1:_Defining_Settings.2C_Controls.2C_Etc.">customizer elements</a>,
+so they follow default WordPress behavior and implementing a live preview can be done using <a class="reference external" href="https://codex.wordpress.org/Theme_Customization_API#Part_3:_Configure_Live_Preview_.28Optional.29">the default WordPress solution</a>.</p>
+<ol class="arabic">
+<li><p class="first">Change the setting transport and enqueue the javascript</p>
+<blockquote>
+<div><div class="highlight-php"><div class="highlight"><pre><span></span><span class="c1">// file: {theme}/inc/hooks.php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;FW&#39;</span><span class="p">))</span><span class="o">:</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @param WP_Customize_Manager $wp_customize</span>
+<span class="sd">     * @internal</span>
+<span class="sd">     */</span>
+    <span class="k">function</span> <span class="nf">_action_customizer_live_fw_options</span><span class="p">(</span><span class="nv">$wp_customize</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$wp_customize</span><span class="o">-&gt;</span><span class="na">get_setting</span><span class="p">(</span><span class="s1">&#39;fw_options[OPTION_ID]&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$wp_customize</span><span class="o">-&gt;</span><span class="na">get_setting</span><span class="p">(</span><span class="s1">&#39;fw_options[OPTION_ID]&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">transport</span> <span class="o">=</span> <span class="s1">&#39;postMessage&#39;</span><span class="p">;</span>
+
+            <span class="nx">add_action</span><span class="p">(</span> <span class="s1">&#39;customize_preview_init&#39;</span><span class="p">,</span> <span class="s1">&#39;_action_customizer_live_fw_options_preview&#39;</span> <span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;customize_register&#39;</span><span class="p">,</span> <span class="s1">&#39;_action_customizer_live_fw_options&#39;</span><span class="p">);</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * @internal</span>
+<span class="sd">     */</span>
+    <span class="k">function</span> <span class="nf">_action_customizer_live_fw_options_preview</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">wp_enqueue_script</span><span class="p">(</span>
+            <span class="s1">&#39;mytheme-customizer&#39;</span><span class="p">,</span>
+            <span class="nx">get_template_directory_uri</span><span class="p">()</span> <span class="o">.</span><span class="s1">&#39;/assets/js/theme-customizer.js&#39;</span><span class="p">,</span>
+            <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;jquery&#39;</span><span class="p">,</span><span class="s1">&#39;customize-preview&#39;</span> <span class="p">),</span>
+            <span class="nx">fw</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">theme</span><span class="o">-&gt;</span><span class="na">manifest</span><span class="o">-&gt;</span><span class="na">get_version</span><span class="p">(),</span>
+            <span class="k">true</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="k">endif</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Handle the change in javascript</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// file: {theme}/assets/js/theme-customizer.js</span>
+
+<span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">$</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">wp</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span> <span class="s1">&#39;fw_options[OPTION_ID]&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">value</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">value</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">newval</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="cm">/**</span>
+<span class="cm">             * An array of collected html inputs</span>
+<span class="cm">             * [{&#39;name&#39;:&#39;input[name]&#39;,&#39;value&#39;:&#39;input value&#39;}]</span>
+<span class="cm">             * or</span>
+<span class="cm">             * [{&#39;name&#39;:&#39;input[name]&#39;,&#39;value&#39;:&#39;input value&#39;},{&#39;name&#39;:&#39;input[name]&#39;,&#39;value&#39;:&#39;input value&#39;},...]</span>
+<span class="cm">             */</span>
+            <span class="nx">newval</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">newval</span><span class="p">);</span>
+
+            <span class="nx">$</span><span class="p">(</span> <span class="s1">&#39;h1&#39;</span> <span class="p">).</span><span class="nx">text</span><span class="p">(</span> <span class="nx">newval</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span> <span class="p">);</span>
+        <span class="p">}</span> <span class="p">);</span>
+    <span class="p">}</span> <span class="p">);</span>
+<span class="p">}</span> <span class="p">)(</span> <span class="nx">jQuery</span> <span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The value comes in <code class="docutils literal"><span class="pre">[{'name':'input[name]','value':'input</span> <span class="pre">value'}]</span></code> format,
+because the customizer form is not submitted as a regular form.
+A control can store its value only inside a single input which has some special attributes (instead of <code class="docutils literal"><span class="pre">name=&quot;...&quot;</span></code>)
+and it is monitored for changes by the Customizer script to trigger the preview update.
+Because of that, the framework options collect all their inputs values and store them in that special input
+(<a class="reference external" href="http://bit.ly/1Fau8gg">here</a> is an advanced explanation).</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+
+
+                        </div>
+
+                        
+    <div class="pagination clearfix">
+        
+            <a href="integrate.html" class="prev" ><i class="icon-arrow-left"></i> <span>Theme Integration</span></a>
+        
+        
+            <a href="option-types.html" class="next" ><span>Option Types</span> <i class="icon-arrow-right"></i></a>
+        
+    </div>
+
+                    </div>
+                    <div class="col-sm-4">
+                        <div id="menu-wrapper">
+                            <h3 class="menu-title">Developer Manual</h3>
+                            <div id="menu">
+
+                                <ul class="" id="custom-menu-top">
+                                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Unyson Framework</a>
+                                        <ul class="current">
+                                            <li class="toctree-l2">
+                                                <a class=" reference internal" href="../index.html">Getting Started</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                
+                                
+                                    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../convention/index.html">Convention</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../convention/general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convention/prefixes.html">Prefixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convention/directory-structure.html">Directory Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Options</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrate.html">Theme Integration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Customizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="option-types.html">Option Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="built-in/introduction.html">Built-in Option Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-option-type.html">Create Option Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Custom Save Location</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extensions/index.html">Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extensions/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions/create-extension.html">Create Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions/cookbook.html">Cookbook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../components/index.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../components/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/theme.html">Theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/backend.html">Backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/php.html">PHP Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/javascript.html">JavaScript Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/css.html">CSS Helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manifest/index.html">Manifest</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manifest/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manifest/framework.html">Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manifest/theme.html">Theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manifest/extension.html">Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extension/index.html">Built-in Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extension/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/shortcodes/index.html">Shortcodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/slider/index.html">Slider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/megamenu/index.html">Mega Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/sidebars/index.html">Sidebars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/portfolio/index.html">Portfolio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/backups/index.html">Backup &amp; Demo Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/forms/index.html">Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/breadcrumbs/index.html">Breadcrumbs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/seo/index.html">SEO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/events/index.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/social/index.html">Social</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/builder/index.html">Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/feedback/index.html">Feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/learning/index.html">Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/translation/index.html">Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/wp-shortcodes/index.html">WordPress Shortcodes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hooks/index.html">Filters &amp; Actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html#actions">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html#filters">Filters</a></li>
+</ul>
+</li>
+</ul>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-16">
+                <div class="copyright">
+                    <p>
+                            &copy; 2017 Unyson | Theming Fast & Easy <br>Developed by: <a target="_blank" href="http://themefuse.com">ThemeFuse</a>	Icons by: <a target="_blank" href="http://pixelkit.com">PixelKit</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-15832274-21']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+     
+</body>
+</html>
