@@ -56,10 +56,15 @@
 	</header><!-- #masthead -->
 
 <?php 
-    // printArr(cg_get_mau_sac(), 'cg_get_mau_sac');
-    // printArr(cg_get_header_top(), 'cg_get_header_top');
-    // printArr(cg_get_footer_widget(), 'cg_get_footer_widget');
-    printArr(cg_get_footer_info(), 'cg_get_footer_info');
+    // printArr(cg_gen_get_mau_sac(), 'cg_gen_get_mau_sac');
+    // printArr(cg_gen_get_header_top(), 'cg_gen_get_header_top');
+    // printArr(cg_gen_get_footer_widget(), 'cg_gen_get_footer_widget');
+    // printArr(cg_gen_get_footer_info(), 'cg_gen_get_footer_info');
+    // printArr(cg_home_get_sidebar(), 'cg_home_get_sidebar');
+    // printArr(cg_home_get_showsearch(), 'cg_home_get_showsearch');
+    // printArr(cg_home_get_featured(), 'cg_home_get_featured');
+    printArr(cg_home_get_section(), 'cg_home_get_section');
+    
 ?>
 
 	<div id="content" class="site-content">

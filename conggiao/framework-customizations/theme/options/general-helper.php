@@ -1,6 +1,6 @@
 <?php 
 
-function cg_get_mau_sac(){
+function cg_gen_get_mau_sac(){
 	$res = array();
 
 	$opt = conggiao_get_option_setting('gen_bg');
@@ -26,7 +26,7 @@ function cg_get_mau_sac(){
 	return $res;
 }
 
-function cg_get_header_top(){
+function cg_gen_get_header_top(){
 	$res = array();
 
 	$res['desktop'] = conggiao_get_option_setting('gen_img_desktop');
@@ -42,7 +42,7 @@ function cg_get_header_top(){
 	return $res;
 }
 
-function cg_get_footer_widget(){
+function cg_gen_get_footer_widget(){
 	$res 	= array();
 	$opt 	= conggiao_get_option_setting('gen_widget');
 	$chon 	= $opt['action_show'];
@@ -56,7 +56,7 @@ function cg_get_footer_widget(){
 	return $res;
 }
 
-function cg_get_footer_info(){
+function cg_gen_get_footer_info(){
 	$res = array();
 	$res['left'] 	= conggiao_get_option_setting('gen_left_text');
 	$res['right'] 	= conggiao_get_option_setting('gen_right_text');
@@ -65,12 +65,10 @@ function cg_get_footer_info(){
 	return $res;
 }
 
-
-
 add_action('fw_init', '_action_theme_dynamic_footer_sidebar');
 function _action_theme_dynamic_footer_sidebar() {
     if (!defined('FW')) return;
-    $w = cg_get_footer_widget();
+    $w = cg_gen_get_footer_widget();
     if ($w['chon'] == 'y'){
         if ( function_exists('register_sidebar') ) {
             register_sidebars($w['number'], array('name'=>'Widget Cuối Trang - Cột %d'));

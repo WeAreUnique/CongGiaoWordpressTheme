@@ -10,7 +10,7 @@ $options = array(
                 'type'      => 'tab',
                 'title'     => __('Cơ Bản', 'conggiao'),
                 'options'   => array(
-                    'sidebar'           => array(
+                    'home_sidebar'      => array(
                         'type'          => 'multi-picker',
                         'label'         => false,
                         'desc'          => false,
@@ -46,7 +46,7 @@ $options = array(
                             )
                         ),
                     ),
-                    'show_search'       => array(
+                    'home_show_search'  => array(
                         'type'          => 'switch',
                         'value'         => 'n',
                         'label'         => __('Hiển thị Tìm Kiếm', 'conggiao'),
@@ -66,7 +66,7 @@ $options = array(
 			    'type' 		=> 'tab',
 			    'title' 	=> __('Nổi Bật', 'conggiao'),
 			    'options' 	=> array(
-			    	'featured'    => array(
+			    	'home_featured'     => array(
                         'type'          => 'multi-picker',
                         'label'         => false,
                         'desc'          => false,
@@ -98,23 +98,23 @@ $options = array(
                                     'picker'        => array(
                                         'action_show'   => array(
                                             'type'      => 'image-picker',
-                                            'value'     => 'style-1',
+                                            'value'     => 's1',
                                             'label'     => __('Mẫu Hiển Thị', 'conggiao'),
                                             'desc'      => __('Lựa chọn mẫu mà bạn cảm thấy thích hợp, rà chuột (hover) vào hình để xem hình minh họa rỏ hơn.', 'conggiao'),
                                             'choices'   => array(
-                                                'style-1'       => array(
+                                                's1'       => array(
                                                     'small'     => get_template_directory_uri() .'/assets/images/layouts/features_style1_thumb.png',
                                                     'large'     => get_template_directory_uri() .'/assets/images/layouts/features_style1.png',
                                                 ),
-                                                'style-2'       => array(
+                                                's2'       => array(
                                                     'small'     => get_template_directory_uri() .'/assets/images/layouts/features_style2_thumb.png',
                                                     'large'     => get_template_directory_uri() .'/assets/images/layouts/features_style2.png',
                                                 ),
                                             ),
                                         )
                                     ),
-                                    'choices'           => array(
-                                        'style-1'       => array(
+                                    'choices'       => array(
+                                        's1'        => array(
                                             'tab_slider'    => array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Slider', 'conggiao'),
@@ -299,7 +299,7 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 1', 'conggiao'),
                                                 'options'   => array(
-                                                    'content'           => array( 
+                                                    'b1_content'        => array( 
                                                         'type'          => 'wp-editor',
                                                         'label'         => __('Nội Dung', 'conggiao'),
                                                         'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
@@ -316,7 +316,7 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 2', 'conggiao'),
                                                 'options'   => array(
-                                                    'content'           => array( 
+                                                    'b2_content'        => array( 
                                                         'type'          => 'wp-editor',
                                                         'label'         => __('Nội Dung', 'conggiao'),
                                                         'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
@@ -333,7 +333,7 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 3', 'conggiao'),
                                                 'options'   => array(
-                                                    'content'           => array( 
+                                                    'b3_content'        => array( 
                                                         'type'          => 'wp-editor',
                                                         'label'         => __('Nội Dung', 'conggiao'),
                                                         'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
@@ -350,7 +350,7 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 4', 'conggiao'),
                                                 'options'   => array(
-                                                    'content'           => array( 
+                                                    'b4_content'        => array( 
                                                         'type'          => 'wp-editor',
                                                         'label'         => __('Nội Dung', 'conggiao'),
                                                         'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
@@ -363,13 +363,13 @@ $options = array(
                                                 
                                             ),
                                         ),
-                                        'style-2'           => array(
+                                        's2'        => array(
                                             'tab_box1'      => array(
 
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 1', 'conggiao'),
                                                 'options'   => array(
-                                                    'content'           => array( 
+                                                    'b1_content'        => array( 
                                                         'type'          => 'wp-editor',
                                                         'label'         => __('Nội Dung', 'conggiao'),
                                                         'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
@@ -386,7 +386,7 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 2', 'conggiao'),
                                                 'options'   => array(
-                                                    'content'           => array( 
+                                                    'b2_content'        => array( 
                                                         'type'          => 'wp-editor',
                                                         'label'         => __('Nội Dung', 'conggiao'),
                                                         'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
@@ -403,7 +403,7 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 3', 'conggiao'),
                                                 'options'   => array(
-                                                    'content'           => array( 
+                                                    'b3_content'        => array( 
                                                         'type'          => 'wp-editor',
                                                         'label'         => __('Nội Dung', 'conggiao'),
                                                         'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
@@ -420,7 +420,7 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 4', 'conggiao'),
                                                 'options'   => array(
-                                                    'content'           => array( 
+                                                    'b4_content'        => array( 
                                                         'type'          => 'wp-editor',
                                                         'label'         => __('Nội Dung', 'conggiao'),
                                                         'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
@@ -623,11 +623,25 @@ $options = array(
                 'type'      => 'tab',
                 'title'     => __('Nội Dung', 'conggiao'),
                 'options'   => array(
-                    'sec_content'           => array(
+                    'home_sec_content'      => array(
                         'type'              => 'addable-popup',
                         'label'             => __('Danh Sách Mục', 'conggiao'),
                         'desc'              => __('Đây là các Mục nội dung sẻ hiển thị ở trang chủ, 1 mục sẻ hiển thị nhiều bài viết theo chuyên mục nào đó.<br />Nhấn vào <strong>Thêm Mục Mới</strong> để thêm.', 'conggiao'),
-                        'template'          => '{{- option_1 }}',
+                        'template'          => ''.
+                        '{{ console.log(content_type) }}'.
+                        '{{ if (content_type.action_show == "c_post"){ }}'.
+                            '<b>Loại: </b>Danh Sách Bài Viết<br>'.
+                            '<b>Tiêu Đề: </b> {{- content_type.c_post.tieude }}<br>'.
+                            '{{ if (content_type.c_post.sortby == "views"){ }}'.
+                                '<b>Sắp Theo: </b>Lượt Xem<br>'.
+                        '{{ } else { }}'.
+                            '<b>Sắp Theo: </b>Bài Mới<br>'.
+                        '{{ } } }}'.
+                        '{{ if (content_type.action_show == "c_static"){ }}'.
+                            '<b>Loại: </b>Nội Dung<br>'.
+                            '<b>Tiêu Đề: </b> {{- content_type.c_static.tieude }}<br>'.
+                        '{{ } }}'
+                        ,
                         'popup-title'       => 'Danh Mục',
                         'size'              => 'large', // small, medium, large
                         'limit'             => 0, // limit the number of popup`s that can be added
