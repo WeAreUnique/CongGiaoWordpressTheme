@@ -42,6 +42,22 @@ function cg_gen_get_header_top(){
 	return $res;
 }
 
+function cg_gen_get_header_top_src(){
+
+	$des 	= conggiao_get_option_setting('gen_img_desktop');
+	$tab 	= conggiao_get_option_setting('gen_img_tablet');
+	$mob 	= conggiao_get_option_setting('gen_img_mobile');
+	$title 	= conggiao_get_option_setting('gen_tieu_de');
+	$link 	= conggiao_get_option_setting('gen_lien_ket');
+	$blank 	= conggiao_get_option_setting('gen_is_blank');
+	$srcmob = ($mob['url'] != "") ? $mob['url'].' 700w,':'';
+	$srctab = ($tab['url'] != "") ? $tab['url'].' 900w,':'';
+	$srcdes = ($des['url'] != "") ? $des['url'].' 1200w,':'';
+	$url 	= '<img data-srcset="'.$srcmob.$srctab.$srcdes.'" class="lazyload"/>';
+
+	return $url;
+}
+
 function cg_gen_get_footer_widget(){
 	$res 	= array();
 	$opt 	= conggiao_get_option_setting('gen_widget');

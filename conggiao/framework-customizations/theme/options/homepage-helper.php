@@ -141,7 +141,7 @@ function cg_home_get_section(){
 	// }
 	// $res['chon'] = $chon;
 	return $res;
-	return $opt;
+	// return $opt;
 }
 
 

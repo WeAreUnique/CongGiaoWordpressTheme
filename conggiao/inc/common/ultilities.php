@@ -23,10 +23,10 @@ if (function_exists('add_theme_support'))
 }
 
 
-// function remove_menus(){   
-//     remove_menu_page( 'fw-extensions' );    //Pages  
-// }
-// add_action( 'admin_menu', 'remove_menus',999 );  //Remove menu
+function remove_menus(){   
+    remove_menu_page( 'fw-extensions' );    //Pages  
+}
+add_action( 'admin_menu', 'remove_menus',999 );  //Remove menu
 
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
 remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed

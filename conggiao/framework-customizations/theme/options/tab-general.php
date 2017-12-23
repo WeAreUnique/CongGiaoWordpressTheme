@@ -149,7 +149,7 @@ $options   = array(
 					    'value' 		=> false,
 					    'label' 		=> __('', 'conggiao'),
 					    'desc'  		=> __('', 'conggiao'),
-					    'text'  		=> __('Mở <strong>Liên Kết</strong> ở cửa sổ mới?', 'conggiao'),
+					    'text'  		=> __('Mở Liên Kết ở cửa sổ mới?', 'conggiao'),
 					)
 			    ),
 			),
