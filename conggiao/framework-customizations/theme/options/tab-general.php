@@ -116,50 +116,147 @@ $options   = array(
 			    'type' 		=> 'tab',
 			    'title' 	=> __('Header (Trên Cùng)', 'conggiao'),
 			    'options' 	=> array(
-			        'gen_img_desktop'   => array(
-                        'type'          => 'upload',
-                        'label'         => 'Hình Desktop',
-                        'desc'          => __('Lựa chọn hình cho Desktop có độ rộng lớn hơn 1200px (đề nghị 1920px)', 'conggiao'),
-                        'images_only'   => true,
-                    ),
-                    'gen_img_tablet'    => array(
-                        'type'          => 'upload',
-                        'label'         => 'Hình Tablet',
-                        'desc'          => __('Lựa chọn hình cho table có độ rộng 960px', 'conggiao'),
-                        'images_only'   => true,
-                    ),
-                    'gen_img_mobile'    => array(
-                        'type'          => 'upload',
-                        'label'         => 'Hình Mobile',
-                        'desc'          => __('Lựa chọn hình cho mobile có động rộng <= 768px', 'conggiao'),
-                        'images_only'   => true,
-                    ),
-                    'gen_tieu_de'       => array(
-					    'type'          => 'text',
-					    'label'         => __('Tiêu đề', 'conggiao'),
-					    'desc'          => __('Nhập tiêu đề của hình ảnh', 'conggiao'),
-					),
-					'gen_lien_ket'      => array(
-					    'type'          => 'text',
-					    'label'         => __('Liên Kết', 'conggiao'),
-					    'desc'          => __('Nhập liên kết khi nhấn vào hình ảnh', 'conggiao'),
-					),
-					'gen_is_blank'		=> array(
-					    'type'  		=> 'checkbox',
-					    'value' 		=> false,
-					    'label' 		=> __('', 'conggiao'),
-					    'desc'  		=> __('', 'conggiao'),
-					    'text'  		=> __('Mở Liên Kết ở cửa sổ mới?', 'conggiao'),
-					)
+                    'header_type'   => array(
+                        'type'              => 'multi-picker',
+                        'label'             => false,
+                        'desc'              => false,
+                        'show_borders'      => true,
+                        'picker'            => array(
+                            'action_show'   => array(
+                                'label'     => __( 'Loại Header?', 'conggiao' ),
+                                'type'      => 'radio',
+                                'value'     => 'c_images',
+                                'desc'      => __( 'Lựa chọn màu nền hay hình nền cho website.', 'conggiao' ),
+                                'inline'    => true,
+                                'choices'   => array(
+                                    'c_images'        => __('Hình Ảnh (Có liên kết)', 'conggiao'),
+                                    'c_content'       => __('Nội Dung (HTML)', 'conggiao'),
+                                ),
+                            )
+                        ),
+                        'choices'           => array(
+                            'c_images'      => array(
+                                'gen_img_desktop'   => array(
+                                    'type'          => 'upload',
+                                    'label'         => 'Hình Desktop',
+                                    'desc'          => __('Lựa chọn hình cho Desktop có độ rộng lớn hơn 1200px (đề nghị 1920px)', 'conggiao'),
+                                    'images_only'   => true,
+                                ),
+                                'gen_img_tablet'    => array(
+                                    'type'          => 'upload',
+                                    'label'         => 'Hình Tablet',
+                                    'desc'          => __('Lựa chọn hình cho table có độ rộng 960px', 'conggiao'),
+                                    'images_only'   => true,
+                                ),
+                                'gen_img_mobile'    => array(
+                                    'type'          => 'upload',
+                                    'label'         => 'Hình Mobile',
+                                    'desc'          => __('Lựa chọn hình cho mobile có động rộng <= 768px', 'conggiao'),
+                                    'images_only'   => true,
+                                ),
+                                'gen_tieu_de'       => array(
+                                    'type'          => 'text',
+                                    'label'         => __('Tiêu đề', 'conggiao'),
+                                    'desc'          => __('Nhập tiêu đề của hình ảnh', 'conggiao'),
+                                ),
+                                'gen_lien_ket'      => array(
+                                    'type'          => 'text',
+                                    'label'         => __('Liên Kết', 'conggiao'),
+                                    'desc'          => __('Nhập liên kết khi nhấn vào hình ảnh', 'conggiao'),
+                                ),
+                                'gen_is_blank'      => array(
+                                    'type'          => 'checkbox',
+                                    'value'         => false,
+                                    'label'         => __('', 'conggiao'),
+                                    'desc'          => __('', 'conggiao'),
+                                    'text'          => __('Mở Liên Kết ở cửa sổ mới?', 'conggiao'),
+                                )
+                            ),
+                            'c_content'     => array(
+                                'header_text'       => array(
+                                    'type'          => 'wp-editor',
+                                    'label'         => __('Nội Dung', 'conggiao'),
+                                    'desc'          => __('Nội dung mà bạn muốn hiển thị ở đầu trang.', 'conggiao'),
+                                    'size'          => 'small', // small, large
+                                    'editor_height' => 100,
+                                    'wpautop'       => true,
+                                    'editor_type'   => false, // tinymce, html
+                                ),
+                            ),
+                        ),
+                    ),	        
 			    ),
 			),
 			'tab_nav' 		=> array(
 			    'type' 		=> 'tab',
 			    'title' 	=> __('Menu', 'conggiao'),
 			    'options' 	=> array(
-			        'option_id'  => array( 
-			        	'type' => 'text' 
-			        ),
+                    'header_nav'        => array(
+                        'type'          => 'multi-picker',
+                        'label'         => false,
+                        'desc'          => false,
+                        'show_borders'  => true,
+                        'picker'        => array(
+                            'action_show'   => array(
+                                'type'      => 'image-picker',
+                                'value'     => 's1',
+                                'label'     => __('Mẫu Hiển Thị', 'conggiao'),
+                                'desc'      => __('Lựa chọn mẫu mà bạn cảm thấy thích hợp, rà chuột (hover) vào hình để xem hình minh họa rỏ hơn.', 'conggiao'),
+                                'choices'   => array(
+                                    's1'    => get_template_directory_uri() .'/assets/images/layouts/nav_style1.png',
+                                    's2'    => get_template_directory_uri() .'/assets/images/layouts/nav_style2.png',
+                                ),
+                            )
+                        ),
+                        'choices'           => array(
+                            's1'            => array(
+                                'bg_color'      => array(
+                                    'type'          => 'color-picker',
+                                    'value'         => '#3D3D3E',
+                                    'palettes'      => array( '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#795548', '#9E9E9E', '#000000' ),
+                                    'label'         => __('Màu Nền', 'conggiao'),
+                                    'desc'          => __('Màu nền của Menu.', 'conggiao'),
+                                ),
+                                'text_color'    => array(
+                                    'type'          => 'color-picker',
+                                    'value'         => '#ffffff',
+                                    'palettes'      => array( '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#795548', '#9E9E9E', '#000000' ),
+                                    'label'         => __('Màu Chữ', 'conggiao'),
+                                    'desc'          => __('Màu chữ của Menu.', 'conggiao'),
+                                ),
+                                'hover_color'   => array(
+                                    'type'          => 'color-picker',
+                                    'value'         => '#75D0ED',
+                                    'palettes'      => array( '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#795548', '#9E9E9E', '#000000' ),
+                                    'label'         => __('Màu Hover', 'conggiao'),
+                                    'desc'          => __('Màu khi rà chuột qua liên kết và kích hoạt khi đang ở Menu đó.', 'conggiao'),
+                                ),
+                            ),
+                            's2'            => array(
+                                'bg_color'      => array(
+                                    'type'          => 'color-picker',
+                                    'value'         => '#3D3D3E',
+                                    'palettes'      => array( '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#795548', '#9E9E9E', '#000000' ),
+                                    'label'         => __('Màu Nền', 'conggiao'),
+                                    'desc'          => __('Màu nền của Menu.', 'conggiao'),
+                                ),
+                                'text_color'    => array(
+                                    'type'          => 'color-picker',
+                                    'value'         => '#ffffff',
+                                    'palettes'      => array( '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#795548', '#9E9E9E', '#000000' ),
+                                    'label'         => __('Màu Chữ', 'conggiao'),
+                                    'desc'          => __('Màu chữ của Menu.', 'conggiao'),
+                                ),
+                                'hover_color'   => array(
+                                    'type'          => 'color-picker',
+                                    'value'         => '#75D0ED',
+                                    'palettes'      => array( '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#8BC34A', '#FFEB3B', '#FF9800', '#795548', '#9E9E9E', '#000000' ),
+                                    'label'         => __('Màu Hover', 'conggiao'),
+                                    'desc'          => __('Màu khi rà chuột qua liên kết và kích hoạt khi đang ở Menu đó.', 'conggiao'),
+                                ),
+                            ),
+                        ),
+                    ),
 			    ),		    
 			),
             'tab_footer'    => array(

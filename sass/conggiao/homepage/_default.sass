@@ -1,0 +1,120 @@
+#homepagesearch
+	margin-top: 30px
+.homepage
+	margin-top: 30px
+#homepage-featured
+	display: block
+	margin-top: 30px
+#primary
+	order: 1
+	-webkit-box-flex: 1
+	-ms-flex: 1
+	flex: 1 
+	-webkit-box-ordinal-group: 2
+	-ms-flex-order: 1
+.sidebar-right
+	#sidebar
+		order: 2
+		-webkit-box-ordinal-group: 3
+		-ms-flex-order: 2
+	    
+.sidebar-left
+	#sidebar
+		order: 0
+		-webkit-box-ordinal-group: 1
+		-ms-flex-order: 0
++mobile
+	#sidebar
+		order: 2
+		-webkit-box-ordinal-group: 3
+		-ms-flex-order: 2
+#homepage-featured
+	display: block
+	.boxs
+		overflow: hidden
+		height: 340px
+		.box-single
+			height: auto
+			max-height: 170px
+			overflow: hidden
+			position: relative
+			article
+				position: relative
+			.postmeta
+				position: absolute
+				bottom: 10px
+				left: 0px
+				background-color: rgba(0,0,0,0.4)
+				.postmetawrap
+					padding: 10px
+				.postcats
+					display: block
+					margin-top: 5px
+					a 
+						display: inline-block
+						padding: 5px
+						background-color: #fff
+						color: #4A4A4A
+						margin-right: 5px
+						font-size: 12px
+						&:last-child
+							margin-right: 0
+				.posttitle
+					display: block
+					margin-top: 5px
+					a 
+						color: #fff 
+						font-size: 15px
+						font-weight: bold
+				.postinfo
+					margin-top: 5px
+					span
+						margin-right: 5px
+						&:last-child
+							margin-right: 0
+					.postauthor, .postdate, .postviews, .postcomment
+						font-size: 13px
+						color: #fff
+					a
+						font-size: 13px
+						color: #fff
+
+			img
+				width: 100%
+				height: 170px
+	.slider 
+		overflow: hidden
+		height: 340px
+		.bx-conggiao
+			position: relative
+			padding: 0
+			-ms-touch-action: pan-y
+			touch-action: pan-y
+			.bx-viewport
+				height: 340px !important
+			.slider-bg
+				width: 100%
+				height: 340px
+				min-height: 200px
+				max-height: 340px
+			&:hover
+				.bx-controls
+					opacity: 1
+			.bx-controls
+				opacity: 0
+				.bx-pager
+					display: none
+				.bx-controls-direction
+					a
+						opacity: 0.8
+						color: #666
+						font-size: 32px
+						position: absolute
+						top: 50%
+						margin-top: -16px
+						outline: 0
+						z-index: 9999
+						&.bx-prev
+							left: 10px
+						&.bx-next
+							right: 10px

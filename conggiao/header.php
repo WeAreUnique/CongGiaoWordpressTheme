@@ -22,33 +22,40 @@
 
 <body <?php body_class(); ?>>
 <?php 
-
-$head_top = cg_gen_get_header_top();
-echo cg_gen_get_header_top_src();
-//printArr(cg_gen_get_header_top_src(),'cg_gen_get_header_top_src');
-
+	$headertop = cg_gen_get_header_top();
+	$headernav = cg_gen_get_header_nav();
 ?>
-
 <div id="page" class="site">
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="site-header <?php echo $headertop['chon']; ?>">
 		<div class="site-branding">
-			
+		<?php 
+			if ($headertop['chon'] == 'c_content'){
+				echo '<div class="content">'.$headertop['content'].'</div>';
+			} else {
+				echo $headertop['result']; 
+		?>
+		<?php 
+			}
+		?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'conggiao' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'header-menu',
-					'menu_id'        => 'header-menu',
-				) );
-			?>
+		<nav id="site-navigation" class="main-navigation <?php echo $headernav['chon']; ?>">
+			<div class="container">
+				<a class="mobile-menu"><i class="fas fa-bars"></i> <strong>Menu</strong></a>
+				<?php
+					wp_nav_menu( array(
+						'theme_location' => 'header-menu',
+						'menu_id'        => 'header-menu',
+					) );
+				?>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
 <?php 
     // printArr(cg_gen_get_mau_sac(), 'cg_gen_get_mau_sac');
     // printArr(cg_gen_get_header_top(), 'cg_gen_get_header_top');
+    // printArr(cg_gen_get_header_nav(), 'cg_gen_get_header_nav');
     // printArr(cg_gen_get_footer_widget(), 'cg_gen_get_footer_widget');
     // printArr(cg_gen_get_footer_info(), 'cg_gen_get_footer_info');
     // printArr(cg_home_get_sidebar(), 'cg_home_get_sidebar');

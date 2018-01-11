@@ -34,12 +34,28 @@ function cg_home_get_featured(){
                 $res['show_author'] 	= $styleContent['show_author'];
                 $res['show_viewer'] 	= $styleContent['show_viewer'];
                 $res['show_comments'] 	= $styleContent['show_comments'];
-                $res['b1_content'] 		= $styleContent['b1_content'];
-                $res['b2_content'] 		= $styleContent['b2_content'];
-                $res['b3_content'] 		= $styleContent['b3_content'];
-                $res['b4_content'] 		= $styleContent['b4_content'];
+                //Box Data
+                for ($i=1; $i <= 4; $i++) { 
+                    $boxData                            = $styleContent["box{$i}_type"];
+                    $res["box{$i}_type"]                = $boxData['action_show'];
+
+                    if ($boxData['action_show']         == 'c_html'){
+                        $res["box{$i}_content"]         = $boxData['c_html']['content'];
+                    }
+
+                    if ($boxData['action_show']         == 'c_post'){
+                        $res["box{$i}_postId"]          = $boxData['c_post']['idpost'][0];
+                        $res["box{$i}_show_title"]      = $boxData['c_post']['show_title'];
+                        $res["box{$i}_show_exper"]      = $boxData['c_post']['show_exper'];
+                        $res["box{$i}_show_cats"]       = $boxData['c_post']['show_cats'];
+                        $res["box{$i}_show_date"]       = $boxData['c_post']['show_date'];
+                        $res["box{$i}_show_author"]     = $boxData['c_post']['show_author'];
+                        $res["box{$i}_show_viewer"]     = $boxData['c_post']['show_viewer'];
+                        $res["box{$i}_show_comments"]   = $boxData['c_post']['show_comments'];
+                    }
+                }
                 $styleSliderChoose 		= fw_akg('slider_type',$styleContent);
-                $res['slidertype']  = $styleSliderChoose['action_show'];
+                $res['slidertype']      = $styleSliderChoose['action_show'];
                 if ($styleSliderChoose['action_show'] == 'c_latest'){
                 	$res['slidercats']  = $styleSliderChoose['c_latest']['fromcat'];
                 }
@@ -61,12 +77,28 @@ function cg_home_get_featured(){
                 $res['show_author'] 	= $styleContent['show_author'];
                 $res['show_viewer'] 	= $styleContent['show_viewer'];
                 $res['show_comments'] 	= $styleContent['show_comments'];
-                $res['b1_content'] 		= $styleContent['b1_content'];
-                $res['b2_content'] 		= $styleContent['b2_content'];
-                $res['b3_content'] 		= $styleContent['b3_content'];
-                $res['b4_content'] 		= $styleContent['b4_content'];
+                //Box Data
+                for ($i=1; $i <= 4; $i++) { 
+                    $boxData                            = $styleContent["box{$i}_type"];
+                    $res["box{$i}_type"]                = $boxData['action_show'];
+
+                    if ($boxData['action_show']         == 'c_html'){
+                        $res["box{$i}_content"]         = $boxData['c_html']['content'];
+                    }
+
+                    if ($boxData['action_show']         == 'c_post'){
+                        $res["box{$i}_postId"]          = $boxData['c_post']['idpost'][0];
+                        $res["box{$i}_show_title"]      = $boxData['c_post']['show_title'];
+                        $res["box{$i}_show_exper"]      = $boxData['c_post']['show_exper'];
+                        $res["box{$i}_show_cats"]       = $boxData['c_post']['show_cats'];
+                        $res["box{$i}_show_date"]       = $boxData['c_post']['show_date'];
+                        $res["box{$i}_show_author"]     = $boxData['c_post']['show_author'];
+                        $res["box{$i}_show_viewer"]     = $boxData['c_post']['show_viewer'];
+                        $res["box{$i}_show_comments"]   = $boxData['c_post']['show_comments'];
+                    }
+                }
                 $styleSliderChoose 		= fw_akg('slider_type',$styleContent);
-                $res['slidertype']  = $styleSliderChoose['action_show'];
+                $res['slidertype']      = $styleSliderChoose['action_show'];
                 if ($styleSliderChoose['action_show'] == 'c_latest'){
                 	$res['slidercats']  = $styleSliderChoose['c_latest']['fromcat'];
                 }
@@ -77,7 +109,9 @@ function cg_home_get_featured(){
                 	$res['sliderids']   = $styleSliderChoose['c_manual']['postsel'];
                 }
 				break;
-			
+			case 's3':
+                $styleContent           = fw_akg('y/display_style/s3',$opt);
+                $res['scode']           = $styleContent['scode'];
 			default:
 				# code...
 				break;

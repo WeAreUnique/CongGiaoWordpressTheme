@@ -5,45 +5,66 @@
  * @package CongGiao
  */
 
-get_header(); ?>
+get_header(); 
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+$homesidebar 	= cg_home_get_sidebar();
+$homesearch 	= cg_home_get_showsearch();
+$homefeatured 	= cg_home_get_featured();
+$isSidebar 		= ($homesidebar['chon'] == 'y') ? "sidebar-".$homesidebar['pos'] : '';
 
-		<?php
-		if ( have_posts() ) : ?>
+if ($homesearch == 'y'){
+?>
+<!-- Search -->
+<div class="container" id="homepagesearch">
+	<form role="search" action="<?php echo site_url('/'); ?>" method="get"  class="control">
+		<p class="control has-icons-right">
+	    <input type="text" name="s" placeholder="Nhập nội dung muốn tìm kiếm" class="is-rounded input is-large"/>
+	    <span class="icon is-small is-right">
+	    	<i class="fas fa-search"></i>
+	    </span>
+	  </p>
+        
+    </form>
+</div>
+<?php } 
+if ($homefeatured['chon'] == 'y'){ ?>
+<div class="container" id="homepage-featured">
+<?php 
+	switch ($homefeatured['style']) {
+		case 's1':
+			include( locate_template('template-parts/homepageslider-style1.php') );
+			break;
+		case 's2':
+			include( locate_template('template-parts/homepageslider-style2.php') );
+			break;
+		case 's3':
+			echo do_shortcode( $homefeatured['scode'] );
+			break;
+		default:
+			# code...
+			break;
+	}
+?>
+</div>
+<?php } ?>
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+<div class="container">
+	<div class="homepage columns <?php echo $isSidebar; ?>">
+		<div id="primary" class="content-area column <?php echo ($homesidebar['chon'] == 'y') ? 'is-9' : '';?>">
+			<main id="main" class="site-main">
+				ok	
+			</main><!-- #main -->
+		</div><!-- #primary -->
 
 <?php
-get_sidebar();
+if ($homesidebar['chon'] == 'y'){
+	get_sidebar();
+}
+?>
+	</div><!-- Columns -->
+</div><!-- Container -->
+<?php
 get_footer();
+
+?>

@@ -1,5 +1,24 @@
 <?php 
 
+function debug_to_console( $data ) {
+    if ( is_array( $data ) )
+        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
+    else
+        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+    echo $output;
+}
+
+add_action('fw_backend_add_custom_settings_menu', '_action_theme_custom_fw_settings_menu');
+function _action_theme_custom_fw_settings_menu($data) {
+    add_menu_page(
+        __( 'Thiết Lập Giao Diện', 'conggiao' ),
+        __( 'Thiết Lập Giao Diện', 'conggiao' ),
+        $data['capability'],
+        $data['slug'],
+        $data['content_callback']
+    );
+}
+
 /* THEME SUPPORT */
 
 if (function_exists('add_theme_support'))

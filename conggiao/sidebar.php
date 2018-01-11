@@ -6,12 +6,9 @@
  *
  * @package CongGiao
  */
-
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
 ?>
 
-<aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+<aside id="sidebar" class="widget-area column is-3">
+	<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-homepage')) ?>
+	<?php //dynamic_sidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->

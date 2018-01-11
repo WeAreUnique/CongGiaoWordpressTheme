@@ -1,0 +1,114 @@
+#masthead
+	z-index: 1000
+	position: relative
+	&.c_content
+		.site-branding
+			padding-top: 30px
+			padding-bottom: 30px
+			overflow: hidden
+			display: block
+	&.c_images
+		.site-branding
+			overflow: hidden
+			display: block
+			a
+				display: table
+			img
+				display: block
+				width: 100%
+				height: auto
+	#site-navigation
+		/* font-family: 'Montserrat', san-serif */
+		background-color: #3d3d3e
+		.mobile-menu
+			display: block
+			color: #fff
+			width: 100%
+			margin: 0
+			padding: 15px
+			strong
+				padding-left: 10px
+		#header-menu
+			display: none
+			width: 100%
+			padding: 0 15px
+			font-weight: bold
+			a
+				color: #fff
+			a:hover, a:active
+				color: #75D0ED
+			&.open
+				display: block
+			li
+				display: block
+				position: relative
+				padding: 0
+				margin: 0
+				a
+					display: block
+					padding: 5px 0
+				.sub-menu
+					font-weight: normal
+					margin-left: 20px
+		&.s1
+			#header-menu
+				&>li
+					&.current-menu-item
+						a
+							border-bottom: 3px solid #75D0ED
+						.sub-menu
+							a
+								border-bottom: none
+					&>a
+						border-bottom: 3px solid transparent
+						&:hover
+							border-bottom: 3px solid #75D0ED
+						
+		&.s2
+			border-bottom: 3px solid #75D0ED
+			#header-menu
+				li
+					&.current-menu-item
+						&>a
+							background-color: #75D0ED
+							color: #fff
+					a
+						border-bottom: 3px solid transparent
+						&:hover
+							background-color: #75D0ED
+							color: #fff
+						.sub-menu
+							a
+								background-color: transparent
+
+		+desktop
+			.mobile-menu
+				display: none
+			#header-menu
+				display: block
+				li
+					display: inline-block
+					position: relative
+					a
+						display: block
+						padding: 15px
+					&:hover
+						.sub-menu
+							display: block
+							.sub-menu 
+								display: none
+					.sub-menu
+						display: none
+						position: absolute
+						background-color: #3d3d3e
+						min-width: 100px
+						max-width: 320px
+						width: 215px
+						margin-left: 0
+						li 
+							display: block
+							a
+								padding: 10px 15px
+						.sub-menu 
+							display: none
+

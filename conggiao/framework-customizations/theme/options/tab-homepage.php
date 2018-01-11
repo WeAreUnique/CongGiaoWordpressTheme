@@ -39,8 +39,8 @@ $options = array(
                                     'label'     => '',
                                     'desc'      => 'Hiễn thị sidebar bên trái hay phải?',
                                     'choices'   => array(
-                                        'left'  => get_template_directory_uri() .'/assets/images//layouts/left-sidebar.jpg',
-                                        'right' => get_template_directory_uri() .'/assets/images//layouts/right-sidebar.jpg',
+                                        'left'  => get_template_directory_uri() .'/assets/images/layouts/left-sidebar.jpg',
+                                        'right' => get_template_directory_uri() .'/assets/images/layouts/right-sidebar.jpg',
                                     )
                                 )
                             )
@@ -110,6 +110,10 @@ $options = array(
                                                     'small'     => get_template_directory_uri() .'/assets/images/layouts/features_style2_thumb.png',
                                                     'large'     => get_template_directory_uri() .'/assets/images/layouts/features_style2.png',
                                                 ),
+                                                's3'       => array(
+                                                    'small'     => get_template_directory_uri() .'/assets/images/layouts/features_style3_thumb.png',
+                                                    'large'     => get_template_directory_uri() .'/assets/images/layouts/features_style3.png',
+                                                ),
                                             ),
                                         )
                                     ),
@@ -133,7 +137,7 @@ $options = array(
                                                                 'inline'    => true,
                                                                 'choices'   => array(
                                                                     'c_latest'      => __('Bài Viết Mới', 'conggiao'),
-                                                                    'c_views'       => __('Bài Viết Xem Nhiều', 'conggiao'),
+                                                                    'c_views'       => __('Bài Viết Xem Nhiều (Phải cài Plugin WP-PostViews)', 'conggiao'),
                                                                     'c_manual'      => __('Tôi tự chọn bài muốn hiển thị', 'conggiao'),
                                                                 ),
                                                             )
@@ -267,7 +271,7 @@ $options = array(
                                                         'type'      => 'switch',
                                                         'value'     => 'y',
                                                         'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
-                                                        'desc'      => __('Bạn có muốn hiển thị Số Lượt Xe bài viết ở slider không?', 'conggiao'),
+                                                        'desc'      => __('Bạn có muốn hiển thị Số Lượt Xem bài viết ở slider không?', 'conggiao'),
                                                         'left-choice'   => array(
                                                             'value'     => 'n',
                                                             'label'     => __('KHÔNG', 'conggiao'),
@@ -299,15 +303,146 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 1', 'conggiao'),
                                                 'options'   => array(
-                                                    'b1_content'        => array( 
-                                                        'type'          => 'wp-editor',
-                                                        'label'         => __('Nội Dung', 'conggiao'),
-                                                        'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
-                                                        'size'          => 'large', // small, large
-                                                        'editor_height' => 200,
-                                                        'wpautop'       => true,
-                                                        'editor_type'   => false, // tinymce, html
-                                                    ),
+                                                    'box1_type'      => array(
+                                                        'type'              => 'multi-picker',
+                                                        'label'             => false,
+                                                        'desc'              => false,
+                                                        'show_borders'      => false,
+                                                        'picker'            => array(
+                                                            'action_show'   => array(
+                                                                'label'     => __( 'Nội Dung Hiển Thị?', 'conggiao' ),
+                                                                'type'      => 'radio',
+                                                                'value'     => 'c_html',
+                                                                'desc'      => __( 'Bạn muốn hiển thị nội dung ở Box là gì?.', 'conggiao' ),
+                                                                'inline'    => true,
+                                                                'choices'   => array(
+                                                                    'c_post'    => __('Hiển thị một bài viết', 'conggiao'),
+                                                                    'c_html'    => __('Hiển thị nội dung văn bản', 'conggiao'),
+                                                                ),
+                                                            )
+                                                        ),
+                                                        'choices'           => array(
+                                                            'c_html'        => array(
+                                                                'content'   => array( 
+                                                                    'type'          => 'wp-editor',
+                                                                    'label'         => __('Nội Dung', 'conggiao'),
+                                                                    'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
+                                                                    'size'          => 'large', // small, large
+                                                                    'editor_height' => 200,
+                                                                    'wpautop'       => true,
+                                                                    'editor_type'   => false, // tinymce, html
+                                                                ),
+                                                            ),
+                                                            'c_post'        => array(
+                                                                'idpost'    => array(
+                                                                    'type'  => 'multi-select',
+                                                                    'label' => __('Bài Viết', 'conggiao'),
+                                                                    'desc'  => __('Nhập Bài Viết Muốn Hiển Thị', 'conggiao'),
+                                                                    'population' => 'posts',
+                                                                    'source' => 'post',
+                                                                    'limit' => 1,
+                                                                ),
+                                                                'show_title'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'y',
+                                                                    'label'     => __('Hiển thị Tiêu Đề', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tiêu Đề Bài Viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_exper'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Mô Tả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Mô Tả Ngắn (Tóm Tắt) bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_cats'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Chuyên Mục', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Chuyên Mục bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_date'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Ngày/Giờ', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Ngày/Giờ bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_author'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Tác Giả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tác Giả bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_viewer'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Lượt Xem bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_comments' => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Bình Luận', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Bình Luận bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),      
                                                 ),
 
                                             ),
@@ -316,14 +451,145 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 2', 'conggiao'),
                                                 'options'   => array(
-                                                    'b2_content'        => array( 
-                                                        'type'          => 'wp-editor',
-                                                        'label'         => __('Nội Dung', 'conggiao'),
-                                                        'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
-                                                        'size'          => 'large', // small, large
-                                                        'editor_height' => 200,
-                                                        'wpautop'       => true,
-                                                        'editor_type'   => false, // tinymce, html
+                                                    'box2_type'      => array(
+                                                        'type'              => 'multi-picker',
+                                                        'label'             => false,
+                                                        'desc'              => false,
+                                                        'show_borders'      => false,
+                                                        'picker'            => array(
+                                                            'action_show'   => array(
+                                                                'label'     => __( 'Nội Dung Hiển Thị?', 'conggiao' ),
+                                                                'type'      => 'radio',
+                                                                'value'     => 'c_html',
+                                                                'desc'      => __( 'Bạn muốn hiển thị nội dung ở Box là gì?.', 'conggiao' ),
+                                                                'inline'    => true,
+                                                                'choices'   => array(
+                                                                    'c_post'    => __('Hiển thị một bài viết', 'conggiao'),
+                                                                    'c_html'    => __('Hiển thị nội dung văn bản', 'conggiao'),
+                                                                ),
+                                                            )
+                                                        ),
+                                                        'choices'           => array(
+                                                            'c_html'        => array(
+                                                                'content'   => array( 
+                                                                    'type'          => 'wp-editor',
+                                                                    'label'         => __('Nội Dung', 'conggiao'),
+                                                                    'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
+                                                                    'size'          => 'large', // small, large
+                                                                    'editor_height' => 200,
+                                                                    'wpautop'       => true,
+                                                                    'editor_type'   => false, // tinymce, html
+                                                                ),
+                                                            ),
+                                                            'c_post'        => array(
+                                                                'idpost'    => array(
+                                                                    'type'  => 'multi-select',
+                                                                    'label' => __('Bài Viết', 'conggiao'),
+                                                                    'desc'  => __('Nhập Bài Viết Muốn Hiển Thị', 'conggiao'),
+                                                                    'population' => 'posts',
+                                                                    'source' => 'post',
+                                                                    'limit' => 1,
+                                                                ),
+                                                                'show_title'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'y',
+                                                                    'label'     => __('Hiển thị Tiêu Đề', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tiêu Đề Bài Viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_exper'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Mô Tả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Mô Tả Ngắn (Tóm Tắt) bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_cats'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Chuyên Mục', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Chuyên Mục bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_date'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Ngày/Giờ', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Ngày/Giờ bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_author'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Tác Giả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tác Giả bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_viewer'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Lượt Xem bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_comments' => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Bình Luận', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Bình Luận bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
 
@@ -333,14 +599,145 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 3', 'conggiao'),
                                                 'options'   => array(
-                                                    'b3_content'        => array( 
-                                                        'type'          => 'wp-editor',
-                                                        'label'         => __('Nội Dung', 'conggiao'),
-                                                        'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
-                                                        'size'          => 'large', // small, large
-                                                        'editor_height' => 200,
-                                                        'wpautop'       => true,
-                                                        'editor_type'   => false, // tinymce, html
+                                                    'box3_type'      => array(
+                                                        'type'              => 'multi-picker',
+                                                        'label'             => false,
+                                                        'desc'              => false,
+                                                        'show_borders'      => false,
+                                                        'picker'            => array(
+                                                            'action_show'   => array(
+                                                                'label'     => __( 'Nội Dung Hiển Thị?', 'conggiao' ),
+                                                                'type'      => 'radio',
+                                                                'value'     => 'c_html',
+                                                                'desc'      => __( 'Bạn muốn hiển thị nội dung ở Box là gì?.', 'conggiao' ),
+                                                                'inline'    => true,
+                                                                'choices'   => array(
+                                                                    'c_post'    => __('Hiển thị một bài viết', 'conggiao'),
+                                                                    'c_html'    => __('Hiển thị nội dung văn bản', 'conggiao'),
+                                                                ),
+                                                            )
+                                                        ),
+                                                        'choices'           => array(
+                                                            'c_html'        => array(
+                                                                'content'   => array( 
+                                                                    'type'          => 'wp-editor',
+                                                                    'label'         => __('Nội Dung', 'conggiao'),
+                                                                    'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
+                                                                    'size'          => 'large', // small, large
+                                                                    'editor_height' => 200,
+                                                                    'wpautop'       => true,
+                                                                    'editor_type'   => false, // tinymce, html
+                                                                ),
+                                                            ),
+                                                            'c_post'        => array(
+                                                                'idpost'    => array(
+                                                                    'type'  => 'multi-select',
+                                                                    'label' => __('Bài Viết', 'conggiao'),
+                                                                    'desc'  => __('Nhập Bài Viết Muốn Hiển Thị', 'conggiao'),
+                                                                    'population' => 'posts',
+                                                                    'source' => 'post',
+                                                                    'limit' => 1,
+                                                                ),
+                                                                'show_title'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'y',
+                                                                    'label'     => __('Hiển thị Tiêu Đề', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tiêu Đề Bài Viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_exper'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Mô Tả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Mô Tả Ngắn (Tóm Tắt) bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_cats'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Chuyên Mục', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Chuyên Mục bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_date'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Ngày/Giờ', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Ngày/Giờ bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_author'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Tác Giả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tác Giả bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_viewer'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Lượt Xem bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_comments' => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Bình Luận', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Bình Luận bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
                                                 
@@ -350,14 +747,145 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 4', 'conggiao'),
                                                 'options'   => array(
-                                                    'b4_content'        => array( 
-                                                        'type'          => 'wp-editor',
-                                                        'label'         => __('Nội Dung', 'conggiao'),
-                                                        'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
-                                                        'size'          => 'large', // small, large
-                                                        'editor_height' => 200,
-                                                        'wpautop'       => true,
-                                                        'editor_type'   => false, // tinymce, html
+                                                    'box4_type'      => array(
+                                                        'type'              => 'multi-picker',
+                                                        'label'             => false,
+                                                        'desc'              => false,
+                                                        'show_borders'      => false,
+                                                        'picker'            => array(
+                                                            'action_show'   => array(
+                                                                'label'     => __( 'Nội Dung Hiển Thị?', 'conggiao' ),
+                                                                'type'      => 'radio',
+                                                                'value'     => 'c_html',
+                                                                'desc'      => __( 'Bạn muốn hiển thị nội dung ở Box là gì?.', 'conggiao' ),
+                                                                'inline'    => true,
+                                                                'choices'   => array(
+                                                                    'c_post'    => __('Hiển thị một bài viết', 'conggiao'),
+                                                                    'c_html'    => __('Hiển thị nội dung văn bản', 'conggiao'),
+                                                                ),
+                                                            )
+                                                        ),
+                                                        'choices'           => array(
+                                                            'c_html'        => array(
+                                                                'content'  => array( 
+                                                                    'type'          => 'wp-editor',
+                                                                    'label'         => __('Nội Dung', 'conggiao'),
+                                                                    'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
+                                                                    'size'          => 'large', // small, large
+                                                                    'editor_height' => 200,
+                                                                    'wpautop'       => true,
+                                                                    'editor_type'   => false, // tinymce, html
+                                                                ),
+                                                            ),
+                                                            'c_post'        => array(
+                                                                'idpost'    => array(
+                                                                    'type'  => 'multi-select',
+                                                                    'label' => __('Bài Viết', 'conggiao'),
+                                                                    'desc'  => __('Nhập Bài Viết Muốn Hiển Thị', 'conggiao'),
+                                                                    'population' => 'posts',
+                                                                    'source' => 'post',
+                                                                    'limit' => 1,
+                                                                ),
+                                                                'show_title'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'y',
+                                                                    'label'     => __('Hiển thị Tiêu Đề', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tiêu Đề Bài Viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_exper'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Mô Tả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Mô Tả Ngắn (Tóm Tắt) bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_cats'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Chuyên Mục', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Chuyên Mục bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_date'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Ngày/Giờ', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Ngày/Giờ bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_author'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Tác Giả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tác Giả bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_viewer'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Lượt Xem bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_comments' => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Bình Luận', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Bình Luận bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
                                                 
@@ -369,15 +897,146 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 1', 'conggiao'),
                                                 'options'   => array(
-                                                    'b1_content'        => array( 
-                                                        'type'          => 'wp-editor',
-                                                        'label'         => __('Nội Dung', 'conggiao'),
-                                                        'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
-                                                        'size'          => 'large', // small, large
-                                                        'editor_height' => 200,
-                                                        'wpautop'       => true,
-                                                        'editor_type'   => false, // tinymce, html
-                                                    ),
+                                                    'box1_type'      => array(
+                                                        'type'              => 'multi-picker',
+                                                        'label'             => false,
+                                                        'desc'              => false,
+                                                        'show_borders'      => false,
+                                                        'picker'            => array(
+                                                            'action_show'   => array(
+                                                                'label'     => __( 'Nội Dung Hiển Thị?', 'conggiao' ),
+                                                                'type'      => 'radio',
+                                                                'value'     => 'c_html',
+                                                                'desc'      => __( 'Bạn muốn hiển thị nội dung ở Box là gì?.', 'conggiao' ),
+                                                                'inline'    => true,
+                                                                'choices'   => array(
+                                                                    'c_post'    => __('Hiển thị một bài viết', 'conggiao'),
+                                                                    'c_html'    => __('Hiển thị nội dung văn bản', 'conggiao'),
+                                                                ),
+                                                            )
+                                                        ),
+                                                        'choices'           => array(
+                                                            'c_html'        => array(
+                                                                'content'   => array( 
+                                                                    'type'          => 'wp-editor',
+                                                                    'label'         => __('Nội Dung', 'conggiao'),
+                                                                    'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
+                                                                    'size'          => 'large', // small, large
+                                                                    'editor_height' => 200,
+                                                                    'wpautop'       => true,
+                                                                    'editor_type'   => false, // tinymce, html
+                                                                ),
+                                                            ),
+                                                            'c_post'        => array(
+                                                                'idpost'    => array(
+                                                                    'type'  => 'multi-select',
+                                                                    'label' => __('Bài Viết', 'conggiao'),
+                                                                    'desc'  => __('Nhập Bài Viết Muốn Hiển Thị', 'conggiao'),
+                                                                    'population' => 'posts',
+                                                                    'source' => 'post',
+                                                                    'limit' => 1,
+                                                                ),
+                                                                'show_title'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'y',
+                                                                    'label'     => __('Hiển thị Tiêu Đề', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tiêu Đề Bài Viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_exper'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Mô Tả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Mô Tả Ngắn (Tóm Tắt) bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_cats'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Chuyên Mục', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Chuyên Mục bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_date'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Ngày/Giờ', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Ngày/Giờ bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_author'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Tác Giả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tác Giả bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_viewer'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Lượt Xem bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_comments' => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Bình Luận', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Bình Luận bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),      
                                                 ),
 
                                             ),
@@ -386,14 +1045,145 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 2', 'conggiao'),
                                                 'options'   => array(
-                                                    'b2_content'        => array( 
-                                                        'type'          => 'wp-editor',
-                                                        'label'         => __('Nội Dung', 'conggiao'),
-                                                        'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
-                                                        'size'          => 'large', // small, large
-                                                        'editor_height' => 200,
-                                                        'wpautop'       => true,
-                                                        'editor_type'   => false, // tinymce, html
+                                                    'box2_type'      => array(
+                                                        'type'              => 'multi-picker',
+                                                        'label'             => false,
+                                                        'desc'              => false,
+                                                        'show_borders'      => false,
+                                                        'picker'            => array(
+                                                            'action_show'   => array(
+                                                                'label'     => __( 'Nội Dung Hiển Thị?', 'conggiao' ),
+                                                                'type'      => 'radio',
+                                                                'value'     => 'c_html',
+                                                                'desc'      => __( 'Bạn muốn hiển thị nội dung ở Box là gì?.', 'conggiao' ),
+                                                                'inline'    => true,
+                                                                'choices'   => array(
+                                                                    'c_post'    => __('Hiển thị một bài viết', 'conggiao'),
+                                                                    'c_html'    => __('Hiển thị nội dung văn bản', 'conggiao'),
+                                                                ),
+                                                            )
+                                                        ),
+                                                        'choices'           => array(
+                                                            'c_html'        => array(
+                                                                'content'   => array( 
+                                                                    'type'          => 'wp-editor',
+                                                                    'label'         => __('Nội Dung', 'conggiao'),
+                                                                    'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
+                                                                    'size'          => 'large', // small, large
+                                                                    'editor_height' => 200,
+                                                                    'wpautop'       => true,
+                                                                    'editor_type'   => false, // tinymce, html
+                                                                ),
+                                                            ),
+                                                            'c_post'        => array(
+                                                                'idpost'    => array(
+                                                                    'type'  => 'multi-select',
+                                                                    'label' => __('Bài Viết', 'conggiao'),
+                                                                    'desc'  => __('Nhập Bài Viết Muốn Hiển Thị', 'conggiao'),
+                                                                    'population' => 'posts',
+                                                                    'source' => 'post',
+                                                                    'limit' => 1,
+                                                                ),
+                                                                'show_title'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'y',
+                                                                    'label'     => __('Hiển thị Tiêu Đề', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tiêu Đề Bài Viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_exper'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Mô Tả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Mô Tả Ngắn (Tóm Tắt) bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_cats'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Chuyên Mục', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Chuyên Mục bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_date'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Ngày/Giờ', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Ngày/Giờ bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_author'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Tác Giả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tác Giả bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_viewer'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Lượt Xem bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_comments' => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Bình Luận', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Bình Luận bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
 
@@ -403,14 +1193,145 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 3', 'conggiao'),
                                                 'options'   => array(
-                                                    'b3_content'        => array( 
-                                                        'type'          => 'wp-editor',
-                                                        'label'         => __('Nội Dung', 'conggiao'),
-                                                        'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
-                                                        'size'          => 'large', // small, large
-                                                        'editor_height' => 200,
-                                                        'wpautop'       => true,
-                                                        'editor_type'   => false, // tinymce, html
+                                                    'box3_type'      => array(
+                                                        'type'              => 'multi-picker',
+                                                        'label'             => false,
+                                                        'desc'              => false,
+                                                        'show_borders'      => false,
+                                                        'picker'            => array(
+                                                            'action_show'   => array(
+                                                                'label'     => __( 'Nội Dung Hiển Thị?', 'conggiao' ),
+                                                                'type'      => 'radio',
+                                                                'value'     => 'c_html',
+                                                                'desc'      => __( 'Bạn muốn hiển thị nội dung ở Box là gì?.', 'conggiao' ),
+                                                                'inline'    => true,
+                                                                'choices'   => array(
+                                                                    'c_post'    => __('Hiển thị một bài viết', 'conggiao'),
+                                                                    'c_html'    => __('Hiển thị nội dung văn bản', 'conggiao'),
+                                                                ),
+                                                            )
+                                                        ),
+                                                        'choices'           => array(
+                                                            'c_html'        => array(
+                                                                'content'   => array( 
+                                                                    'type'          => 'wp-editor',
+                                                                    'label'         => __('Nội Dung', 'conggiao'),
+                                                                    'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
+                                                                    'size'          => 'large', // small, large
+                                                                    'editor_height' => 200,
+                                                                    'wpautop'       => true,
+                                                                    'editor_type'   => false, // tinymce, html
+                                                                ),
+                                                            ),
+                                                            'c_post'        => array(
+                                                                'idpost'    => array(
+                                                                    'type'  => 'multi-select',
+                                                                    'label' => __('Bài Viết', 'conggiao'),
+                                                                    'desc'  => __('Nhập Bài Viết Muốn Hiển Thị', 'conggiao'),
+                                                                    'population' => 'posts',
+                                                                    'source' => 'post',
+                                                                    'limit' => 1,
+                                                                ),
+                                                                'show_title'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'y',
+                                                                    'label'     => __('Hiển thị Tiêu Đề', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tiêu Đề Bài Viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_exper'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Mô Tả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Mô Tả Ngắn (Tóm Tắt) bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_cats'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Chuyên Mục', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Chuyên Mục bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_date'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Ngày/Giờ', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Ngày/Giờ bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_author'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Tác Giả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tác Giả bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_viewer'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Lượt Xem bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_comments' => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Bình Luận', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Bình Luận bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
                                                 
@@ -420,14 +1341,145 @@ $options = array(
                                                 'type'      => 'tab',
                                                 'title'     => __('Thết Lập Box 4', 'conggiao'),
                                                 'options'   => array(
-                                                    'b4_content'        => array( 
-                                                        'type'          => 'wp-editor',
-                                                        'label'         => __('Nội Dung', 'conggiao'),
-                                                        'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
-                                                        'size'          => 'large', // small, large
-                                                        'editor_height' => 200,
-                                                        'wpautop'       => true,
-                                                        'editor_type'   => false, // tinymce, html
+                                                    'box4_type'      => array(
+                                                        'type'              => 'multi-picker',
+                                                        'label'             => false,
+                                                        'desc'              => false,
+                                                        'show_borders'      => false,
+                                                        'picker'            => array(
+                                                            'action_show'   => array(
+                                                                'label'     => __( 'Nội Dung Hiển Thị?', 'conggiao' ),
+                                                                'type'      => 'radio',
+                                                                'value'     => 'c_html',
+                                                                'desc'      => __( 'Bạn muốn hiển thị nội dung ở Box là gì?.', 'conggiao' ),
+                                                                'inline'    => true,
+                                                                'choices'   => array(
+                                                                    'c_post'    => __('Hiển thị một bài viết', 'conggiao'),
+                                                                    'c_html'    => __('Hiển thị nội dung văn bản', 'conggiao'),
+                                                                ),
+                                                            )
+                                                        ),
+                                                        'choices'           => array(
+                                                            'c_html'        => array(
+                                                                'content'  => array( 
+                                                                    'type'          => 'wp-editor',
+                                                                    'label'         => __('Nội Dung', 'conggiao'),
+                                                                    'desc'          => __('Nhập nội dung, định dạng cho Box này để hiển thị trang chủ', 'conggiao'),
+                                                                    'size'          => 'large', // small, large
+                                                                    'editor_height' => 200,
+                                                                    'wpautop'       => true,
+                                                                    'editor_type'   => false, // tinymce, html
+                                                                ),
+                                                            ),
+                                                            'c_post'        => array(
+                                                                'idpost'    => array(
+                                                                    'type'  => 'multi-select',
+                                                                    'label' => __('Bài Viết', 'conggiao'),
+                                                                    'desc'  => __('Nhập Bài Viết Muốn Hiển Thị', 'conggiao'),
+                                                                    'population' => 'posts',
+                                                                    'source' => 'post',
+                                                                    'limit' => 1,
+                                                                ),
+                                                                'show_title'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'y',
+                                                                    'label'     => __('Hiển thị Tiêu Đề', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tiêu Đề Bài Viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_exper'    => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Mô Tả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Mô Tả Ngắn (Tóm Tắt) bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_cats'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Chuyên Mục', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Chuyên Mục bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_date'     => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Ngày/Giờ', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Ngày/Giờ bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_author'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Tác Giả', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Tác Giả bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_viewer'   => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Lượt Xem bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                                'show_comments' => array(
+                                                                    'type'      => 'switch',
+                                                                    'value'     => 'n',
+                                                                    'label'     => __('Hiển thị Bình Luận', 'conggiao'),
+                                                                    'desc'      => __('Bạn có muốn hiển thị Số Bình Luận bài viết không?', 'conggiao'),
+                                                                    'left-choice'   => array(
+                                                                        'value'     => 'n',
+                                                                        'label'     => __('KHÔNG', 'conggiao'),
+                                                                    ),
+                                                                    'right-choice'  => array(
+                                                                        'value'     => 'y',
+                                                                        'label'     => __('CÓ', 'conggiao'),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
                                                 
@@ -450,7 +1502,7 @@ $options = array(
                                                                 'inline'    => true,
                                                                 'choices'   => array(
                                                                     'c_latest'      => __('Bài Viết Mới', 'conggiao'),
-                                                                    'c_views'       => __('Bài Viết Xem Nhiều', 'conggiao'),
+                                                                    'c_views'       => __('Bài Viết Xem Nhiều (Phải cài Plugin WP-PostViews)', 'conggiao'),
                                                                     'c_manual'      => __('Tôi tự chọn bài muốn hiển thị', 'conggiao'),
                                                                 ),
                                                             )
@@ -584,7 +1636,7 @@ $options = array(
                                                         'type'      => 'switch',
                                                         'value'     => 'y',
                                                         'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
-                                                        'desc'      => __('Bạn có muốn hiển thị Số Lượt Xe bài viết ở slider không?', 'conggiao'),
+                                                        'desc'      => __('Bạn có muốn hiển thị Số Lượt Xem bài viết ở slider không?', 'conggiao'),
                                                         'left-choice'   => array(
                                                             'value'     => 'n',
                                                             'label'     => __('KHÔNG', 'conggiao'),
@@ -611,6 +1663,14 @@ $options = array(
                                                 ),
 
                                             ),
+                                        ),
+                                        's3'        => array(
+                                            'scode' => array(
+                                                'type'  => 'text',
+                                                'value' => '',
+                                                'label' => __('Shortcode', 'conggiao'),
+                                                'desc'  => __('Nhập mã Shortcode vào', 'conggiao'),
+                                            )
                                         ),
                                     ),
                                 ),
@@ -827,7 +1887,7 @@ $options = array(
                                                     'type'      => 'switch',
                                                     'value'     => 'y',
                                                     'label'     => __('Hiển thị Lượt Xem', 'conggiao'),
-                                                    'desc'      => __('Bạn có muốn hiển thị Số Lượt Xe bài viết?', 'conggiao'),
+                                                    'desc'      => __('Bạn có muốn hiển thị Số Lượt Xen bài viết?', 'conggiao'),
                                                     'left-choice'   => array(
                                                         'value'     => 'n',
                                                         'label'     => __('KHÔNG', 'conggiao'),
