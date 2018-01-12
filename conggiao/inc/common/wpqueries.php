@@ -88,7 +88,9 @@ function conggiao_homepage_section_post_format($section, $withContainer=false){
         $html .= ($withContainer == true) ? "<div class='container'>" : '';
             //Header
             $html .= ($section['tieude'] == '') ? '' : conggiao_homepage_section_header_format($section['tieude'], $section['headingcolor'], $section['mota'], $section['lienket'], $section['seperator'], $section['sepcolor'], $section['bgcolor']);
-            $html .= "<h1>Hello</h1>";
+            
+            // Content
+            
         
 
         $html .= ($withContainer == true) ? "</div>" : '';
