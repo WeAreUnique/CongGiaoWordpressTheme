@@ -35,10 +35,27 @@
 			font-weight: bold
 			a
 				color: #fff
-			a:hover, a:active
-				color: #75D0ED
 			&.open
 				display: block
+			>li.menu-item-has-children
+				>a
+					&:after
+						-moz-border-bottom-colors: none
+						-moz-border-left-colors: none
+						-moz-border-right-colors: none
+						-moz-border-top-colors: none
+						border-color: #BBBBBB transparent transparent
+						border-image: none
+						border-style: solid
+						border-width: 4px
+						content: ""
+						display: inline-block
+						height: 0
+						position: absolute
+						right: 3px
+						top: 45%
+						width: 0
+						border-top-color: #ddd
 			li
 				display: block
 				position: relative
@@ -47,6 +64,8 @@
 				a
 					display: block
 					padding: 5px 0
+					.svg-inline--fa
+						margin-right: 0.5em
 				.sub-menu
 					font-weight: normal
 					margin-left: 20px
@@ -93,6 +112,7 @@
 						display: block
 						padding: 15px
 					&:hover
+						color: #75D0ED
 						.sub-menu
 							display: block
 							.sub-menu 

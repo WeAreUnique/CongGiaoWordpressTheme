@@ -52,19 +52,13 @@
 		);
 		$boxPosts = conggiao_get_latest_post($boxArgs, "tran_homepagebox{$trans}");
 	}
-
-	// var_dump($boxIds);
-	// var_dump($boxPosts);
-
-
-	//var_dump($allPosts);
-
 ?>
 <div class="columns is-variable is-1" id="homepage-slider1">
 	<div class="column slider">
-		<div class="slider1-content">
+		<div class="slider1-content is-clearfix">
 		<?php 
 			foreach ( $allPosts as $post ) : setup_postdata( $post ); 
+				echo '<div class="slider-single">';
 				$postFormat = array(
 					'show_title' 		=> $homefeatured['show_title'],
 				    'show_exper' 		=> $homefeatured['show_exper'],
@@ -75,6 +69,7 @@
 				    'show_comments' 	=> $homefeatured['show_comments'],
 				);
 				echo conggiao_slider_post_format($post, $postFormat);
+				echo '</div>';
 				?>
 				
 			<?php endforeach; wp_reset_postdata();?>

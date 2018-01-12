@@ -1765,12 +1765,16 @@ $options = array(
                                                     'desc'      => __('Lựa chọn mẫu mà bạn cảm thấy thích hợp, rà chuột (hover) vào hình để xem hình minh họa rỏ hơn.<br>Mình sẻ update các mẫu ở phiên bản tiếp theo.', 'conggiao'),
                                                     'choices'   => array(
                                                         'style-1'       => array(
-                                                            'small'     => get_template_directory_uri() .'/assets/images/layouts/section_style1_thumb.png',
-                                                            'large'     => get_template_directory_uri() .'/assets/images/layouts/section_style1.png',
+                                                            'small'     => get_template_directory_uri() .'/assets/images/layouts/homepage_section_style1_thumb.png',
+                                                            'large'     => get_template_directory_uri() .'/assets/images/layouts/homepage_section_style1.png',
                                                         ),
                                                         'style-2'       => array(
-                                                            'small'     => get_template_directory_uri() .'/assets/images/layouts/section_style2_thumb.png',
-                                                            'large'     => get_template_directory_uri() .'/assets/images/layouts/section_style2.png',
+                                                            'small'     => get_template_directory_uri() .'/assets/images/layouts/homepage_section_style2_thumb.png',
+                                                            'large'     => get_template_directory_uri() .'/assets/images/layouts/homepage_section_style2.png',
+                                                        ),
+                                                        'style-3'       => array(
+                                                            'small'     => get_template_directory_uri() .'/assets/images/layouts/homepage_section_style3_thumb.png',
+                                                            'large'     => get_template_directory_uri() .'/assets/images/layouts/homepage_section_style3.png',
                                                         ),
                                                     ),
                                                 ),
@@ -1790,6 +1794,11 @@ $options = array(
                                                     'label'     => 'Tiêu Đề',  
                                                     'desc'      => __('Tiêu đề mục mà bạn muốn hiển thị', 'conggiao'),
                                                 ),
+                                                'mota'        => array(
+                                                    'type'      => 'text', 
+                                                    'label'     => 'Mô Tả',  
+                                                    'desc'      => __('Nếu <strong>MẪU TIÊU ĐỀ</strong> có hỗ trợ Mô Tả thì nó sẻ hiển thị.', 'conggiao'),
+                                                ),
                                                 'lienket'       => array(
                                                     'type'      => 'text', 
                                                     'label'     => 'Liên Kết',  
@@ -1801,9 +1810,10 @@ $options = array(
                                                     'label'     => __('Mẫu Tiêu Đề', 'conggiao'),
                                                     'desc'      => __('Lựa chọn mẫu mà bạn cảm thấy thích hợp.<br><strong>LƯU Ý: </strong>Nếu bạn để rỗng <strong>Tiêu Đề</strong> thì sẻ không có mục tiêu đề<br>Mình sẻ update các mẫu ở phiên bản tiếp theo.', 'conggiao'),
                                                     'choices'   => array(
-                                                        'style-1'       => get_template_directory_uri() .'/assets/images/layouts/DeviderStyle1.png',
-                                                        'style-2'       => get_template_directory_uri() .'/assets/images/layouts/DeviderStyle2.png',
-                                                        'style-3'       => get_template_directory_uri() .'/assets/images/layouts/DeviderStyle3.png',
+                                                        'style-1'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style1.png',
+                                                        'style-2'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style2.png',
+                                                        'style-3'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style3.png',
+                                                        'style-4'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style4.png',
                                                     ),
                                                 ),
                                             ),
@@ -1924,10 +1934,32 @@ $options = array(
                                                     'label'         => __('Màu Nền', 'conggiao'),
                                                     'desc'          => __('Màu Nền cho mục mà bạn muốn hiển thị', 'conggiao'),
                                                 ),
+                                                'radius'            => array(
+                                                    'type'          => 'slider',
+                                                    'value'         => 0,
+                                                    'properties'    => array(
+                                                        'min'       => 0,
+                                                        'max'       => 20,
+                                                        'step'      => 1, // Set slider step. Always > 0. Could be fractional.
+                                                    ),
+                                                    'label'         => __('Viền Bo', 'conggiao'),
+                                                    'desc'          => __('Đây là Border-Radius (viền bo cong)', 'conggiao'),
+                                                ),
+                                                'padding'           => array(
+                                                    'type'          => 'slider',
+                                                    'value'         => 0,
+                                                    'properties'    => array(
+                                                        'min'       => 0,
+                                                        'max'       => 50,
+                                                        'step'      => 1, // Set slider step. Always > 0. Could be fractional.
+                                                    ),
+                                                    'label'         => __('Padding (px)', 'conggiao'),
+                                                    'desc'          => __('Padding là khoản không gian của mục đó<br/>Bạn nên thay đổi nó khi thiết lập màu nền không phải là màu trắng vì khi đó bạn sẻ thấy <strong>Màu Nền Của Mục</strong> nó sẻ sát với các tiêu đề, nội dung.', 'conggiao'),
+                                                ),
                                                 'headingcolor'      => array(
                                                     'type'          => 'color-picker',
                                                     'value'         => '#000000',
-                                                    'label'         => __('Màu Chữ Tiêu Đều', 'conggiao'),
+                                                    'label'         => __('Màu Chữ Tiêu Đề', 'conggiao'),
                                                     'desc'          => __('Màu Chữ Tiêu Đề sẻ hiển thị cho mục mà bạn muốn hiển thị', 'conggiao'),
                                                 ),
                                                 'sepcolor'          => array(
@@ -1939,7 +1971,7 @@ $options = array(
                                                 'posttitlecolor'    => array(
                                                     'type'          => 'color-picker',
                                                     'value'         => '#3B3B3B',
-                                                    'label'         => __('Màu Tiêu Đề Bài Viết', 'conggiao'),
+                                                    'label'         => __('Màu Bài Viết', 'conggiao'),
                                                     'desc'          => __('Màu Chữ Tiêu Đề Bài Viết sẻ hiển thị cho mục mà bạn muốn hiển thị', 'conggiao'),
                                                 ),
                                                 'postmetacolor'     => array(
@@ -1947,17 +1979,6 @@ $options = array(
                                                     'value'         => '#A7A7A7',
                                                     'label'         => __('Màu Ngày/Tác Giả', 'conggiao'),
                                                     'desc'          => __('Màu Sắc cho Ngày Giờ, Tác Giả, Bình Luận, Lượt Xem', 'conggiao'),
-                                                ),
-                                                'radius'            => array(
-                                                    'type'          => 'slider',
-                                                    'value'         => 0,
-                                                    'properties'    => array(
-                                                        'min'       => 0,
-                                                        'max'       => 20,
-                                                        'step'      => 1, // Set slider step. Always > 0. Could be fractional.
-                                                    ),
-                                                    'label'         => __('Viền Bo', 'conggiao'),
-                                                    'desc'          => __('Đây là Border-Radius (viền bo cong)', 'conggiao'),
                                                 ),
                                             ),
                                         ),
@@ -1988,6 +2009,11 @@ $options = array(
                                                     'label'     => 'Tiêu Đề',  
                                                     'desc'      => __('Tiêu đề mục mà bạn muốn hiển thị', 'conggiao'),
                                                 ),
+                                                'mota'        => array(
+                                                    'type'      => 'text', 
+                                                    'label'     => 'Mô Tả',  
+                                                    'desc'      => __('Nếu <strong>MẪU TIÊU ĐỀ</strong> có hỗ trợ Mô Tả thì nó sẻ hiển thị.', 'conggiao'),
+                                                ),
                                                 'lienket'       => array(
                                                     'type'      => 'text', 
                                                     'label'     => 'Liên Kết',  
@@ -1999,9 +2025,10 @@ $options = array(
                                                     'label'     => __('Mẫu Tiêu Đề', 'conggiao'),
                                                     'desc'      => __('Lựa chọn mẫu mà bạn cảm thấy thích hợp.<br><strong>LƯU Ý: </strong>Nếu bạn để rỗng <strong>Tiêu Đề</strong> thì sẻ không có mục tiêu đề<br>Mình sẻ update các mẫu ở phiên bản tiếp theo.', 'conggiao'),
                                                     'choices'   => array(
-                                                        'style-1'       => get_template_directory_uri() .'/assets/images/layouts/DeviderStyle1.png',
-                                                        'style-2'       => get_template_directory_uri() .'/assets/images/layouts/DeviderStyle2.png',
-                                                        'style-3'       => get_template_directory_uri() .'/assets/images/layouts/DeviderStyle3.png',
+                                                        'style-1'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style1.png',
+                                                        'style-2'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style2.png',
+                                                        'style-3'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style3.png',
+                                                        'style-4'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style4.png',
                                                     ),
                                                 ),
                                             ),
@@ -2016,6 +2043,28 @@ $options = array(
                                                     'label'         => __('Màu Nền', 'conggiao'),
                                                     'desc'          => __('Màu Nền cho mục mà bạn muốn hiển thị', 'conggiao'),
                                                 ),
+                                                'radius'            => array(
+                                                    'type'          => 'slider',
+                                                    'value'         => 0,
+                                                    'properties'    => array(
+                                                        'min'       => 0,
+                                                        'max'       => 20,
+                                                        'step'      => 1, // Set slider step. Always > 0. Could be fractional.
+                                                    ),
+                                                    'label'         => __('Viền Bo', 'conggiao'),
+                                                    'desc'          => __('Đây là Border-Radius (viền bo cong)', 'conggiao'),
+                                                ),
+                                                'padding'           => array(
+                                                    'type'          => 'slider',
+                                                    'value'         => 0,
+                                                    'properties'    => array(
+                                                        'min'       => 0,
+                                                        'max'       => 50,
+                                                        'step'      => 1, // Set slider step. Always > 0. Could be fractional.
+                                                    ),
+                                                    'label'         => __('Padding (px)', 'conggiao'),
+                                                    'desc'          => __('Padding là khoản không gian của mục đó<br/>Bạn nên thay đổi nó khi thiết lập màu nền không phải là màu trắng vì khi đó bạn sẻ thấy <strong>Màu Nền Của Mục</strong> nó sẻ sát với các tiêu đề, nội dung.', 'conggiao'),
+                                                ),
                                                 'headingcolor'      => array(
                                                     'type'          => 'color-picker',
                                                     'value'         => '#000000',
@@ -2027,17 +2076,6 @@ $options = array(
                                                     'value'         => '#000000',
                                                     'label'         => __('Màu Nền Phân Cách', 'conggiao'),
                                                     'desc'          => __('Màu Nền Phân Cách cho Tiêu Đề (Nếu không phải là hình) thì có thể thay đổi.', 'conggiao'),
-                                                ),
-                                                'radius'            => array(
-                                                    'type'          => 'slider',
-                                                    'value'         => 0,
-                                                    'properties'    => array(
-                                                        'min'       => 0,
-                                                        'max'       => 20,
-                                                        'step'      => 1, // Set slider step. Always > 0. Could be fractional.
-                                                    ),
-                                                    'label'         => __('Viền Bo', 'conggiao'),
-                                                    'desc'          => __('Đây là Border-Radius (viền bo cong)', 'conggiao'),
                                                 ),
                                             ),
                                         ),

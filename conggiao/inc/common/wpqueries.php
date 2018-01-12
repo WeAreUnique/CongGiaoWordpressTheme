@@ -67,4 +67,85 @@ function conggiao_slider_post_format($post, $format){
     return $html;
 }
 
+function conggiao_homepage_section_static_format($section, $withContainer=false){
+    $sectionBg = "background-color: {$section['bgcolor']}; border-radius: {$section['radius']}; padding: {$section['padding']}px;";
+    $html .= "<section class='section {$section['chon']}' style='{$sectionBg}'>";
+        $html .= ($withContainer == true) ? "<div class='container'>" : '';
+            // Header
+            $html .= ($section['tieude'] == '') ? '' : conggiao_homepage_section_header_format($section['tieude'], $section['headingcolor'], $section['mota'], $section['lienket'], $section['seperator'], $section['sepcolor'], $section['bgcolor']);
+            
+            // Content
+            $html .= "<div class='section-content'>".$section['content']."</div>";
+
+        $html .= ($withContainer == true) ? "</div>" : '';
+    $html .= "</section>";
+    return $html;
+}
+
+function conggiao_homepage_section_post_format($section, $withContainer=false){
+    $sectionBg = "background-color: {$section['bgcolor']}; border-radius: {$section['radius']}; padding: {$section['padding']}px;";
+    $html .= "<section class='section {$section['chon']}' style='{$sectionBg}'>";
+        $html .= ($withContainer == true) ? "<div class='container'>" : '';
+            //Header
+            $html .= ($section['tieude'] == '') ? '' : conggiao_homepage_section_header_format($section['tieude'], $section['headingcolor'], $section['mota'], $section['lienket'], $section['seperator'], $section['sepcolor'], $section['bgcolor']);
+            $html .= "<h1>Hello</h1>";
+        
+
+        $html .= ($withContainer == true) ? "</div>" : '';
+    $html .= "</section>";
+    return $html;
+}
+
+function conggiao_homepage_section_header_format($title, $titleColor, $des, $link, $sepStyle, $sepColor, $bgcolor){
+    switch ($sepStyle) {
+        case 'style-1':
+            $html .= "<div class='section-header sep-{$sepStyle}' style='border-bottom: 1px solid {$sepColor};'>";
+                $html .= "<div class='main-title'>";
+                    $html .= "<h2 class='title is-5' style='color: $titleColor;'>";
+                        $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
+                    $html .= "</h2>";
+                $html .= "</div>";
+                $html .= "<div class='sep-{$sepStyle}-bottom' style='border-bottom: 3px solid {$sepColor}'><p class='title is-4' style='opacity: 0;'>{$title}</p></div>";
+            $html .= "</div>";
+            break;
+        
+        case 'style-2':
+            $html .= "<div class='section-header sep-{$sepStyle}'>";
+                $html .= "<div class='main-title' style='border-left: 5px solid {$sepColor}; border-bottom: 1px solid {$sepColor}'>";
+                    $html .= "<h2 class='title is-5'>";
+                        $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
+                    $html .= "</h2>";
+                $html .= "</div>";
+            $html .= "</div>";
+            break;
+
+        case 'style-3':
+            $html .= "<div class='section-header sep-{$sepStyle}'>";
+                $html .= "<div class='main-title'>";
+                    $html .= "<h2 class='title is-5'>";
+                        $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
+                    $html .= "</h2>";
+                    $html .= "<h3 class='subtitle is-6'>{$des}</h3>";
+                $html .= "</div>";
+            $html .= "</div>";
+            break;
+
+        case 'style-4':
+            $html .= "<div class='section-header sep-{$sepStyle}'>";
+                $html .= "<div class='main-title'>";
+                    $html .= "<h2 class='title is-5'>";
+                        $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'><span style='background-color: {$bgcolor}'>{$title}</span></a>" : "<span style='background-color: {$bgcolor}'>{$title}</span>";
+                    $html .= "</h2>";
+                $html .= "</div>";
+            $html .= "</div>";
+            break;
+        default:
+            # code...
+            break;
+    }
+    
+    return $html;
+}
+
+
 ?>

@@ -18,6 +18,9 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+	<script>
+		FontAwesomeConfig = { searchPseudoElements: true };
+	</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -61,7 +64,7 @@
     // printArr(cg_home_get_sidebar(), 'cg_home_get_sidebar');
     // printArr(cg_home_get_showsearch(), 'cg_home_get_showsearch');
     // printArr(cg_home_get_featured(), 'cg_home_get_featured');
-    // printArr(cg_home_get_section(), 'cg_home_get_section');
+    printArr(cg_home_get_section(), 'cg_home_get_section');
     
 ?>
 

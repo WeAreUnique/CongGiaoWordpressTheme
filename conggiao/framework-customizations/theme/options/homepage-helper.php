@@ -148,11 +148,13 @@ function cg_home_get_section(){
             $arrVal['show_viewer']		= $contentArr['show_viewer'];
             $arrVal['show_comments']	= $contentArr['show_comments'];
             $arrVal['bgcolor']			= $contentArr['bgcolor'];
+            $arrVal['radius']           = $contentArr['radius'];
+            $arrVal['padding']          = $contentArr['padding'];
             $arrVal['headingcolor']		= $contentArr['headingcolor'];
             $arrVal['sepcolor']			= $contentArr['sepcolor'];
             $arrVal['posttitlecolor']	= $contentArr['posttitlecolor'];
             $arrVal['postmetacolor']	= $contentArr['postmetacolor'];
-            $arrVal['radius']			= $contentArr['radius'];
+            
 
 		}
 
@@ -160,12 +162,15 @@ function cg_home_get_section(){
 			$contentArr 	= fw_akg('content_type/c_static',$value);
 			$arrVal['content']		= $contentArr['content'];
             $arrVal['tieude']		= $contentArr['tieude'];
+            $arrVal['mota']         = $contentArr['mota'];
             $arrVal['lienket']		= $contentArr['lienket'];
             $arrVal['seperator']	= $contentArr['seperator'];
             $arrVal['bgcolor']		= $contentArr['bgcolor'];
+            $arrVal['padding']      = $contentArr['padding'];
+            $arrVal['radius']       = $contentArr['radius'];
             $arrVal['headingcolor']	= $contentArr['headingcolor'];
             $arrVal['sepcolor']		= $contentArr['sepcolor'];
-            $arrVal['radius']		= $contentArr['radius'];
+            
 		}
 		array_push($res, $arrVal);
 	}

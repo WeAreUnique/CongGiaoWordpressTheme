@@ -5622,11 +5622,26 @@ a.tag:hover {
 #masthead #site-navigation #header-menu a {
   color: #fff;
 }
-#masthead #site-navigation #header-menu a:hover, #masthead #site-navigation #header-menu a:active {
-  color: #75D0ED;
-}
 #masthead #site-navigation #header-menu.open {
   display: block;
+}
+#masthead #site-navigation #header-menu > li.menu-item-has-children > a:after {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #BBBBBB transparent transparent;
+  border-image: none;
+  border-style: solid;
+  border-width: 4px;
+  content: "";
+  display: inline-block;
+  height: 0;
+  position: absolute;
+  right: 3px;
+  top: 45%;
+  width: 0;
+  border-top-color: #ddd;
 }
 #masthead #site-navigation #header-menu li {
   display: block;
@@ -5637,6 +5652,9 @@ a.tag:hover {
 #masthead #site-navigation #header-menu li a {
   display: block;
   padding: 5px 0;
+}
+#masthead #site-navigation #header-menu li a .svg-inline--fa {
+  margin-right: 0.5em;
 }
 #masthead #site-navigation #header-menu li .sub-menu {
   font-weight: normal;
@@ -5686,6 +5704,9 @@ a.tag:hover {
     display: block;
     padding: 15px;
   }
+  #masthead #site-navigation #header-menu li:hover {
+    color: #75D0ED;
+  }
   #masthead #site-navigation #header-menu li:hover .sub-menu {
     display: block;
   }
@@ -5720,11 +5741,6 @@ a.tag:hover {
   margin-top: 30px;
 }
 
-#homepage-featured {
-  display: block;
-  margin-top: 30px;
-}
-
 #primary {
   order: 1;
   -webkit-box-flex: 1;
@@ -5755,6 +5771,75 @@ a.tag:hover {
 }
 #homepage-featured {
   display: block;
+  margin-top: 30px;
+}
+#homepage-featured .slider-single {
+  overflow: hidden;
+  height: 340px;
+  position: relative;
+}
+#homepage-featured .slider-single article {
+  position: relative;
+}
+#homepage-featured .slider-single .postmeta {
+  position: absolute;
+  bottom: 15px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#homepage-featured .slider-single .postmeta .postmetawrap {
+  padding: 10px;
+}
+#homepage-featured .slider-single .postmeta .postcats {
+  display: block;
+  margin-top: 5px;
+}
+#homepage-featured .slider-single .postmeta .postcats a {
+  display: inline-block;
+  padding: 5px;
+  background-color: #fff;
+  color: #4A4A4A;
+  margin-right: 5px;
+  font-size: 0.7rem;
+}
+#homepage-featured .slider-single .postmeta .postcats a:last-child {
+  margin-right: 0;
+}
+#homepage-featured .slider-single .postmeta .posttitle {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+#homepage-featured .slider-single .postmeta .posttitle a {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+#homepage-featured .slider-single .postmeta .postexcerpt {
+  color: #fff;
+  font-size: 0.9rem;
+}
+#homepage-featured .slider-single .postmeta .postinfo {
+  margin-top: 5px;
+}
+#homepage-featured .slider-single .postmeta .postinfo span {
+  margin-right: 10px;
+}
+#homepage-featured .slider-single .postmeta .postinfo span:last-child {
+  margin-right: 0;
+}
+#homepage-featured .slider-single .postmeta .postinfo .postauthor, #homepage-featured .slider-single .postmeta .postinfo .postdate, #homepage-featured .slider-single .postmeta .postinfo .postviews, #homepage-featured .slider-single .postmeta .postinfo .postcomment {
+  font-size: 0.9rem;
+  color: #fff;
+}
+#homepage-featured .slider-single .postmeta .postinfo a {
+  font-size: 0.9rem;
+  color: #fff;
+}
+#homepage-featured .slider-single img {
+  width: 100%;
+  height: 170px;
 }
 #homepage-featured .boxs {
   overflow: hidden;
@@ -5773,6 +5858,7 @@ a.tag:hover {
   position: absolute;
   bottom: 10px;
   left: 0px;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.4);
 }
 #homepage-featured .boxs .box-single .postmeta .postmetawrap {
@@ -5788,7 +5874,7 @@ a.tag:hover {
   background-color: #fff;
   color: #4A4A4A;
   margin-right: 5px;
-  font-size: 12px;
+  font-size: 0.7rem;
 }
 #homepage-featured .boxs .box-single .postmeta .postcats a:last-child {
   margin-right: 0;
@@ -5799,8 +5885,13 @@ a.tag:hover {
 }
 #homepage-featured .boxs .box-single .postmeta .posttitle a {
   color: #fff;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: bold;
+}
+#homepage-featured .boxs .box-single .postmeta .postexcerpt {
+  margin-top: 5px;
+  color: #fff;
+  font-size: 0.9rem;
 }
 #homepage-featured .boxs .box-single .postmeta .postinfo {
   margin-top: 5px;
@@ -5812,11 +5903,11 @@ a.tag:hover {
   margin-right: 0;
 }
 #homepage-featured .boxs .box-single .postmeta .postinfo .postauthor, #homepage-featured .boxs .box-single .postmeta .postinfo .postdate, #homepage-featured .boxs .box-single .postmeta .postinfo .postviews, #homepage-featured .boxs .box-single .postmeta .postinfo .postcomment {
-  font-size: 13px;
+  font-size: 0.8rem;
   color: #fff;
 }
 #homepage-featured .boxs .box-single .postmeta .postinfo a {
-  font-size: 13px;
+  font-size: 0.8rem;
   color: #fff;
 }
 #homepage-featured .boxs .box-single img {
@@ -5866,6 +5957,60 @@ a.tag:hover {
 }
 #homepage-featured .slider .bx-conggiao .bx-controls .bx-controls-direction a.bx-next {
   right: 10px;
+}
+
+main#main {
+  display: block;
+}
+main#main section.section {
+  margin-bottom: 30px;
+}
+main#main section.section .section-header {
+  display: block;
+  position: relative;
+}
+main#main section.section .section-header.sep-style-1 {
+  padding: 10px 0;
+  border-bottom: 1px solid #75D0ED;
+}
+main#main section.section .section-header.sep-style-1 .sep-style-1-bottom {
+  border-bottom: 3px solid #75D0ED;
+  bottom: 0;
+  content: "";
+  display: inline-block;
+  left: 0;
+  position: absolute;
+  height: 3px;
+}
+main#main section.section .section-header.sep-style-2 .main-title {
+  padding: 10px 0 10px 10px;
+  border-left: 5px solid #75D0ED;
+  border-bottom: 1px solid #75D0ED;
+}
+main#main section.section .section-header.sep-style-3 {
+  padding: 10px 0;
+}
+main#main section.section .section-header.sep-style-3 .main-title .title {
+  display: inline-block;
+}
+main#main section.section .section-header.sep-style-3 .main-title .subtitle {
+  display: inline-block;
+  margin-left: 10px;
+}
+main#main section.section .section-header.sep-style-4 {
+  padding: 10px 0;
+}
+main#main section.section .section-header.sep-style-4 .main-title {
+  background-image: url(../images/layouts/header_sep_style4_symbol.png);
+  background-repeat: repeat-x;
+  background-position: center center;
+}
+main#main section.section .section-header.sep-style-4 .main-title .title span {
+  background-color: #fff;
+  padding-right: 10px;
+}
+main#main section.section .section-content {
+  padding: 20px 0;
 }
 
 @media screen and (max-width: 768px) {
