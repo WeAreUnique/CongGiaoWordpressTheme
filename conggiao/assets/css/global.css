@@ -6192,23 +6192,19 @@ main#main section.section .section-content.content-style-2 article .postmeta .po
   color: #6E6C6C;
   word-wrap: break-word;
 }
-main#main section.section .section-content.content-style-3 .wide-box img.post-thumb-img {
-  width: 100%;
-  height: auto;
-}
 main#main section.section .section-content.content-style-3 article img.post-thumb-img {
   width: auto;
   max-width: 100%;
   height: 150px;
 }
-main#main section.section .section-content.content-style-3 article .postmeta {
+main#main section.section .section-content.content-style-3 .postmeta {
   display: block;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .postcats {
+main#main section.section .section-content.content-style-3 .postmeta .postcats {
   display: block;
   margin-top: 5px;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .postcats a {
+main#main section.section .section-content.content-style-3 .postmeta .postcats a {
   display: inline-block;
   padding: 5px;
   border: 1px solid #979797;
@@ -6216,46 +6212,59 @@ main#main section.section .section-content.content-style-3 article .postmeta .po
   margin-right: 5px;
   font-size: 0.8rem;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .postcats a:last-child {
+main#main section.section .section-content.content-style-3 .postmeta .postcats a:last-child {
   margin-right: 0;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .posttitle {
+main#main section.section .section-content.content-style-3 .postmeta .posttitle {
   display: block;
   margin: 10px 0;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .posttitle a {
+main#main section.section .section-content.content-style-3 .postmeta .posttitle a {
   font-size: 1.2rem;
   font-weight: bold;
   color: #4A4A4A;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .postexcerpt {
+main#main section.section .section-content.content-style-3 .postmeta .postexcerpt {
   display: block;
   margin-top: 5px;
   color: #6E6C6C;
   font-size: 0.9rem;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .postinfo {
+main#main section.section .section-content.content-style-3 .postmeta .postinfo {
   display: block;
   margin-top: 10px;
   color: #6E6C6C;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .postinfo span {
+main#main section.section .section-content.content-style-3 .postmeta .postinfo span {
   margin-right: 6px;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .postinfo span:last-child {
+main#main section.section .section-content.content-style-3 .postmeta .postinfo span:last-child {
   margin-right: 0;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .postinfo .postauthor, main#main section.section .section-content.content-style-3 article .postmeta .postinfo .postdate, main#main section.section .section-content.content-style-3 article .postmeta .postinfo .postviews, main#main section.section .section-content.content-style-3 article .postmeta .postinfo .postcomment {
+main#main section.section .section-content.content-style-3 .postmeta .postinfo .postauthor, main#main section.section .section-content.content-style-3 .postmeta .postinfo .postdate, main#main section.section .section-content.content-style-3 .postmeta .postinfo .postviews, main#main section.section .section-content.content-style-3 .postmeta .postinfo .postcomment {
   font-size: 0.9rem;
   color: #6E6C6C;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .postinfo .svg-inline--fa {
+main#main section.section .section-content.content-style-3 .postmeta .postinfo .svg-inline--fa {
   color: #6E6C6C;
 }
-main#main section.section .section-content.content-style-3 article .postmeta .postinfo a {
+main#main section.section .section-content.content-style-3 .postmeta .postinfo a {
   font-size: 0.9rem;
   color: #6E6C6C;
   word-wrap: break-word;
+}
+main#main section.section .section-content.content-style-3 .wide-box img.post-thumb-img {
+  width: 100%;
+  height: auto;
+}
+main#main section.section .section-content.content-style-3 .wide-box .postcats {
+  margin-top: 0px;
+}
+main#main section.section .section-content.content-style-3 .wide-box .postinfo {
+  margin-top: 5px;
+}
+main#main section.section .section-content.content-style-3 .wide-box .posttitle {
+  margin: 5px 0;
 }
 
 @media screen and (max-width: 768px) {

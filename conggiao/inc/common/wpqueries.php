@@ -82,10 +82,10 @@ function conggiao_homepage_section_static_format($section, $withContainer=false)
 
 function conggiao_homepage_section_post_format($section, $withContainer=false){
     $sectionBg = "background-color: {$section['bgcolor']}; border-radius: {$section['radius']}; padding: {$section['padding']}px;";
-    $html .= "<section class='section {$section['chon']}' style='{$sectionBg}'>";
-        $html .= ($withContainer == true) ? "<div class='container'>" : '';
+    $html = "<section class='section {$section['chon']}' style='{$sectionBg}'>";
+        $html .= ($withContainer == true) ? "<div class='container'>" : "";
             //Header
-            $html .= ($section['tieude'] == '') ? '' : conggiao_homepage_section_header_format($section['tieude'], $section['headingcolor'], $section['mota'], $section['lienket'], $section['seperator'], $section['sepcolor'], $section['bgcolor']);
+            $html .= ($section['tieude'] == "") ? "" : conggiao_homepage_section_header_format( $section['tieude'], $section['headingcolor'], $section['mota'], $section['lienket'], $section['seperator'], $section['sepcolor'], $section['bgcolor'] );
             
             // Content
             $contentArgs = array(
@@ -100,7 +100,7 @@ function conggiao_homepage_section_post_format($section, $withContainer=false){
                 }
             }
 
-            if ( $section['sortby']         == 'date' ){
+            if ( $section['sortby']         == "date" ){
                 if ( !empty($section['postincats']) ){
                     $cats = implode(',', $section['postincats']);
                     $contentArgs['category'] = $cats;
@@ -118,7 +118,9 @@ function conggiao_homepage_section_post_format($section, $withContainer=false){
                 'postmetacolor' => $section['postmetacolor'],
             );
 
-            $html .= conggiao_homepage_get_posts_content_format($section['style'], $contentArgs, $viewOptions);
+
+            $trans = "trans_".vn_to_str($section['tieude'])."_".$section['style'];
+            $html .= conggiao_homepage_get_posts_content_format($section['style'], $contentArgs, $viewOptions, $trans);
 
         $html .= ($withContainer == true) ? "</div>" : '';
     $html .= "</section>";
@@ -128,7 +130,7 @@ function conggiao_homepage_section_post_format($section, $withContainer=false){
 function conggiao_homepage_section_header_format($title, $titleColor, $des, $link, $sepStyle, $sepColor, $bgcolor){
     switch ($sepStyle) {
         case 'style-1':
-            $html .= "<div class='section-header sep-{$sepStyle}' style='border-bottom: 1px solid {$sepColor};'>";
+            $html = "<div class='section-header sep-{$sepStyle}' style='border-bottom: 1px solid {$sepColor};'>";
                 $html .= "<div class='main-title'>";
                     $html .= "<h2 class='title is-5' style='color: $titleColor;'>";
                         $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
@@ -176,11 +178,11 @@ function conggiao_homepage_section_header_format($title, $titleColor, $des, $lin
     return $html;
 }
 
-function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions){
-    $html .= "";
+function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions, $trans){
+    $html = "";
     switch ($style) {
         case 'style-1':
-            $queryPosts = conggiao_get_posts($args);
+            $queryPosts = conggiao_get_posts($args, $trans);
             $html .= "<div class='section-content content-{$style}'>";
             if ( empty($queryPosts) ){
                 $html .= '<br/><strong>Hiện chưa có bài viết nào ở danh mục này.</strong>';
@@ -199,8 +201,9 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
                         $html .= "<div class='column is-12-mobile is-12-tablet is-12-desktop wide-box'>";
                     else 
                         $html .= "<div class='column is-12-mobile is-8-tablet wide-box'>";
-
+                        setup_postdata( $queryPosts[0] );
                         $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[0], $viewOptions);
+                        wp_reset_postdata();
                     $html .= "</div>"; //End 0
 
                 // 1 and 2 
@@ -209,11 +212,15 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
                         $html .= "<div class='columns is-gapless is-multiline is-mobile'>";
                             // 1
                             $html .= "<div class='column is-6-mobile is-12-tablet small-box'>";
+                                setup_postdata( $queryPosts[1] );
                                 $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[1], $viewOptionGreate1);
+                                wp_reset_postdata();
                             $html .= "</div>";
                             // 2 
                             $html .= "<div class='column is-6-mobile is-12-tablet small-box'>";
+                                setup_postdata( $queryPosts[2] );
                                 $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[2], $viewOptionGreate1);
+                                wp_reset_postdata();
                             $html .= "</div>";
                         $html .= "</div>";
                     $html .= "</div>";
@@ -224,7 +231,9 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
                         $html .= "<div class='column is-12-mobile is-4-tablet'>";
                             $html .= "<div class='columns is-gapless is-multiline is-mobile'>";
                                 $html .= "<div class='column is-6-mobile is-12-tablet small-box'>";
+                                    setup_postdata( $queryPosts[1] );
                                     $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[1], $viewOptionGreate1);
+                                    wp_reset_postdata();
                                 $html .= "</div>";
                             $html .= "</div>";
                         $html .= "</div>";
@@ -236,18 +245,24 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
                 // Begin 0 1 2
                 $html .= "<div class='columns is-gapless is-paddingless is-mobile is-multiline first-row'>";
                     $html .= "<div class='column is-12-mobile is-8-tablet wide-box'>";
+                        setup_postdata( $queryPosts[0] );
                         $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[0], $viewOptions);
+                        wp_reset_postdata();
                     $html .= "</div>"; //End 0
                     // 1  2
                     $html .= "<div class='column is-12-mobile is-4-tablet'>";
                         $html .= "<div class='columns is-gapless is-multiline is-mobile'>";
                             // 1
                             $html .= "<div class='column is-6-mobile is-12-tablet small-box'>";
-                                $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[1], $viewOptionGreate1);
+                                setup_postdata( $queryPosts[0] );
+                                $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[1], $viewOptions);
+                                wp_reset_postdata();
                             $html .= "</div>";
                             // 2
                             $html .= "<div class='column is-6-mobile is-12-tablet small-box'>";
-                                $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[2], $viewOptionGreate1);
+                                setup_postdata( $queryPosts[0] );
+                                $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[2], $viewOptions);
+                                wp_reset_postdata();
                             $html .= "</div>";
                         $html .= "</div>";
                     $html .= "</div>"; // End 1  2
@@ -257,7 +272,9 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
                 $html .= "<div class='columns is-gapless is-paddingless is-mobile is-multiline other-row'>";
                 for ($i=3; $i < $number; $i++) { 
                     $html .= "<div class='column is-half-mobile is-half-tablet is-one-third-desktop small-box'>";
+                        setup_postdata( $queryPosts[$i] );
                         $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[$i], $viewOptionGreate1);
+                        wp_reset_postdata();
                     $html .= "</div>";
                 }
                 $html .= "</div>";
@@ -265,7 +282,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
             $html .= "</div>"; //end section-content
             break;
         case 'style-2':
-            $queryPosts = conggiao_get_posts($args);
+            $queryPosts = conggiao_get_posts($args, $trans);
             $html .= "<div class='section-content content-{$style}'>";
             if ( empty($queryPosts) ){
                 $html .= '<br/><strong>Hiện chưa có bài viết nào ở danh mục này.</strong>';
@@ -284,7 +301,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
             $html .= "</div>"; //end section-content
             break;
         case 'style-3':
-            $queryPosts = conggiao_get_posts($args);
+            $queryPosts = conggiao_get_posts($args, $trans);
             $html .= "<div class='section-content content-{$style}'>";
             if ( empty($queryPosts) ){
                 $html .= '<br/><strong>Hiện chưa có bài viết nào ở danh mục này.</strong>';
@@ -295,6 +312,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
             if ($number == 1){
                 //Just One
                 $post   = $queryPosts[0];
+                setup_postdata( $post );
                 $title  = get_the_title($post->ID);
                 $link   = get_permalink($post->ID);
                 $image  = get_the_post_thumbnail_url($post->ID);
@@ -317,30 +335,32 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
                         }
                         if ( $viewOptions['show_title'] ){
                             $html   .=  "<h2 class='posttitle'>";
-                                $html   .=  "<a href='{$link}'>{$title}</a>";
+                                $html   .=  "<a href='{$link}' style='color: {$viewOptions['posttitlecolor']}'>{$title}</a>";
                             $html   .=  "</h2>";
                         }
                         if ( $viewOptions['show_exper'] ){
-                            $html   .=  "<p class='postexcerpt'>";
+                            $html   .=  "<p class='postexcerpt' style='color: {$viewOptions['postmetacolor']}'>";
                                 $html   .=  get_the_excerpt($post->ID);
                             $html   .=  "</p>";
                         }
                             $html   .=  "<div class='postinfo'>";
 
                             if ( $viewOptions['show_author'] ){
-                                $html   .=  "<span class='postauthor'><i class='fas fa-user-circle'></i> ".get_the_author_posts_link()."</span>";
+                                $authorlink = get_the_author_posts_link();
+                                $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$viewOptions['postmetacolor']}'>", $authorlink);
+                                $html   .=  "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-user-circle'></i> ".$result."</span>";
                             }
                             if ( $viewOptions['show_date'] ){
-                                $html   .=  "<span class='postdate'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                                $html   .=  "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-clock'></i> ".get_the_date()."</span>";
                             }
                             if(function_exists('the_views')) {
                                 if ( $viewOptions['show_viewer']     ){
-                                    $html   .=  "<span class='postviews'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-eye'></i> ".the_views(false)."</span>";
                                 }
                             }
                             if ( $viewOptions['show_comments'] ){
                                 $comments_count = wp_count_comments($post->ID);
-                                $html   .=  "<span class='postcomment'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                                $html   .=  "<span class='postcomment' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
                             }
 
                             $html   .=  "</div>";
@@ -348,11 +368,13 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
                         $html   .=  "</div></div>";
                     $html .= "</div>";
                 $html .= "</div>";
+                wp_reset_postdata();
             } else {
                 //Greater than one
 
                 //1
                 $post   = $queryPosts[0];
+                setup_postdata( $post );
                 $title  = get_the_title($post->ID);
                 $link   = get_permalink($post->ID);
                 $image  = get_the_post_thumbnail_url($post->ID);
@@ -375,30 +397,32 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
                         }
                         if ( $viewOptions['show_title'] == 'y' ){
                             $html   .=  "<h2 class='posttitle'>";
-                                $html   .=  "<a href='{$link}'>{$title}</a>";
+                                $html   .=  "<a href='{$link}' style='color: {$viewOptions['posttitlecolor']}'>{$title}</a>";
                             $html   .=  "</h2>";
                         }
                         if ( $viewOptions['show_exper'] == 'y' ){
-                            $html   .=  "<p class='postexcerpt'>";
+                            $html   .=  "<p class='postexcerpt' style='color: {$viewOptions['postmetacolor']}'>";
                                 $html   .=  get_the_excerpt($post->ID);
                             $html   .=  "</p>";
                         }
                             $html   .=  "<div class='postinfo'>";
 
                             if ( $viewOptions['show_author']     == 'y' ){
-                                $html   .=  "<span class='postauthor'><i class='fas fa-user-circle'></i> ".get_the_author_posts_link()."</span>";
+                                $authorlink = get_the_author_posts_link();
+                                $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$viewOptions['postmetacolor']}'>", $authorlink);
+                                $html   .=  "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-user-circle'></i> ".$result."</span>";
                             }
                             if ( $viewOptions['show_date']       == 'y' ){
-                                $html   .=  "<span class='postdate'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                                $html   .=  "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-clock'></i> ".get_the_date()."</span>";
                             }
                             if(function_exists('the_views')) {
                                 if ( $viewOptions['show_viewer']     == 'y' ){
-                                    $html   .=  "<span class='postviews'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-eye'></i> ".the_views(false)."</span>";
                                 }
                             }
                             if ( $viewOptions['show_comments']   == 'y' ){
                                 $comments_count = wp_count_comments($post->ID);
-                                $html   .=  "<span class='postcomment'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                                $html   .=  "<span class='postcomment' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
                             }
 
                             $html   .=  "</div>";
@@ -406,13 +430,16 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions)
                         $html   .=  "</div></div>";
                     $html .= "</div>";
                 $html .= "</div>";
+                wp_reset_postdata();
                 //1...
                 $html .= "<div class='columns is-variable is-1 is-mobile is-multiline'>";
                     for ($i=1; $i < $number; $i++) { 
+                        setup_postdata( $queryPosts[$i] );
                         $html .= "<div class='column is-half-mobile is-half-tablet is-one-third-desktop'>";
                             $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[$i], $viewOptions);
                         $html .= "</div>";
                     }
+                    wp_reset_postdata();
                 $html .= "</div>";
             }
                 
@@ -433,7 +460,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
     $image  = get_the_post_thumbnail_url($post->ID);
     switch ($style) {
         case 'style-1':
-            $html .= "<article class='single-post {$style} post-{$post->ID}'>";
+            $html = "<article class='single-post {$style} post-{$post->ID}'>";
                 $html   .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
                 $html   .=  "<div class='postmeta'><div class='postmetawrap'>";
 
@@ -448,30 +475,32 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                 }
                 if ( $format['show_title']){
                     $html   .=  "<h2 class='posttitle'>";
-                        $html   .=  "<a href='{$link}'>{$title}</a>";
+                        $html   .=  "<a href='{$link}' style='color: {$format['posttitlecolor']}'>{$title}</a>";
                     $html   .=  "</h2>";
                 }
                 if ( $format['show_exper']){
-                    $html   .=  "<p class='postexcerpt'>";
+                    $html   .=  "<p class='postexcerpt' style='color: {$format['postmetacolor']}'>";
                         $html   .=  get_the_excerpt($post->ID);
                     $html   .=  "</p>";
                 }
                     $html   .=  "<div class='postinfo'>";
 
                     if ( $format['show_author']    ){
-                        $html   .=  "<span class='postauthor'><i class='fas fa-user-circle'></i> ".get_the_author_posts_link()."</span>";
+                        $authorlink = get_the_author_posts_link();
+                        $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$format['postmetacolor']}'>", $authorlink);
+                        $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fas fa-user-circle'></i> ".$result."</span>";
                     }
                     if ( $format['show_date']      ){
-                        $html   .=  "<span class='postdate'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='far fa-clock'></i> ".get_the_date()."</span>";
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='far fa-eye'></i> ".the_views(false)."</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
                         $comments_count = wp_count_comments($post->ID);
-                        $html   .=  "<span class='postcomment'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                        $html   .=  "<span class='postcomment' style='color: {$format['postmetacolor']}'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
                     }
 
                     $html   .=  "</div>";
@@ -483,7 +512,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
             break;
         
         case 'style-2':
-            $html .= "<article class='single-post {$style} post-{$post->ID}'>";
+            $html = "<article class='single-post {$style} post-{$post->ID}'>";
                 $html   .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
                 $html   .=  "<div class='postmeta'><div class='postmetawrap'>";
 
@@ -498,30 +527,32 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                 }
                 if ( $format['show_title']){
                     $html   .=  "<h2 class='posttitle'>";
-                        $html   .=  "<a href='{$link}'>{$title}</a>";
+                        $html   .=  "<a href='{$link}' style='color: {$format['posttitlecolor']}'>{$title}</a>";
                     $html   .=  "</h2>";
                 }
                 if ( $format['show_exper']){
-                    $html   .=  "<p class='postexcerpt'>";
+                    $html   .=  "<p class='postexcerpt' style='color: {$format['postmetacolor']}'>";
                         $html   .=  get_the_excerpt($post->ID);
                     $html   .=  "</p>";
                 }
                     $html   .=  "<div class='postinfo'>";
 
                     if ( $format['show_author']    ){
-                        $html   .=  "<span class='postauthor'><i class='fas fa-user-circle'></i> ".get_the_author_posts_link()."</span>";
+                        $authorlink = get_the_author_posts_link();
+                        $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$format['postmetacolor']}'>", $authorlink);
+                        $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fas fa-user-circle'></i> ".$result."</span>";
                     }
                     if ( $format['show_date']      ){
-                        $html   .=  "<span class='postdate'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='far fa-clock'></i> ".get_the_date()."</span>";
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='far fa-eye'></i> ".the_views(false)."</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
                         $comments_count = wp_count_comments($post->ID);
-                        $html   .=  "<span class='postcomment'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                        $html   .=  "<span class='postcomment' style='color: {$format['postmetacolor']}'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
                     }
 
                     $html   .=  "</div>";
@@ -532,7 +563,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
             break;
         
         case 'style-3':
-            $html .= "<article class='single-post {$style} post-{$post->ID}'>";
+            $html = "<article class='single-post {$style} post-{$post->ID}'>";
                 $html   .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
                 $html   .=  "<div class='postmeta'><div class='postmetawrap'>";
 
@@ -547,30 +578,32 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                 }
                 if ( $format['show_title']){
                     $html   .=  "<h2 class='posttitle'>";
-                        $html   .=  "<a href='{$link}'>{$title}</a>";
+                        $html   .=  "<a href='{$link}' style='color: {$format['posttitlecolor']}'>{$title}</a>";
                     $html   .=  "</h2>";
                 }
                 if ( $format['show_exper']){
-                    $html   .=  "<p class='postexcerpt'>";
+                    $html   .=  "<p class='postexcerpt' style='color: {$format['postmetacolor']}'>";
                         $html   .=  get_the_excerpt($post->ID);
                     $html   .=  "</p>";
                 }
                     $html   .=  "<div class='postinfo'>";
 
                     if ( $format['show_author']    ){
-                        $html   .=  "<span class='postauthor'><i class='fas fa-user-circle'></i> ".get_the_author_posts_link()."</span>";
+                        $authorlink = get_the_author_posts_link();
+                        $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$format['postmetacolor']}'>", $authorlink);
+                        $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fas fa-user-circle'></i> ".$result."</span>";
                     }
                     if ( $format['show_date']      ){
-                        $html   .=  "<span class='postdate'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='far fa-clock'></i> ".get_the_date()."</span>";
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='far fa-eye'></i> ".the_views(false)."</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
                         $comments_count = wp_count_comments($post->ID);
-                        $html   .=  "<span class='postcomment'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                        $html   .=  "<span class='postcomment' style='color: {$format['postmetacolor']}'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
                     }
 
                     $html   .=  "</div>";

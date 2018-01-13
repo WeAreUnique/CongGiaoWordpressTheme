@@ -364,57 +364,63 @@ main#main
 								color: #6E6C6C
 								word-wrap: break-word
 			&.content-style-3
-				.wide-box
-					img
-						&.post-thumb-img
-							width: 100%
-							height: auto
 				article
 					img
 						&.post-thumb-img
 							width: auto
 							max-width: 100%
 							height: 150px
-					.postmeta
+				.postmeta
+					display: block
+					.postcats
 						display: block
-						.postcats
-							display: block
-							margin-top: 5px
-							a 
-								display: inline-block
-								padding: 5px
-								border: 1px solid #979797
-								color: #4A4A4A
-								margin-right: 5px
-								font-size: 0.8rem
-								&:last-child
-									margin-right: 0
-						.posttitle
-							display: block
-							margin: 10px 0
-							a 
-								font-size: 1.2rem
-								font-weight: bold 
-								color: #4A4A4A
-						.postexcerpt
-							display: block
-							margin-top: 5px
-							color: #6E6C6C
+						margin-top: 5px
+						a 
+							display: inline-block
+							padding: 5px
+							border: 1px solid #979797
+							color: #4A4A4A
+							margin-right: 5px
+							font-size: 0.8rem
+							&:last-child
+								margin-right: 0
+					.posttitle
+						display: block
+						margin: 10px 0
+						a 
+							font-size: 1.2rem
+							font-weight: bold 
+							color: #4A4A4A
+					.postexcerpt
+						display: block
+						margin-top: 5px
+						color: #6E6C6C
+						font-size: 0.9rem
+					.postinfo
+						display: block
+						margin-top: 10px
+						color: #6E6C6C
+						span
+							margin-right: 6px
+							&:last-child
+								margin-right: 0
+						.postauthor, .postdate, .postviews, .postcomment
 							font-size: 0.9rem
-						.postinfo
-							display: block
-							margin-top: 10px
 							color: #6E6C6C
-							span
-								margin-right: 6px
-								&:last-child
-									margin-right: 0
-							.postauthor, .postdate, .postviews, .postcomment
-								font-size: 0.9rem
-								color: #6E6C6C
-							.svg-inline--fa
-								color: #6E6C6C
-							a
-								font-size: 0.9rem
-								color: #6E6C6C
-								word-wrap: break-word
+						.svg-inline--fa
+							color: #6E6C6C
+						a
+							font-size: 0.9rem
+							color: #6E6C6C
+							word-wrap: break-word
+				.wide-box
+					img
+						&.post-thumb-img
+							width: 100%
+							height: auto
+					.postcats
+						margin-top: 0px
+					.postinfo
+						margin-top: 5px
+					.posttitle
+						margin: 5px 0

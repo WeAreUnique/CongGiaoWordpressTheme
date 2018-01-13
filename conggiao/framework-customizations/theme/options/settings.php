@@ -10,6 +10,7 @@
 $options = array(
 	fw()->theme->get_options( 'tab-general' ),
 	fw()->theme->get_options( 'tab-homepage' ),
+	fw()->theme->get_options( 'tab-archives' ),
 );
 
 
