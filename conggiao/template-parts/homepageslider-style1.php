@@ -34,7 +34,7 @@
 	}
 
 	//printArr($latestArgs, 'latestArgs');
-	$allPosts = conggiao_get_latest_post($latestArgs, 'tran_homepageslider1');
+	$allPosts = conggiao_get_posts($latestArgs, 'tran_homepageslider1');
 
 	$boxIds = array();
 	$trans = '';
@@ -50,7 +50,7 @@
 			'numberposts' 	=> count($boxIds),
 			'post__in'		=> $boxIds,
 		);
-		$boxPosts = conggiao_get_latest_post($boxArgs, "tran_homepagebox{$trans}");
+		$boxPosts = conggiao_get_posts($boxArgs, "tran_homepagebox{$trans}");
 	}
 ?>
 <div class="columns is-variable is-1" id="homepage-slider1">

@@ -6012,6 +6012,251 @@ main#main section.section .section-header.sep-style-4 .main-title .title span {
 main#main section.section .section-content {
   padding: 20px 0;
 }
+main#main section.section .section-content.content-style-1 .first-row article {
+  margin-left: 5px;
+}
+main#main section.section .section-content.content-style-1 .first-row .small-box:last-child {
+  margin-top: 6px;
+}
+main#main section.section .section-content.content-style-1 .other-row .small-box article {
+  margin-right: 5px;
+}
+main#main section.section .section-content.content-style-1 .other-row .small-box:last-child article {
+  margin-right: 0px;
+}
+main#main section.section .section-content.content-style-1 .wide-box {
+  overflow: hidden;
+  max-height: 300px;
+}
+main#main section.section .section-content.content-style-1 .wide-box article {
+  max-height: 300px;
+}
+main#main section.section .section-content.content-style-1 .wide-box img.post-thumb-img {
+  max-height: 300px;
+  width: 100%;
+}
+main#main section.section .section-content.content-style-1 .wide-box .posttitle {
+  margin-top: 5px;
+  font-size: 1.4rem;
+}
+main#main section.section .section-content.content-style-1 .small-box {
+  overflow: hidden;
+  max-height: 150px;
+}
+main#main section.section .section-content.content-style-1 .small-box article {
+  max-height: 150px;
+}
+main#main section.section .section-content.content-style-1 .small-box img.post-thumb-img {
+  max-height: 150px;
+  width: 100%;
+}
+main#main section.section .section-content.content-style-1 .small-box .postmeta {
+  overflow: hidden;
+}
+main#main section.section .section-content.content-style-1 .small-box .postmeta .postmetawrap {
+  padding: 5px;
+}
+main#main section.section .section-content.content-style-1 .small-box .postmeta .posttitle {
+  font-size: 0.8rem;
+}
+main#main section.section .section-content.content-style-1 .small-box .postmeta .postinfo span {
+  margin-right: 5px;
+}
+main#main section.section .section-content.content-style-1 .small-box .postmeta .postinfo .postauthor, main#main section.section .section-content.content-style-1 .small-box .postmeta .postinfo .postdate, main#main section.section .section-content.content-style-1 .small-box .postmeta .postinfo .postviews, main#main section.section .section-content.content-style-1 .small-box .postmeta .postinfo .postcomment {
+  font-size: 0.8rem;
+}
+main#main section.section .section-content.content-style-1 .small-box .postmeta .postinfo a {
+  font-size: 0.8rem;
+}
+main#main section.section .section-content.content-style-1 article {
+  position: relative;
+  overflow: hidden;
+}
+main#main section.section .section-content.content-style-1 article a.post-link {
+  display: block;
+}
+main#main section.section .section-content.content-style-1 .postmeta {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+main#main section.section .section-content.content-style-1 .postmeta .postmetawrap {
+  padding: 10px;
+}
+main#main section.section .section-content.content-style-1 .postmeta .postcats {
+  display: block;
+  margin-top: 5px;
+}
+main#main section.section .section-content.content-style-1 .postmeta .postcats a {
+  display: inline-block;
+  padding: 5px;
+  background-color: #fff;
+  color: #4A4A4A;
+  margin-right: 5px;
+  font-size: 0.7rem;
+}
+main#main section.section .section-content.content-style-1 .postmeta .postcats a:last-child {
+  margin-right: 0;
+}
+main#main section.section .section-content.content-style-1 .postmeta .posttitle {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+main#main section.section .section-content.content-style-1 .postmeta .posttitle a {
+  color: #fff;
+  font-weight: bold;
+}
+main#main section.section .section-content.content-style-1 .postmeta .postexcerpt {
+  color: #fff;
+  font-size: 0.9rem;
+}
+main#main section.section .section-content.content-style-1 .postmeta .postinfo {
+  margin-top: 5px;
+}
+main#main section.section .section-content.content-style-1 .postmeta .postinfo span {
+  margin-right: 10px;
+}
+main#main section.section .section-content.content-style-1 .postmeta .postinfo span:last-child {
+  margin-right: 0;
+}
+main#main section.section .section-content.content-style-1 .postmeta .postinfo .postauthor, main#main section.section .section-content.content-style-1 .postmeta .postinfo .postdate, main#main section.section .section-content.content-style-1 .postmeta .postinfo .postviews, main#main section.section .section-content.content-style-1 .postmeta .postinfo .postcomment {
+  font-size: 0.9rem;
+  color: #fff;
+}
+main#main section.section .section-content.content-style-1 .postmeta .postinfo a {
+  font-size: 0.9rem;
+  color: #fff;
+}
+main#main section.section .section-content.content-style-2 article img.post-thumb-img {
+  width: auto;
+  max-width: 100%;
+  height: 150px;
+}
+main#main section.section .section-content.content-style-2 article .postmeta {
+  display: block;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .postcats {
+  display: block;
+  margin-top: 5px;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .postcats a {
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #979797;
+  color: #4A4A4A;
+  margin-right: 5px;
+  font-size: 0.8rem;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .postcats a:last-child {
+  margin-right: 0;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .posttitle {
+  display: block;
+  margin: 10px 0;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .posttitle a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4A4A4A;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .postexcerpt {
+  display: block;
+  margin-top: 5px;
+  color: #6E6C6C;
+  font-size: 0.9rem;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .postinfo {
+  display: block;
+  margin-top: 10px;
+  color: #6E6C6C;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .postinfo span {
+  margin-right: 6px;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .postinfo span:last-child {
+  margin-right: 0;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .postinfo .postauthor, main#main section.section .section-content.content-style-2 article .postmeta .postinfo .postdate, main#main section.section .section-content.content-style-2 article .postmeta .postinfo .postviews, main#main section.section .section-content.content-style-2 article .postmeta .postinfo .postcomment {
+  font-size: 0.9rem;
+  color: #6E6C6C;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .postinfo .svg-inline--fa {
+  color: #6E6C6C;
+}
+main#main section.section .section-content.content-style-2 article .postmeta .postinfo a {
+  font-size: 0.9rem;
+  color: #6E6C6C;
+  word-wrap: break-word;
+}
+main#main section.section .section-content.content-style-3 .wide-box img.post-thumb-img {
+  width: 100%;
+  height: auto;
+}
+main#main section.section .section-content.content-style-3 article img.post-thumb-img {
+  width: auto;
+  max-width: 100%;
+  height: 150px;
+}
+main#main section.section .section-content.content-style-3 article .postmeta {
+  display: block;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .postcats {
+  display: block;
+  margin-top: 5px;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .postcats a {
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #979797;
+  color: #4A4A4A;
+  margin-right: 5px;
+  font-size: 0.8rem;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .postcats a:last-child {
+  margin-right: 0;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .posttitle {
+  display: block;
+  margin: 10px 0;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .posttitle a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4A4A4A;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .postexcerpt {
+  display: block;
+  margin-top: 5px;
+  color: #6E6C6C;
+  font-size: 0.9rem;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .postinfo {
+  display: block;
+  margin-top: 10px;
+  color: #6E6C6C;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .postinfo span {
+  margin-right: 6px;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .postinfo span:last-child {
+  margin-right: 0;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .postinfo .postauthor, main#main section.section .section-content.content-style-3 article .postmeta .postinfo .postdate, main#main section.section .section-content.content-style-3 article .postmeta .postinfo .postviews, main#main section.section .section-content.content-style-3 article .postmeta .postinfo .postcomment {
+  font-size: 0.9rem;
+  color: #6E6C6C;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .postinfo .svg-inline--fa {
+  color: #6E6C6C;
+}
+main#main section.section .section-content.content-style-3 article .postmeta .postinfo a {
+  font-size: 0.9rem;
+  color: #6E6C6C;
+  word-wrap: break-word;
+}
 
 @media screen and (max-width: 768px) {
   #content {
