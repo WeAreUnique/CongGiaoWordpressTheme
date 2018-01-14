@@ -138,6 +138,7 @@ function cg_home_get_section(){
             $arrVal['style']			= $contentArr['style'];
             $arrVal['num_post']			= $contentArr['num_post'];
             $arrVal['tieude']			= $contentArr['tieude'];
+            $arrVal['mota']             = $contentArr['mota'];
             $arrVal['lienket']			= $contentArr['lienket'];
             $arrVal['seperator']		= $contentArr['seperator'];
             $arrVal['show_title']		= $contentArr['show_title'];

@@ -1,51 +1,99 @@
 <?php
 /**
- * The template for displaying search results pages
+ * The template for displaying archive pages
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package CongGiao
  */
 
-get_header(); ?>
-
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php
-		if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title"><?php
+get_header(); 
+$catDefault = cg_gen_get_archives_default('other_default');
+$isSidebar 	= ($catDefault['sidebar'] == 'y') ? "sidebar-".$catDefault['sidebarpost'] : '';
+$columnDiv	= "<div class='column is-12-mobile is-6-tablet is-4-desktop'>";
+switch ($catDefault['columns']) {
+	case 'c1':
+		$columnDiv	= "<div class='column is-12-mobile is-12-tablet is-12-desktop c1'>";
+		break;
+	case 'c2':
+		$columnDiv	= "<div class='column is-12-mobile is-6-tablet is-6-desktop c2'>";
+		break;
+	case 'c3':
+		$columnDiv	= "<div class='column is-12-mobile is-6-tablet is-4-desktop c3'>";
+		break;
+	case 'c4':
+		$columnDiv	= "<div class='column is-6-mobile is-4-tablet is-3-desktop c4'>";
+		break;
+	
+	default:
+		# code...
+		break;
+}
+?>
+	<div class="header-section">
+		<div class="container">
+            <h1 class="title is-3 is-spaced">
+            	<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'conggiao' ), '<span>' . get_search_query() . '</span>' );
-				?></h1>
-			</header><!-- .page-header -->
+					printf( esc_html__( 'Kết Quả Tìm Kiếm: %s', 'conggiao' ), '<span>' . get_search_query() . '</span>' );
+				?>
+            </h1>
+        </div>
+	</div>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+	<?php
+	if ($catDefault['sidebar'] == 'n'){
+		echo '<div class="container">';
+		echo '<main id="main" class="site-main content-area">';
+			echo "<div class='columns is-mobile is-variable is-2 is-multiline'>";
+			if ( have_posts() ) : 
+				/* Start the Loop */
+				while ( have_posts() ) : the_post();
+					echo $columnDiv;
+						include( locate_template('template-parts/content-archive.php') );
+						//get_template_part( 'template-parts/content', 'archive' );
+					echo "</div>";
+				endwhile;
+				
+				//the_posts_navigation();
+			else :
+				get_template_part( 'template-parts/content', 'none' );
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+			endif;
+			echo "</div>";
+			echo '<nav class="pagination is-medium" role="navigation" aria-label="pagination">';
+					wp_pagenavi();
+			echo '</nav>';
+		echo '</main>';
+		echo "</div>";
+	} else { ?>
 
-			endwhile;
+	<div class="container">
+		<div class="columns <?php echo $isSidebar; ?>">
+			<div id="primary" class="content-area column <?php echo ($catDefault['sidebar'] == 'y') ? 'is-9' : '';?>">
+				<main id="main" class="site-main">
+					<div class="columns archive-posts is-mobile is-variable is-2 is-multiline">
+					<?php
+					if ( have_posts() ) : 
+						/* Start the Loop */
+						while ( have_posts() ) : the_post();
+							echo $columnDiv;
+								include( locate_template('template-parts/content-archive.php') );
+							echo "</div>";
+						endwhile;
+					else :
+						get_template_part( 'template-parts/content', 'none' );
 
-			the_posts_navigation();
+					endif; ?>
+					</div><!-- columns -->
+					<nav class="pagination is-medium" role="navigation" aria-label="pagination">
+						<?php wp_pagenavi(); ?>
+					</nav>
+				</main><!-- #main -->
+			</div><!-- #primary -->
+			<?php get_sidebar(); ?>
+		</div><!-- Columns -->
+	</div><!-- Container -->
+	<?php } ?>
 
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer();

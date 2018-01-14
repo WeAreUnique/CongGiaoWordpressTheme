@@ -183,7 +183,10 @@ function _action_theme_dynamic_footer_sidebar() {
     $w = cg_gen_get_footer_widget();
     if ($w['chon'] == 'y'){
         if ( function_exists('register_sidebar') ) {
-            register_sidebars($w['number'], array('name'=>'Widget Cuối Trang - Cột %d'));
+        	for ($i=1; $i <= $w['number'] ; $i++) { 
+        		register_sidebar( array('id' => 'footer-'.$i, 'name' => 'Widget Cuối Trang - Cột '.$i) );
+        	}
+            //register_sidebars($w['number'], array('name'=>'Widget Cuối Trang - Cột %d'));
         }
     }
 }

@@ -754,6 +754,38 @@
 		"shouldRunBless": 0,
 		"useLibsass": false
 		},
+	"\/bulma_pagenavi.sass": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 2,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/bulma_pagenavi.sass",
+		"outputAbbreviatedPath": "\/css\/bulma_pagenavi.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": false
+		},
+	"\/conggiao\/content\/_archive.sass": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 2,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/conggiao\/content\/_archive.sass",
+		"outputAbbreviatedPath": "\/conggiao\/css\/_archive.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": false
+		},
 	"\/conggiao\/content\/_default.sass": {
 		"createSourceMap": 0,
 		"debugStyle": 0,

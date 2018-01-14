@@ -1,0 +1,85 @@
+.archive-posts
+	.post-thumb, .posttitle, .postmeta, .postexcerpt, .postinfo
+		display: block
+		overflow: hidden
+	.posttitle
+		padding: 5px 0
+		a
+			color: #4A4A4A
+			font-weight: 600
+	.postmeta
+		font-size: 1rem
+		color: #6E6C6C
+	.postinfo
+		color: #6E6C6C
+		span
+			font-size: 1rem
+			margin-right: 10px
+			&:last-child
+				margin-right: 0
+		a
+			color: #6E6C6C
+	.postexcerpt
+		margin-bottom: 10px
+		text-align: justify
+	.c1
+		.post-thumb
+			max-height: 300px
+			img
+				&.post-thumb-img
+					width: 100%
+		.posttitle
+			padding: 10px 0
+			a
+				font-size: 1.7rem
+	.c2
+		.post-thumb
+			max-height: 250px
+			img
+				&.post-thumb-img
+					width: 100%
+		.posttitle
+			padding: 10px 0
+			a
+				font-size: 1.4rem
+	.c3
+		.post-thumb
+			max-height: 200px
+			img
+				&.post-thumb-img
+					width: 100%
+		.posttitle
+			a
+				font-size: 1.2rem
+		.postinfo
+			span
+				margin-right: 5px
+				font-size: 0.9rem
+	.c4
+		.post-thumb
+			max-height: 150px
+			img
+				&.post-thumb-img
+					width: 100%
+		.posttitle
+			a
+				font-size: 1rem
+		.postinfo
+			span
+				margin-right: 5px
+				font-size: 0.9rem
++mobile
+	.archive-posts
+		.posttitle
+			padding: 10px 0
+			a
+				font-size: 1rem
+.pagination
+	.wp-pagenavi
+		.pages, .last
+			display: none
+		.current
+			min-width: 2.25em
+			color: $pagination-color
+			padding-left: 0.75em
+			padding-right: 0.75em

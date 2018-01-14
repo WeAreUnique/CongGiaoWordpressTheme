@@ -43,7 +43,6 @@ $isSidebar 		= ($homesidebar['chon'] == 'y') ? "sidebar-".$homesidebar['pos'] : 
 				echo do_shortcode( $homefeatured['scode'] );
 				break;
 			default:
-				# code...
 				break;
 		}
 	?>
@@ -54,7 +53,7 @@ $isSidebar 		= ($homesidebar['chon'] == 'y') ? "sidebar-".$homesidebar['pos'] : 
 	<?php
 	if ($homesidebar['chon'] == 'n'){
 		echo '<main id="main" class="site-main homepage">';
-		include( locate_template('template-parts/homepagesection.php') );
+			include( locate_template('template-parts/homepagesection.php') );
 		echo '</main>';
 	} else { ?>
 

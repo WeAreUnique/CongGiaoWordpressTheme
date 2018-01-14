@@ -9,42 +9,9 @@
 
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'conggiao' ); ?></h1>
-	</header><!-- .page-header -->
-
+<section class="column no-results not-found">
 	<div class="page-content">
-		<?php
-		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
-
-			<p><?php
-				printf(
-					wp_kses(
-						/* translators: 1: link to WP admin new post page. */
-						__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'conggiao' ),
-						array(
-							'a' => array(
-								'href' => array(),
-							),
-						)
-					),
-					esc_url( admin_url( 'post-new.php' ) )
-				);
-			?></p>
-
-		<?php elseif ( is_search() ) : ?>
-
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'conggiao' ); ?></p>
-			<?php
-				get_search_form();
-
-		else : ?>
-
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'conggiao' ); ?></p>
-			<?php
-				get_search_form();
-
-		endif; ?>
+		<h2 class="title"><?php esc_html_e( 'Không tìm thấy', 'conggiao' ); ?></h2>
+		<p class="subtitle">Xin lỗi nhưng chúng tôi không thể tìm thấy bài viết mà bạn muốn tìm.</p>
 	</div><!-- .page-content -->
 </section><!-- .no-results -->

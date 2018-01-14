@@ -3976,28 +3976,19 @@ a.tag:hover {
 .pagination.is-large {
   font-size: 1.5rem;
 }
-.pagination.is-rounded .pagination-previous,
-.pagination.is-rounded .pagination-next {
+.pagination.is-rounded .previouspostslink,
+.pagination.is-rounded .nextpostslink {
   padding-left: 1em;
   padding-right: 1em;
   border-radius: 290486px;
 }
-.pagination.is-rounded .pagination-link {
+.pagination.is-rounded .page {
   border-radius: 290486px;
 }
-
-.pagination,
-.pagination-list {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.pagination-previous,
-.pagination-next,
-.pagination-link,
-.pagination-ellipsis {
+.pagination .previouspostslink,
+.pagination .nextpostslink,
+.pagination .page,
+.pagination .pagination-ellipsis {
   -moz-appearance: none;
   -webkit-appearance: none;
   align-items: center;
@@ -4027,95 +4018,96 @@ a.tag:hover {
   margin: 0.25rem;
   text-align: center;
 }
-.pagination-previous:focus, .pagination-previous.is-focused, .pagination-previous:active, .pagination-previous.is-active,
-.pagination-next:focus,
-.pagination-next.is-focused,
-.pagination-next:active,
-.pagination-next.is-active,
-.pagination-link:focus,
-.pagination-link.is-focused,
-.pagination-link:active,
-.pagination-link.is-active,
-.pagination-ellipsis:focus,
-.pagination-ellipsis.is-focused,
-.pagination-ellipsis:active,
-.pagination-ellipsis.is-active {
+.pagination .previouspostslink:focus, .pagination .previouspostslink.is-focused, .pagination .previouspostslink:active, .pagination .previouspostslink.is-active,
+.pagination .nextpostslink:focus,
+.pagination .nextpostslink.is-focused,
+.pagination .nextpostslink:active,
+.pagination .nextpostslink.is-active,
+.pagination .page:focus,
+.pagination .page.is-focused,
+.pagination .page:active,
+.pagination .page.is-active,
+.pagination .pagination-ellipsis:focus,
+.pagination .pagination-ellipsis.is-focused,
+.pagination .pagination-ellipsis:active,
+.pagination .pagination-ellipsis.is-active {
   outline: none;
 }
-.pagination-previous[disabled],
-.pagination-next[disabled],
-.pagination-link[disabled],
-.pagination-ellipsis[disabled] {
+.pagination .previouspostslink[disabled],
+.pagination .nextpostslink[disabled],
+.pagination .page[disabled],
+.pagination .pagination-ellipsis[disabled] {
   cursor: not-allowed;
 }
-
-.pagination-previous,
-.pagination-next,
-.pagination-link {
+.pagination .previouspostslink,
+.pagination .nextpostslink,
+.pagination .page {
   border-color: #dbdbdb;
   color: #363636;
   min-width: 2.25em;
 }
-.pagination-previous:hover,
-.pagination-next:hover,
-.pagination-link:hover {
+.pagination .previouspostslink:hover,
+.pagination .nextpostslink:hover,
+.pagination .page:hover {
   border-color: #b5b5b5;
   color: #363636;
 }
-.pagination-previous:focus,
-.pagination-next:focus,
-.pagination-link:focus {
+.pagination .previouspostslink:focus,
+.pagination .nextpostslink:focus,
+.pagination .page:focus {
   border-color: #3273dc;
 }
-.pagination-previous:active,
-.pagination-next:active,
-.pagination-link:active {
+.pagination .previouspostslink:active,
+.pagination .nextpostslink:active,
+.pagination .page:active {
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);
 }
-.pagination-previous[disabled],
-.pagination-next[disabled],
-.pagination-link[disabled] {
+.pagination .previouspostslink[disabled],
+.pagination .nextpostslink[disabled],
+.pagination .page[disabled] {
   background-color: #dbdbdb;
   border-color: #dbdbdb;
   box-shadow: none;
   color: #7a7a7a;
   opacity: 0.5;
 }
-
-.pagination-previous,
-.pagination-next {
+.pagination .previouspostslink,
+.pagination .nextpostslink {
   padding-left: 0.75em;
   padding-right: 0.75em;
   white-space: nowrap;
 }
-
-.pagination-link.is-current {
+.pagination .pagination-ellipsis {
+  color: #b5b5b5;
+  pointer-events: none;
+}
+.pagination .pagination-list {
+  flex-wrap: wrap;
+}
+.pagination .page.current {
   background-color: #3273dc;
   border-color: #3273dc;
   color: #fff;
 }
 
-.pagination-ellipsis {
-  color: #b5b5b5;
-  pointer-events: none;
-}
-
-.pagination-list {
-  flex-wrap: wrap;
+.pagination,
+.wp-pagenavi {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
   .pagination {
     flex-wrap: wrap;
   }
-
-  .pagination-previous,
-  .pagination-next {
+  .pagination .previouspostslink,
+  .pagination .nextpostslink {
     flex-grow: 1;
     flex-shrink: 1;
   }
-
-  .pagination-list li {
+  .pagination .pagination-list li {
     flex-grow: 1;
     flex-shrink: 1;
   }
@@ -4128,35 +4120,33 @@ a.tag:hover {
     order: 1;
   }
 
-  .pagination-previous {
-    order: 2;
-  }
-
-  .pagination-next {
-    order: 3;
-  }
-
   .pagination {
     justify-content: space-between;
   }
-  .pagination.is-centered .pagination-previous {
+  .pagination.is-centered .previouspostslink {
     order: 1;
   }
   .pagination.is-centered .pagination-list {
     justify-content: center;
     order: 2;
   }
-  .pagination.is-centered .pagination-next {
+  .pagination.is-centered .nextpostslink {
     order: 3;
   }
-  .pagination.is-right .pagination-previous {
+  .pagination.is-right .previouspostslink {
     order: 1;
   }
-  .pagination.is-right .pagination-next {
+  .pagination.is-right .nextpostslink {
     order: 2;
   }
   .pagination.is-right .pagination-list {
     justify-content: flex-end;
+    order: 3;
+  }
+  .pagination .previouspostslink {
+    order: 2;
+  }
+  .pagination .nextpostslink {
     order: 3;
   }
 }
@@ -5734,11 +5724,11 @@ a.tag:hover {
 }
 
 #homepagesearch {
-  margin-top: 30px;
+  padding-top: 30px;
 }
 
 .homepage {
-  margin-top: 30px;
+  padding-top: 30px;
 }
 
 #primary {
@@ -6131,10 +6121,14 @@ main#main section.section .section-content.content-style-1 .postmeta .postinfo a
   font-size: 0.9rem;
   color: #fff;
 }
+main#main section.section .section-content.content-style-2 article .postthumb {
+  position: relative;
+  max-height: 150px;
+  overflow: hidden;
+}
 main#main section.section .section-content.content-style-2 article img.post-thumb-img {
-  width: auto;
-  max-width: 100%;
-  height: 150px;
+  width: 100%;
+  height: auto;
 }
 main#main section.section .section-content.content-style-2 article .postmeta {
   display: block;
@@ -6192,10 +6186,14 @@ main#main section.section .section-content.content-style-2 article .postmeta .po
   color: #6E6C6C;
   word-wrap: break-word;
 }
+main#main section.section .section-content.content-style-3 article .postthumb {
+  position: relative;
+  max-height: 150px;
+  overflow: hidden;
+}
 main#main section.section .section-content.content-style-3 article img.post-thumb-img {
-  width: auto;
-  max-width: 100%;
-  height: 150px;
+  width: 100%;
+  height: auto;
 }
 main#main section.section .section-content.content-style-3 .postmeta {
   display: block;
@@ -6269,16 +6267,120 @@ main#main section.section .section-content.content-style-3 .wide-box .posttitle 
 
 @media screen and (max-width: 768px) {
   #content {
-    padding: 0 20px;
+    padding: 0 20px 20px 20px;
   }
 }
 @media screen and (min-width: 769px), print {
   #content {
-    padding: 0 20px;
+    padding: 0 20px 20px 20px;
   }
 }
 @media screen and (min-width: 1024px) {
   #content {
-    padding: 0;
+    padding: 0 0 20px 0;
   }
+}
+.header-section {
+  margin: 30px 0;
+}
+
+.archive-posts .post-thumb, .archive-posts .posttitle, .archive-posts .postmeta, .archive-posts .postexcerpt, .archive-posts .postinfo {
+  display: block;
+  overflow: hidden;
+}
+.archive-posts .posttitle {
+  padding: 5px 0;
+}
+.archive-posts .posttitle a {
+  color: #4A4A4A;
+  font-weight: 600;
+}
+.archive-posts .postmeta {
+  font-size: 1rem;
+  color: #6E6C6C;
+}
+.archive-posts .postinfo {
+  color: #6E6C6C;
+}
+.archive-posts .postinfo span {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+.archive-posts .postinfo span:last-child {
+  margin-right: 0;
+}
+.archive-posts .postinfo a {
+  color: #6E6C6C;
+}
+.archive-posts .postexcerpt {
+  margin-bottom: 10px;
+  text-align: justify;
+}
+.archive-posts .c1 .post-thumb {
+  max-height: 300px;
+}
+.archive-posts .c1 .post-thumb img.post-thumb-img {
+  width: 100%;
+}
+.archive-posts .c1 .posttitle {
+  padding: 10px 0;
+}
+.archive-posts .c1 .posttitle a {
+  font-size: 1.7rem;
+}
+.archive-posts .c2 .post-thumb {
+  max-height: 250px;
+}
+.archive-posts .c2 .post-thumb img.post-thumb-img {
+  width: 100%;
+}
+.archive-posts .c2 .posttitle {
+  padding: 10px 0;
+}
+.archive-posts .c2 .posttitle a {
+  font-size: 1.4rem;
+}
+.archive-posts .c3 .post-thumb {
+  max-height: 200px;
+}
+.archive-posts .c3 .post-thumb img.post-thumb-img {
+  width: 100%;
+}
+.archive-posts .c3 .posttitle a {
+  font-size: 1.2rem;
+}
+.archive-posts .c3 .postinfo span {
+  margin-right: 5px;
+  font-size: 0.9rem;
+}
+.archive-posts .c4 .post-thumb {
+  max-height: 150px;
+}
+.archive-posts .c4 .post-thumb img.post-thumb-img {
+  width: 100%;
+}
+.archive-posts .c4 .posttitle a {
+  font-size: 1rem;
+}
+.archive-posts .c4 .postinfo span {
+  margin-right: 5px;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+  .archive-posts .posttitle {
+    padding: 10px 0;
+  }
+  .archive-posts .posttitle a {
+    font-size: 1rem;
+  }
+}
+.pagination .wp-pagenavi .pages, .pagination .wp-pagenavi .last {
+  display: none;
+}
+.pagination .wp-pagenavi .current {
+  min-width: 2.25em;
+  color: #363636;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
 }

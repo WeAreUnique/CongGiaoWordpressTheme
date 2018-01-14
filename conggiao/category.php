@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying category page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -8,7 +8,7 @@
  */
 
 get_header(); 
-$catDefault = cg_gen_get_archives_default('other_default');
+$catDefault = cg_gen_get_archives_default('cats_default');
 $isSidebar 	= ($catDefault['sidebar'] == 'y') ? "sidebar-".$catDefault['sidebarpost'] : '';
 $columnDiv	= "<div class='column is-12-mobile is-6-tablet is-4-desktop'>";
 switch ($catDefault['columns']) {

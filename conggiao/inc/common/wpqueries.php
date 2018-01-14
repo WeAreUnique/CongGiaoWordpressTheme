@@ -50,7 +50,7 @@ function conggiao_slider_post_format($post, $format){
             }
             if(function_exists('the_views')) {
                 if ( $format['show_viewer']     == 'y' ){
-                    $html   .=  "<span class='postviews'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                    $html   .=  "<span class='postviews'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
                 }
             }
             if ( $format['show_comments']   == 'y' ){
@@ -66,7 +66,7 @@ function conggiao_slider_post_format($post, $format){
 }
 
 function conggiao_homepage_section_static_format($section, $withContainer=false){
-    $sectionBg = "background-color: {$section['bgcolor']}; border-radius: {$section['radius']}; padding: {$section['padding']}px;";
+    $sectionBg = "background-color: {$section['bgcolor']}; border-radius: {$section['radius']}px; padding: {$section['padding']}px;";
     $html .= "<section class='section {$section['chon']}' style='{$sectionBg}'>";
         $html .= ($withContainer == true) ? "<div class='container'>" : '';
             // Header
@@ -81,12 +81,12 @@ function conggiao_homepage_section_static_format($section, $withContainer=false)
 }
 
 function conggiao_homepage_section_post_format($section, $withContainer=false){
-    $sectionBg = "background-color: {$section['bgcolor']}; border-radius: {$section['radius']}; padding: {$section['padding']}px;";
+    $sectionBg = "background-color: {$section['bgcolor']}; border-radius: {$section['radius']}px; padding: {$section['padding']}px;";
     $html = "<section class='section {$section['chon']}' style='{$sectionBg}'>";
         $html .= ($withContainer == true) ? "<div class='container'>" : "";
             //Header
-            $html .= ($section['tieude'] == "") ? "" : conggiao_homepage_section_header_format( $section['tieude'], $section['headingcolor'], $section['mota'], $section['lienket'], $section['seperator'], $section['sepcolor'], $section['bgcolor'] );
-            
+            $mota = ( $section["mota"] != "" ) ? $section["mota"] : "";
+            $html .= ($section['tieude'] == '') ? '' : conggiao_homepage_section_header_format($section['tieude'], $section['headingcolor'], $mota, $section['lienket'], $section['seperator'], $section['sepcolor'], $section['bgcolor']);
             // Content
             $contentArgs = array(
                 'numberposts'   => $section['num_post'],
@@ -141,7 +141,7 @@ function conggiao_homepage_section_header_format($title, $titleColor, $des, $lin
             break;
         
         case 'style-2':
-            $html .= "<div class='section-header sep-{$sepStyle}'>";
+            $html = "<div class='section-header sep-{$sepStyle}'>";
                 $html .= "<div class='main-title' style='border-left: 5px solid {$sepColor}; border-bottom: 1px solid {$sepColor}'>";
                     $html .= "<h2 class='title is-5'>";
                         $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
@@ -151,7 +151,7 @@ function conggiao_homepage_section_header_format($title, $titleColor, $des, $lin
             break;
 
         case 'style-3':
-            $html .= "<div class='section-header sep-{$sepStyle}'>";
+            $html = "<div class='section-header sep-{$sepStyle}'>";
                 $html .= "<div class='main-title'>";
                     $html .= "<h2 class='title is-5'>";
                         $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
@@ -162,7 +162,7 @@ function conggiao_homepage_section_header_format($title, $titleColor, $des, $lin
             break;
 
         case 'style-4':
-            $html .= "<div class='section-header sep-{$sepStyle}'>";
+            $html = "<div class='section-header sep-{$sepStyle}'>";
                 $html .= "<div class='main-title'>";
                     $html .= "<h2 class='title is-5'>";
                         $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'><span style='background-color: {$bgcolor}'>{$title}</span></a>" : "<span style='background-color: {$bgcolor}'>{$title}</span>";
@@ -190,6 +190,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 return $html;
             }
             $number = count($queryPosts);
+            printArr($args, 'args');
             $viewOptionGreate1 = $viewOptions;
             $viewOptionGreate1['show_exper'] = false;
             $viewOptionGreate1['show_cats'] = false;
@@ -355,7 +356,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                             }
                             if(function_exists('the_views')) {
                                 if ( $viewOptions['show_viewer']     ){
-                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
                                 }
                             }
                             if ( $viewOptions['show_comments'] ){
@@ -417,7 +418,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                             }
                             if(function_exists('the_views')) {
                                 if ( $viewOptions['show_viewer']     == 'y' ){
-                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
                                 }
                             }
                             if ( $viewOptions['show_comments']   == 'y' ){
@@ -495,7 +496,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
@@ -513,7 +514,9 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
         
         case 'style-2':
             $html = "<article class='single-post {$style} post-{$post->ID}'>";
-                $html   .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
+                $html   .=  "<div class='postthumb'>";
+                    $html   .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
+                $html   .=  "</div>";
                 $html   .=  "<div class='postmeta'><div class='postmetawrap'>";
 
                 if ( $format['show_cats']){
@@ -547,7 +550,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
@@ -564,9 +567,10 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
         
         case 'style-3':
             $html = "<article class='single-post {$style} post-{$post->ID}'>";
-                $html   .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
+                $html   .=  "<div class='postthumb'>";
+                    $html   .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
+                $html   .=  "</div>";
                 $html   .=  "<div class='postmeta'><div class='postmetawrap'>";
-
                 if ( $format['show_cats']){
                     $html   .=  "<div class='postcats'>";
                     foreach(get_the_category($post->ID) as $category){
@@ -598,7 +602,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='far fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
                         }
                     }
                     if ( $format['show_comments']  ){

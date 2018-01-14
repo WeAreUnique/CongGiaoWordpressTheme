@@ -62,6 +62,15 @@
 	</header><!-- #masthead -->
 
 <?php 
+	$bgSetting = cg_gen_get_mau_sac();
+	$bgStyle = '';
+	if ( $bgSetting['chon'] == 'c_color' ){
+		$bgStyle = "style='background-color: {$bgSetting['color']}'";
+	}
+	if ( $bgSetting['chon'] == 'c_image' ){
+		$bgStyle = "style='background-image: url({$bgSetting['upload']}); background-repeat: {$bgSetting['repeat']}; background-size: {$bgSetting['size']}; background-attachment: {$bgSetting['inherit']}; background-position: {$bgSetting['position']};'";
+	}
+
     // printArr(cg_gen_get_mau_sac(), 'cg_gen_get_mau_sac');
     // printArr(cg_gen_get_header_top(), 'cg_gen_get_header_top');
     // printArr(cg_gen_get_header_nav(), 'cg_gen_get_header_nav');
@@ -70,8 +79,8 @@
     // printArr(cg_home_get_sidebar(), 'cg_home_get_sidebar');
     // printArr(cg_home_get_showsearch(), 'cg_home_get_showsearch');
     // printArr(cg_home_get_featured(), 'cg_home_get_featured');
-    // printArr(cg_home_get_section(), 'cg_home_get_section');
-    
+    printArr(cg_home_get_section(), 'cg_home_get_section');
+    //printArr(cg_gen_get_archives_default('cats_default'), 'cg_gen_get_cats_default');
 ?>
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content" <?php echo $bgStyle; ?>>

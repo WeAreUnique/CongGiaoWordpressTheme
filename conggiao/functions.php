@@ -29,6 +29,7 @@ add_action('after_setup_theme', function () {
 
     require_once __DIR__ . '/framework-customizations/theme/options/general-helper.php';
     require_once __DIR__ . '/framework-customizations/theme/options/homepage-helper.php';
+    require_once __DIR__ . '/framework-customizations/theme/options/archives-helper.php';
     require_once __DIR__ . '/inc/common/wpqueries.php';
 
 }, 3);
