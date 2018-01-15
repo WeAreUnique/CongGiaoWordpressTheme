@@ -91,7 +91,11 @@ switch ($catDefault['columns']) {
 					</nav>
 				</main><!-- #main -->
 			</div><!-- #primary -->
-			<?php get_sidebar(); ?>
+			<?php 
+			if ( is_active_sidebar( 'widget-archive' ) ) {
+				dynamic_sidebar( 'widget-archive' );
+			}
+			?>
 		</div><!-- Columns -->
 	</div><!-- Container -->
 	<?php } ?>

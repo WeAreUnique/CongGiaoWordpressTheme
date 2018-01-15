@@ -45,5 +45,14 @@
     
     } // END HOMEPAGE FEATURED 
 
-
+    /* :: CONTENT */
+    if ($('#primary').hasClass('content-area')) {
+        
+        $('.single-content-size a.content-size').on('click', function() { 
+            var size = $(this).attr('data-size');
+            console.log( "Size: "+size );
+            $('.single-content .content').attr('class', 'content '+size);
+        });
+        
+    }  // END CONTENT
 }();

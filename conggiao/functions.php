@@ -26,10 +26,15 @@ add_action('after_setup_theme', function () {
     require_once __DIR__ . '/inc/common/sidebar.php';
     require_once __DIR__ . '/inc/common/nav.php';
     require_once __DIR__ . '/inc/common/ultilities.php';
+    require_once __DIR__ . '/inc/common/comment_walker.php';
+
+    require_once __DIR__ . '/inc/widget/widget_text.php';
 
     require_once __DIR__ . '/framework-customizations/theme/options/general-helper.php';
     require_once __DIR__ . '/framework-customizations/theme/options/homepage-helper.php';
     require_once __DIR__ . '/framework-customizations/theme/options/archives-helper.php';
+    require_once __DIR__ . '/framework-customizations/theme/options/single-helper.php';
+    require_once __DIR__ . '/framework-customizations/theme/options/page-helper.php';
     require_once __DIR__ . '/inc/common/wpqueries.php';
 
 }, 3);

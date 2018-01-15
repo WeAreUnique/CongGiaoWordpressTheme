@@ -190,7 +190,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 return $html;
             }
             $number = count($queryPosts);
-            printArr($args, 'args');
+            // printArr($args, 'args');
             $viewOptionGreate1 = $viewOptions;
             $viewOptionGreate1['show_exper'] = false;
             $viewOptionGreate1['show_cats'] = false;

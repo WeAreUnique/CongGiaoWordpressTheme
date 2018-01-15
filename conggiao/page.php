@@ -1,38 +1,62 @@
 <?php
 /**
- * The template for displaying all pages
+ * The template for displaying all single posts
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package CongGiao
  */
 
-get_header(); ?>
+get_header(); 
+$singleDefault = cg_gen_get_page_appearance();
+$isSidebar 	= ($singleDefault['sidebar'] == 'y') ? "sidebar-".$singleDefault['sidebarpost'] : '';
+// printArr($singleDefault, 'singleDefault');
+$style = "border-radius: {$singleDefault['radius']}px";
+?>
+<?php if ( have_posts() ) :  ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<div class="header-section">
+	<div class="container">
+        <h1 class="title is-3 is-spaced"><?php if ( $singleDefault['title'] == 'y' ): the_title(); endif; ?></h1>
+    </div>
+</div>
 
-			<?php
-			while ( have_posts() ) : the_post();
-
-				get_template_part( 'template-parts/content', 'page' );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-
-			endwhile; // End of the loop.
+	<?php if ( $singleDefault['sidebar'] == 'n' ) :  ?>
+	<?php while ( have_posts() ) : the_post(); ?>
+	<div class="container">
+		<main id="main" class="site-main content-area single-content" style="<?php echo $style; ?>">
+			<div class="content">
+				<?php include( locate_template('template-parts/content.php') ); ?>
+			</div>
+		</main>
+	</div>
+	<?php endwhile; ?>
+	<?php else:  ?>
+	<?php while ( have_posts() ) : the_post(); ?>
+	<div class="container">
+		<div class="columns <?php echo $isSidebar; ?>">
+			<div id="primary" class="content-area column <?php echo ($singleDefault['sidebar'] == 'y') ? 'is-9' : '';?>">
+				<main id="main" class="site-main single-content" style="<?php echo $style; ?>">
+					<div class="content">
+						<?php include( locate_template('template-parts/content.php') ); ?>
+					</div>
+				</main>
+				<?php if ($singleDefault['comments'] == 'y'){
+                    comments_template();
+                } ?>
+			</div>
+			<?php 
+			if ( is_active_sidebar( 'widget-single' ) ) {
+				echo '<aside id="sidebar" class="widget-area column is-3">';
+					dynamic_sidebar( 'widget-single' );
+				echo '</aside>';
+			}
 			?>
+		</div>
+	</div>
+	<?php endwhile; ?>
+	<?php endif; ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+<?php endif; ?>
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer();

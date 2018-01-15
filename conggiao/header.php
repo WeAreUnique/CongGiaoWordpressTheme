@@ -13,10 +13,15 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="robots" content="index, follow">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="author" content="Tôi Là Tùng">
+	<meta name="description" content="<?php bloginfo('description'); ?>">
+	<meta property="og:description" content="<?php bloginfo('description'); ?>">
+	<title><?php wp_title(''); ?></title>
 	
 	<?php
 	if (defined('WP_DEBUG') && true === WP_DEBUG) {
@@ -79,7 +84,10 @@
     // printArr(cg_home_get_sidebar(), 'cg_home_get_sidebar');
     // printArr(cg_home_get_showsearch(), 'cg_home_get_showsearch');
     // printArr(cg_home_get_featured(), 'cg_home_get_featured');
-    printArr(cg_home_get_section(), 'cg_home_get_section');
+    // printArr(cg_home_get_section(), 'cg_home_get_section');
+    //printArr(cg_gen_get_single_appearance(), 'cg_gen_get_single_appearance');
+    //printArr(cg_gen_get_page_appearance(), 'cg_gen_get_page_appearance');
+    
     //printArr(cg_gen_get_archives_default('cats_default'), 'cg_gen_get_cats_default');
 ?>
 

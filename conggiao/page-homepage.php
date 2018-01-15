@@ -64,7 +64,13 @@ $isSidebar 		= ($homesidebar['chon'] == 'y') ? "sidebar-".$homesidebar['pos'] : 
 					<?php include( locate_template('template-parts/homepagesection.php') ); ?>
 				</main><!-- #main -->
 			</div><!-- #primary -->
-			<?php get_sidebar(); ?>
+			<?php 
+			if ( is_active_sidebar( 'widget-homepage' ) ) {
+				echo '<aside id="sidebar" class="widget-area column is-3">';
+					dynamic_sidebar( 'widget-homepage' );
+				echo '</aside>';
+			}
+			?>
 		</div><!-- Columns -->
 	</div><!-- Container -->
 	<?php } ?>

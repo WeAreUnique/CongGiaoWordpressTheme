@@ -36,9 +36,9 @@ function toilatung_register_required_plugins() {
             'required'          => true
         ),
         array(
-            'name'              => 'Ajax Pagination and Infinite Scroll',
-            'slug'              => 'malinky-ajax-pagination',
-            'required'          => true
+            'name'              => 'Elementor',
+            'slug'              => 'elementor',
+            'required'          => false
         )
     );
 

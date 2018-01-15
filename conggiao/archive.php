@@ -87,7 +87,13 @@ switch ($catDefault['columns']) {
 					</nav>
 				</main><!-- #main -->
 			</div><!-- #primary -->
-			<?php get_sidebar(); ?>
+			<?php 
+			if ( is_active_sidebar( 'widget-archive' ) ) {
+				echo '<aside id="sidebar" class="widget-area column is-3">';
+					dynamic_sidebar( 'widget-archive' );
+				echo '</aside>';
+			}
+			?>
 		</div><!-- Columns -->
 	</div><!-- Container -->
 	<?php } ?>
