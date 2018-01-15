@@ -35,13 +35,17 @@ Giao diện được chia sẻ miễn phí và các bạn hoàn toàn sử dụn
 <details>
 <summary>CÀI ĐẶT GIAO DIỆN</summary>
 Để cài đặt các bạn tải giao diện này về, copy thư mục `conggiao` vào thư mục `wp-content/themes/`. Sau đó vào Giao Diện để kích hoạt.
+
 ![Hướng Dẫn](https://github.com/WeAreUnique/CongGiaoWordpressTheme/raw/master/guide-image/huong-dan-01.jpg)
+
 </details>
 
 <details>
 <summary>CÀI ĐẶT PLUGIN CẦN THIẾT</summary>
 Sau khi kích hoạt, sẻ có một bảng hiển thị yêu cầu bạn cài đặt một số plugin cần thiết để giao diện có thể hoạt động tốt.
+
 ![Cài đặt Plugin](https://github.com/WeAreUnique/CongGiaoWordpressTheme/raw/master/guide-image/huong-dan-02.jpg)
+
 Bạn nhấn vào `Begin installing plugins` và nhấn tick vào tất cả và nhấn `install` để tải về, sau đó tick lại tất cả và chọn kích hoạt nhé.
 </details>
 
@@ -49,6 +53,7 @@ Bạn nhấn vào `Begin installing plugins` và nhấn tick vào tất cả và
 <summary>THIẾT LẬP TRANG CHỦ</summary>
 Sau khi cài đặt xong nếu bạn ra trang chủ thì vẫn chưa có gì, lúc này bạn cần thiết lập trang chủ.
 Đầu tiên bạn vào `Trang` rồi nhấn `Tạo Trang`, đặt tiêu đề giới thiệu về website và chọn mẫu là Giao Diện là `Homepage Template` nhé
+
 ![Page Template](https://github.com/WeAreUnique/CongGiaoWordpressTheme/raw/master/guide-image/huong-dan-03.jpg)
 
 Sau đó bạn vào Cài Đặt > Đọc và thiết lập như hình.
@@ -59,11 +64,13 @@ Sau đó bạn vào Cài Đặt > Đọc và thiết lập như hình.
 <details>
 <summary>THIẾT LẬP GIAO DIỆN</summary>
 Sau khi tạo trang chủ, bạn nhấn vào `Thiết Lập Giao Diện` để tiến hành thiết lập.
+
 ![Home](https://github.com/WeAreUnique/CongGiaoWordpressTheme/raw/master/guide-image/huong-dan-05.jpg)
 
 Ở trang thiết lập giao diện này bạn sẻ có những tùy chọn để thiết lập, tạm thời các bạn nhấn vào từng tùy chọn để tìm hiểu nhé.
 
 ![Home](https://github.com/WeAreUnique/CongGiaoWordpressTheme/raw/master/guide-image/huong-dan-06.jpg)
+
 </details>
 
 
