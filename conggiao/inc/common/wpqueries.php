@@ -67,7 +67,7 @@ function conggiao_slider_post_format($post, $format){
 
 function conggiao_homepage_section_static_format($section, $withContainer=false){
     $sectionBg = "background-color: {$section['bgcolor']}; border-radius: {$section['radius']}px; padding: {$section['padding']}px;";
-    $html .= "<section class='section {$section['chon']}' style='{$sectionBg}'>";
+    $html = "<section class='section {$section['chon']}' style='{$sectionBg}'>";
         $html .= ($withContainer == true) ? "<div class='container'>" : '';
             // Header
             $html .= ($section['tieude'] == '') ? '' : conggiao_homepage_section_header_format($section['tieude'], $section['headingcolor'], $section['mota'], $section['lienket'], $section['seperator'], $section['sepcolor'], $section['bgcolor']);
