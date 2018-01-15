@@ -5,9 +5,11 @@ Xin chào các bạn!
 Đây là giao diện mình làm giúp nên mình xin chia sẻ giao diện này tới mọi người để mọi người có thể sử dụng, cũng như chia sẻ, nâng cấp nó. 
 Nếu có câu hỏi, lỗi, ý tưởng hay gợi ý tính năng có thể nhấn vào [Đây](https://github.com/WeAreUnique/CongGiaoWordpressTheme/issues/new) để gửi nhé. 
 
+Giao diện được chia sẻ miễn phí và các bạn hoàn toàn sử dụng nó, tuy nhiên **không được** sử dụng mục đích thương mại nhé.
+
 ![Screen Shot](https://github.com/WeAreUnique/CongGiaoWordpressTheme/raw/master/guide-image/main.png)
 
-###Hiện vẫn đang hoàn thiện tài liệu hướng dẫn.
+### Hiện vẫn đang hoàn thiện tài liệu hướng dẫn.
 
 ## TÍNH NĂNG CHÍNH
 
