@@ -21,7 +21,17 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php //conggiao_entry_footer(); ?>
+	<footer class="entry-footer" style="display: block; margin-top: 20px;">
+		<?php 
+		$tags = get_tags();
+			$html = '<div class="tags">';
+			foreach ( $tags as $tag ) {
+				$tag_link = get_tag_link( $tag->term_id );
+				$html .= "<span class='tag'><a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
+				$html .= "{$tag->name}</a></span>";
+			}
+			$html .= '</div>';
+			echo $html;
+		?>
 	</footer><!-- .entry-footer -->
 </article>

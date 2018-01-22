@@ -89,7 +89,7 @@ function conggiao_homepage_section_post_format($section, $withContainer=false){
             $html .= ($section['tieude'] == '') ? '' : conggiao_homepage_section_header_format($section['tieude'], $section['headingcolor'], $mota, $section['lienket'], $section['seperator'], $section['sepcolor'], $section['bgcolor']);
             // Content
             $contentArgs = array(
-                'numberposts'   => $section['num_post'],
+                'posts_per_page'   => $section['num_post'],
             );
             if ( $section['sortby']         == 'views' ){
                 $contentArgs['orderby']     = 'meta_value_num';
@@ -117,6 +117,8 @@ function conggiao_homepage_section_post_format($section, $withContainer=false){
                 'posttitlecolor'=> $section['posttitlecolor'],
                 'postmetacolor' => $section['postmetacolor'],
             );
+
+            printArr($contentArgs, 'contentArgs');
 
 
             $trans = "trans_".vn_to_str($section['tieude'])."_".$section['style'];
@@ -294,7 +296,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                     foreach ($queryPosts as $post) {
                         setup_postdata( $post );
                         $html .= "<div class='column is-half-mobile is-half-tablet is-one-third-desktop'>";
-                            $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[0], $viewOptions);
+                            $html .= conggiao_homepage_get_single_post_content_format($style, $post, $viewOptions);
                         $html .= "</div>";
                     }
                     wp_reset_postdata();

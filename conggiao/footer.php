@@ -19,13 +19,11 @@ $footerInfo = cg_gen_get_footer_info();
 		<div class="container">
 		<?php 
 			if ( $wgNumber['chon'] == 'y' ){
-				echo '<div class="columns footer-widget is-mobile">';
+				echo '<div class="columns footer-widget">';
 				for ($i=1; $i <= $numberWd; $i++) {  ?>
-				<div class="column">
+				<div class="column widget-area ">
 					<?php if ( is_active_sidebar( 'footer-'.$i ) ) : ?>
-					<ul id="sidebar">
 						<?php dynamic_sidebar( 'footer-'.$i ); ?>
-					</ul>
 					<?php endif; ?>
 				</div>
 				<?php 

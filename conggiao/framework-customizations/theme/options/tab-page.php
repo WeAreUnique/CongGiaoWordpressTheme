@@ -54,6 +54,20 @@ $options   = array(
 		                            )
 		                        ),
 		                    ),
+		                    'title'    			=> array(
+		                        'type'      	=> 'switch',
+		                        'value'     	=> 'y',
+		                        'label'     	=> __('Tiêu Đề Trang', 'conggiao'),
+		                        'desc'      	=> __('Bạn có muốn hiển thị Tiêu Đề Trang?', 'conggiao'),
+		                        'left-choice'   => array(
+		                            'value'     => 'n',
+		                            'label'     => __('KHÔNG', 'conggiao'),
+		                        ),
+		                        'right-choice'  => array(
+		                            'value'     => 'y',
+		                            'label'     => __('CÓ', 'conggiao'),
+		                        ),
+		                    ),
 		                    'radius'   			=> array(
 		                        'type'          => 'slider',
 		                        'value'         => 0,

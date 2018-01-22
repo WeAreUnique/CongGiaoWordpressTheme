@@ -132,4 +132,66 @@ function printArr($arr,$label=''){
     }
 }
 
+add_action('admin_head', 'custom_admin_style_editor');
+
+function custom_admin_style_editor() {
+    $sep_style_1 = get_template_directory_uri() .'/assets/images/layouts/header_sep_style1.png';
+    $sep_style_2 = get_template_directory_uri() .'/assets/images/layouts/header_sep_style2.png';
+    $sep_style_3 = get_template_directory_uri() .'/assets/images/layouts/header_sep_style3.png';
+    $sep_style_4 = get_template_directory_uri() .'/assets/images/layouts/header_sep_style4.png';
+  echo '<style>
+    .widget-sep-style input{
+        margin:0;padding:0;
+        -webkit-appearance:none;
+           -moz-appearance:none;
+                appearance:none;
+    }
+
+    .widget-sep-style input:active +.sep-style{opacity: .9;}
+    .widget-sep-style input:checked +.sep-style{
+        -webkit-filter: none;
+           -moz-filter: none;
+                filter: none;
+    }
+    .sep-style{
+        cursor:pointer;
+        background-size:contain;
+        background-repeat:no-repeat;
+        display:inline-block;
+        width:300px;
+        height:35px;
+        -webkit-transition: all 100ms ease-in;
+           -moz-transition: all 100ms ease-in;
+                transition: all 100ms ease-in;
+        -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+           -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+                filter: brightness(1.8) grayscale(1) opacity(.7);
+    }
+    .sep-style:hover{
+        -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+           -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+                filter: brightness(1.2) grayscale(.5) opacity(.9);
+    }
+    .widget-sep-style .sep-style-1{
+        background-image: url('.$sep_style_1.');
+        width: 300px;
+        height: 40px;
+    }
+    .widget-sep-style .sep-style-2{
+        background-image: url('.$sep_style_2.');
+        width: 300px;
+        height: 40px;
+    }
+    .widget-sep-style .sep-style-3{
+        background-image: url('.$sep_style_3.');
+        width: 300px;
+        height: 40px;
+    }
+    .widget-sep-style .sep-style-4{
+        background-image: url('.$sep_style_4.');
+        width: 300px;
+        height: 40px;
+    }
+  </style>';
+}
 ?>

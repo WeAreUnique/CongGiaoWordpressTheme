@@ -48,6 +48,9 @@ $style = "border-radius: {$singleDefault['radius']}px";
 				<?php if ( $singleDefault['meta'] == 'y' ) :  ?>
 					<?php include( locate_template('template-parts/single-meta.php') ); ?>
 				<?php endif; ?>
+				<?php if ($singleDefault['thumb'] == 'y'){ ?>
+                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" style="width: 100%; height: auto;">
+                <?php } ?>
 				<main id="main" class="site-main single-content" style="<?php echo $style; ?>">
 					<div class="content">
 						<?php include( locate_template('template-parts/content.php') ); ?>

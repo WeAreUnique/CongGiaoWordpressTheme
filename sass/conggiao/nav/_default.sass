@@ -37,25 +37,6 @@
 				color: #fff
 			&.open
 				display: block
-			>li.menu-item-has-children
-				>a
-					&:after
-						-moz-border-bottom-colors: none
-						-moz-border-left-colors: none
-						-moz-border-right-colors: none
-						-moz-border-top-colors: none
-						border-color: #BBBBBB transparent transparent
-						border-image: none
-						border-style: solid
-						border-width: 4px
-						content: ""
-						display: inline-block
-						height: 0
-						position: absolute
-						right: 3px
-						top: 45%
-						width: 0
-						border-top-color: #ddd
 			li
 				display: block
 				position: relative
@@ -69,48 +50,39 @@
 				.sub-menu
 					font-weight: normal
 					margin-left: 20px
-		&.s1
-			#header-menu
-				&>li
-					&.current-menu-item, &.current-menu-parent, &.current-post-ancestor
-						a
-							border-bottom: 3px solid #75D0ED
-						.sub-menu
-							a
-								border-bottom: none
-					&>a
-						border-bottom: 3px solid transparent
-						&:hover
-							border-bottom: 3px solid #75D0ED
-						
-		&.s2
-			border-bottom: 3px solid #75D0ED
-			#header-menu
-				li
-					&.current-menu-item, &.current-menu-parent, &.current-post-ancestor
-						&>a
-							background-color: #75D0ED
-							color: #fff
-					a
-						border-bottom: 3px solid transparent
-						&:hover
-							background-color: #75D0ED
-							color: #fff
-						.sub-menu
-							a
-								background-color: transparent
-
 		+desktop
 			.mobile-menu
 				display: none
 			#header-menu
 				display: block
+				>li.menu-item-has-children
+					>a
+						&:after
+							-moz-border-bottom-colors: none
+							-moz-border-left-colors: none
+							-moz-border-right-colors: none
+							-moz-border-top-colors: none
+							border-color: #BBBBBB transparent transparent
+							border-image: none
+							border-style: solid
+							border-width: 4px
+							content: ""
+							display: inline-block
+							height: 0
+							position: absolute
+							right: 9px
+							top: 45%
+							width: 0
+							border-top-color: #ddd
 				li
 					display: inline-block
 					position: relative
 					a
 						display: block
 						padding: 15px
+					&.menu-item-has-children
+						a
+							padding: 15px 20px 15px 15px
 					&:hover
 						color: #75D0ED
 						.sub-menu
@@ -132,3 +104,34 @@
 						.sub-menu 
 							display: none
 
++desktop
+	#site-navigation
+		&.s1
+			#header-menu
+				&>li
+					&.current-menu-item, &.current-menu-parent, &.current-post-ancestor
+						a
+							border-bottom: 3px solid #75D0ED
+						.sub-menu
+							a
+								border-bottom: none
+					&>a
+						border-bottom: 3px solid transparent
+						&:hover
+							border-bottom: 3px solid #75D0ED
+		&.s2
+			border-bottom: 3px solid #75D0ED
+			#header-menu
+				li
+					&.current-menu-item, &.current-menu-parent, &.current-post-ancestor
+						&>a
+							background-color: #75D0ED
+							color: #fff
+					a
+						border-bottom: 3px solid transparent
+						&:hover
+							background-color: #75D0ED
+							color: #fff
+						.sub-menu
+							a
+								background-color: transparent

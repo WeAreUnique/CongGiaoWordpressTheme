@@ -50,7 +50,6 @@
         
         $('.single-content-size a.content-size').on('click', function() { 
             var size = $(this).attr('data-size');
-            console.log( "Size: "+size );
             $('.single-content .content').attr('class', 'content '+size);
         });
         

@@ -303,22 +303,22 @@ $options   = array(
                                                 'c4'    => get_template_directory_uri() .'/assets/images/layouts/four-column.png',
                                             )
                                         ),
-                                        'bg_color'  => array(
-                                            'type'  => 'rgba-color-picker',
-                                            'value' => '#4f4f4f',
-                                            'label' => __('Màu Nền', 'conggiao'),
-                                            'desc'  => __('<strong>Màu nền</strong> mặc định cho footer widget.', 'conggiao'),
-                                        ),
-                                        'txt_color' => array(
-                                            'type'  => 'color-picker',
-                                            'value' => '#ffffff',
-                                            'label' => __('Màu Chữ', 'conggiao'),
-                                            'desc'  => __('<strong>Màu chữ</strong> mặc định cho footer widget.', 'conggiao'),
-                                        )
                                     ),
                                 ),
                             )
                         ),
+                    ),
+                    'gen_footer_bg_color'  => array(
+                        'type'  => 'rgba-color-picker',
+                        'value' => '#4f4f4f',
+                        'label' => __('Màu Nền', 'conggiao'),
+                        'desc'  => __('<strong>Màu nền</strong> mặc định cho footer.', 'conggiao'),
+                    ),
+                    'gen_footer_txt_color' => array(
+                        'type'  => 'color-picker',
+                        'value' => '#ffffff',
+                        'label' => __('Màu Chữ', 'conggiao'),
+                        'desc'  => __('<strong>Màu chữ</strong> mặc định cho footer.', 'conggiao'),
                     ),
                     'gen_left_text'     => array(
                         'type'          => 'wp-editor',

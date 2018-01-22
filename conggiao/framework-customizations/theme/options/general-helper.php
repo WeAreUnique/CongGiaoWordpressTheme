@@ -99,25 +99,29 @@ function _action_theme_enqueue_inline_nav_style(){
 			#masthead #site-navigation #header-menu a {
 			  color: {$w['textcolor']};
 			}
-			#masthead #site-navigation #header-menu a:hover, #masthead #site-navigation #header-menu a:active {
-			  color: {$w['hovercolor']};
-			}
+			
 			@media screen and (min-width: 1024px) {
 			  #masthead #site-navigation #header-menu li .sub-menu {
 			    background-color: {$w['bgcolor']};
 			  }
+			  #masthead #site-navigation #header-menu a:hover, #masthead #site-navigation #header-menu a:active {
+				color: {$w['hovercolor']};
+			  }
+			  #masthead #site-navigation.s1 #header-menu > li.current-menu-item a {
+			    border-bottom: 3px solid {$w['hovercolor']};
+			  }
+			  #masthead #site-navigation.s1 #header-menu > li > a:hover {
+			    border-bottom: 3px solid {$w['hovercolor']};
+			  }
 			}
-			#masthead #site-navigation.s1 #header-menu > li.current-menu-item a {
-			  border-bottom: 3px solid {$w['hovercolor']};
-			}
-			#masthead #site-navigation.s1 #header-menu > li > a:hover {
-			  border-bottom: 3px solid {$w['hovercolor']};
-			}</style>";
+			
+			</style>";
 		// echo "<script>console.log( 'Debug Objects: " . $s1Style . "' );</script>";
     	// wp_add_inline_style( 'navs1style', $s1Style );
     	echo $s1Style;
     }else if ($w['chon'] == 's2'){
     	$s2Style = "<style>
+    	
 	    	#masthead #site-navigation {
 			  background-color: {$w['bgcolor']};
 			}
@@ -127,25 +131,28 @@ function _action_theme_enqueue_inline_nav_style(){
 			#masthead #site-navigation #header-menu a {
 			  color: {$w['textcolor']};
 			}
-			#masthead #site-navigation #header-menu a:hover, #masthead #site-navigation #header-menu a:active {
-			  color: {$w['hovercolor']};
-			}
+			
 			@media screen and (min-width: 1024px) {
 			  #masthead #site-navigation #header-menu li .sub-menu {
 			    background-color: {$w['bgcolor']};
+			  }
+			  #masthead #site-navigation #header-menu a:hover, #masthead #site-navigation #header-menu a:active {
+			    color: {$w['hovercolor']};
+			  }
+			  #masthead #site-navigation.s2 #header-menu li.current-menu-item > a {
+			    background-color: {$w['hovercolor']};
+			    color: {$w['textcolor']};
+			  }
+			  #masthead #site-navigation.s2 #header-menu li a:hover {
+			    background-color: {$w['hovercolor']};
+			    color: {$w['textcolor']};
 			  }
 			}
 			#masthead #site-navigation.s2 {
 			  border-bottom: 3px solid {$w['hovercolor']};
 			}
-			#masthead #site-navigation.s2 #header-menu li.current-menu-item > a {
-			  background-color: {$w['hovercolor']};
-			  color: {$w['textcolor']};
-			}
-			#masthead #site-navigation.s2 #header-menu li a:hover {
-			  background-color: {$w['hovercolor']};
-			  color: {$w['textcolor']};
-			}</style>";
+			
+		</style>";
 		// echo "<script>console.log( 'Debug Objects: " . $s2Style . "' );</script>";
     	// wp_add_inline_style( 'navs2style', $s2Style );
     	echo $s2Style;
@@ -161,12 +168,28 @@ function cg_gen_get_footer_widget(){
 	if ( $chon == 'y' ){
 		$keys 				= fw_akg('y/widget_setting',$opt);
 		$res['number'] 		= ltrim($keys['number'],'c');
-		$res['bgColor'] 	= $keys['bg_color'];
-		$res['textColor'] 	= $keys['txt_color'];
 	}
 	$res['chon'] = $chon;
 	return $res;
 }
+
+function _action_theme_footer_wp_print_styles() {
+    if (!defined('FW')) return; // prevent fatal error when the framework is not active
+
+    $gen_footer_bg_color = fw_get_db_settings_option('gen_footer_bg_color');
+    $gen_footer_txt_color = fw_get_db_settings_option('gen_footer_txt_color');
+
+    echo '<style type="text/css">'
+         . '.footer { '
+         . 'background-color: '. esc_html($gen_footer_bg_color) .'; '
+         . 'color: '. esc_html($gen_footer_txt_color) .'; '
+         . '}'
+         . '.footer a, .footer p, .footer span, .footer .title{ '
+         . 'color: '. esc_html($gen_footer_txt_color) .'; '
+         . '}'
+         . '</style>';
+}
+add_action('wp_print_styles', '_action_theme_footer_wp_print_styles');
 
 function cg_gen_get_footer_info(){
 	$res = array();
@@ -184,7 +207,15 @@ function _action_theme_dynamic_footer_sidebar() {
     if ($w['chon'] == 'y'){
         if ( function_exists('register_sidebar') ) {
         	for ($i=1; $i <= $w['number'] ; $i++) { 
-        		register_sidebar( array('id' => 'footer-'.$i, 'name' => 'Widget Cuối Trang - Cột '.$i) );
+        		register_sidebar(array(
+			        'name' => __('Widget Cuối Trang - Cột '.$i, 'conggiao'),
+			        'description' => __('Widget Cuối Trang (Footer)', 'conggiao'),
+			        'id' => 'footer-'.$i,
+			        'before_widget' => '<div id="%1$s" class="%2$s widget-area widget-single">',
+			        'after_widget' => '</div>',
+			        'before_title' => '<h3 class="widget-title title"><span>',
+			        'after_title' => ' </span></h3>'
+			    ));
         	}
             //register_sidebars($w['number'], array('name'=>'Widget Cuối Trang - Cột %d'));
         }

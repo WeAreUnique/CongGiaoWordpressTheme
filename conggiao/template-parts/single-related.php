@@ -10,15 +10,14 @@ if ($categories) {
         'category__in' => $category_ids,
         'post__not_in' => array($post->ID),
         'posts_per_page'=> 3, // Number of related posts that will be shown.
-        'caller_get_posts'=>1
     );
 
     $my_query = new wp_query( $args );
     if( $my_query->have_posts() ) {
-        echo '<div id="related_posts"><h3 class="title is-3">Bài Viết Tương Tự</h3><div class="columns">';
+        echo '<div id="related_posts"><h3 class="title is-3">Bài Viết Tương Tự</h3><div class="columns is-mobile">';
         while( $my_query->have_posts() ) {
             $my_query->the_post();?>
-            <div class="column is-4">
+            <div class="column is-6-mobile is-4-tablet is-4-desktop"> 
                 <div class="post-thumb">
                     <a href="<?php echo esc_url( get_permalink() ) ?>" title="" rel="bookmark">
                         <img class="post-thumb-img lazyload" data-src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title() ?>">
