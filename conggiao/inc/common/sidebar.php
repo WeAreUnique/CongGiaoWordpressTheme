@@ -134,18 +134,6 @@ function kk_dynamic_sidebar_params($params){
         case 'sep-style-1':
             $params[0]['before_title'] = preg_replace('/<h3/', '<h3 style="color: '.$headingcolor.'; border-bottom: 1px solid '.$sepcolor.';" ', $params[0]['before_title'], 1);
             $params[0]['before_title'] = preg_replace('/<span/', '<span style="color: '.$headingcolor.'; padding-bottom: 6px; border-bottom: 3px solid '.$sepcolor.'" ', $params[0]['before_title'], 1);
-            // $widgetID = $params[0]['widget_id'];
-            // echo '<style>'
-            // . '#' . $widgetID . '.sep-style-1 .widget-title:after{'
-            // . 'border-bottom: 3px solid '.$sepcolor.';'
-            // . '}'
-            // . '#' . $widgetID . '.sep-style-1 .widget-title{'
-            // . 'border-bottom: 1px solid '.$sepcolor.';'
-            // . '}'
-            // . '#' . $widgetID . '.sep-style-1 .widget-title span{'
-            // . 'color: '.$headingcolor.';'
-            // . '}'
-            // . '</style>';
             break;
         case 'sep-style-2':
             $params[0]['before_title'] = preg_replace('/<h3/', '<h3 style="color: '.$headingcolor.'; border-bottom: 1px solid '.$sepcolor.'; border-left: 5px solid '.$sepcolor.';" ', $params[0]['before_title'], 1);
