@@ -118,7 +118,7 @@ function conggiao_homepage_section_post_format($section, $withContainer=false){
                 'postmetacolor' => $section['postmetacolor'],
             );
 
-            printArr($contentArgs, 'contentArgs');
+            //printArr($contentArgs, 'contentArgs');
 
 
             $trans = "trans_".vn_to_str($section['tieude'])."_".$section['style'];
