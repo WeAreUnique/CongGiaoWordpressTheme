@@ -39,6 +39,11 @@ function toilatung_register_required_plugins() {
             'name'              => 'Elementor',
             'slug'              => 'elementor',
             'required'          => false
+        ),
+        array(
+            'name'              => 'Yoast SEO',
+            'slug'              => 'wordpress-seo',
+            'required'          => false
         )
     );
 
