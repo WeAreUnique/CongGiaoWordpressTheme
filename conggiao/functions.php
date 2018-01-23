@@ -28,7 +28,6 @@ add_action('after_setup_theme', function () {
         __FILE__,
         'conggiao'
     );
-    $myUpdateChecker->setBranch('master');
     require_once __DIR__ . '/inc/common/enqueue.php';
     require_once __DIR__ . '/inc/common/sidebar.php';
     require_once __DIR__ . '/inc/common/nav.php';
