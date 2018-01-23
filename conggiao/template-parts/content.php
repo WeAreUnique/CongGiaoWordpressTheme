@@ -23,15 +23,9 @@
 
 	<footer class="entry-footer" style="display: block; margin-top: 20px;">
 		<?php 
-		$tags = get_tags();
-			$html = '<div class="tags">';
-			foreach ( $tags as $tag ) {
-				$tag_link = get_tag_link( $tag->term_id );
-				$html .= "<span class='tag'><a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
-				$html .= "{$tag->name}</a></span>";
-			}
-			$html .= '</div>';
-			echo $html;
+		if (is_single()){
+			the_tags( '<div class="tags"><span class="tag">', '</span><span class="tag">', '</span></div>' );
+		}
 		?>
 	</footer><!-- .entry-footer -->
 </article>

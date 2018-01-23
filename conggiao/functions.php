@@ -22,6 +22,13 @@ if (!isset($content_width))
 
 add_action('after_setup_theme', function () {
 
+    require __DIR__ . '/update-checker/plugin-update-checker.php';
+    $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+        'https://raw.githubusercontent.com/WeAreUnique/CongGiaoWordpressTheme/master/theme.json',
+        __FILE__,
+        'conggiao'
+    );
+
     require_once __DIR__ . '/inc/common/enqueue.php';
     require_once __DIR__ . '/inc/common/sidebar.php';
     require_once __DIR__ . '/inc/common/nav.php';

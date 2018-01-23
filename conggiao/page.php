@@ -37,7 +37,7 @@ $style = "border-radius: {$singleDefault['radius']}px";
 		<div class="columns <?php echo $isSidebar; ?>">
 			<div id="primary" class="content-area column <?php echo ($singleDefault['sidebar'] == 'y') ? 'is-9' : '';?>">
 				<main id="main" class="site-main single-content" style="<?php echo $style; ?>">
-					<div class="content">
+					<div class="content is-clearfix">
 						<?php include( locate_template('template-parts/content.php') ); ?>
 					</div>
 				</main>
