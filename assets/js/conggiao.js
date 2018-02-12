@@ -54,4 +54,22 @@
         });
         
     }  // END CONTENT
+
+    var btnToTop = $('#gototop');
+
+    $(window).scroll(function() {
+      if ($(window).scrollTop() > 300) {
+        btnToTop.addClass('show');
+      } else {
+        btnToTop.removeClass('show');
+      }
+    });
+
+    btnToTop.on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate({scrollTop:0}, '300');
+    });
+
+
+
 }();

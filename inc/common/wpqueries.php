@@ -435,7 +435,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 $html .= "</div>";
                 wp_reset_postdata();
                 //1...
-                $html .= "<div class='columns is-variable is-1 is-mobile is-multiline'>";
+                $html .= "<div class='columns is-variable is-1 is-mobile is-multiline small-box'>";
                     for ($i=1; $i < $number; $i++) { 
                         setup_postdata( $queryPosts[$i] );
                         $html .= "<div class='column is-half-mobile is-half-tablet is-one-third-desktop'>";

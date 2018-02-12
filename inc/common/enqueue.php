@@ -18,6 +18,7 @@ function enqueue_style_script(){
 	wp_enqueue_script( 'lazysite', get_stylesheet_directory_uri() . '/assets/js/lazysizes.min.js', array(), '4.0.1', true );
 	wp_enqueue_script( 'fa5', 'https://use.fontawesome.com/releases/v5.0.3/js/all.js', array(), '5.0.3', true );
 	wp_enqueue_script( 'bxsliderjs', get_stylesheet_directory_uri() . '/assets/js/jquery.bxslider.min.js', array('jquery'), '4.2.12', true );
+	wp_enqueue_script( 'bxsliderjs', get_stylesheet_directory_uri() . '/assets/js/dyscrollup.min.js', array('jquery'), '1.1.13', true );
 	wp_enqueue_script( 'conggiao', get_stylesheet_directory_uri() . '/assets/js/conggiao.js', array('jquery', 'bxsliderjs'), null, true );
 	
 
