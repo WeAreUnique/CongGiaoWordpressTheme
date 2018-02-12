@@ -39,11 +39,16 @@ $pagination-shadow-inset: inset 0 1px 2px rgba($black, 0.2)
       padding-left: 1em
       padding-right: 1em
       border-radius: $radius-rounded
-    .page
+    .page,
+    .first,
+    .last
       border-radius: $radius-rounded
   .previouspostslink,
   .nextpostslink,
   .page,
+  .first,
+  .last,
+  .current,
   .pagination-ellipsis
     +control
     +unselectable
@@ -55,7 +60,10 @@ $pagination-shadow-inset: inset 0 1px 2px rgba($black, 0.2)
     text-align: center
   .previouspostslink,
   .nextpostslink,
-  .page
+  .page,
+  .first,
+  .current,
+  .last
     border-color: $pagination-border-color
     color: $pagination-color
     min-width: 2.25em
@@ -83,11 +91,10 @@ $pagination-shadow-inset: inset 0 1px 2px rgba($black, 0.2)
     pointer-events: none
   .pagination-list
     flex-wrap: wrap
-  .page
-    &.current
-      background-color: $pagination-current-background-color
-      border-color: $pagination-current-border-color
-      color: $pagination-current-color
+  .current
+    color: #F05522
+    padding-left: 0.5em
+    padding-right: 0.5em
 
 .pagination,
 .wp-pagenavi

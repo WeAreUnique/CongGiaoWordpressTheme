@@ -61,7 +61,7 @@
 				margin-bottom: 5px
 				a 
 					color: #fff 
-					font-size: 1.4rem
+					font-size: 1.3rem
 					font-weight: bold
 			.postexcerpt
 				color: #fff 
@@ -118,12 +118,10 @@
 					margin-top: 5px
 					a 
 						color: #fff 
-						font-size: 1rem
+						font-size: 0.9rem
 						font-weight: bold
 				.postexcerpt
-					margin-top: 5px
-					color: #fff 
-					font-size: 0.9rem
+					display: none
 				.postinfo
 					margin-top: 5px
 					span
@@ -221,10 +219,12 @@ main#main
 			padding: 20px 0
 			&.content-style-1
 				.first-row
+					margin-bottom: 5px
 					article
 						margin-left: 5px
-					.small-box:last-child
-						margin-top: 6px
+					.wide-box
+						article
+							margin-left: 0px
 				.other-row
 					.small-box
 						article
@@ -234,21 +234,24 @@ main#main
 								margin-right: 0px
 				.wide-box
 					overflow: hidden
-					max-height: 300px
+					height: 295px
+					margin-top: 5px
 					article
-						max-height: 300px
+						height: 300px
 					img
 						&.post-thumb-img
 							max-height: 300px
 							width: 100%
 					.posttitle
-						margin-top: 5px
-						font-size: 1.4rem
+						a
+							margin-top: 5px
+							font-size: 1.3rem
+							color: #FFF
 				.small-box
 					overflow: hidden
-					max-height: 150px
+					height: 150px
 					article
-						max-height: 150px
+						height: 150px
 					img
 						&.post-thumb-img
 							max-height: 150px
@@ -257,9 +260,15 @@ main#main
 						overflow: hidden
 						.postmetawrap
 							padding: 5px
+						.postexcerpt
+							display: none
 						.posttitle
-							font-size: 0.8rem
+							margin-top: 5px
+							a
+								font-size: 0.8rem
+								color: #FFF
 						.postinfo
+							margin-top: 0
 							span
 								margin-right: 5px
 							.postauthor, .postdate, .postviews, .postcomment
@@ -318,9 +327,10 @@ main#main
 							color: #fff
 			&.content-style-2
 				article
+					overflow: hidden
 					.postthumb
 						position: relative
-						max-height: 150px
+						height: 150px
 						overflow: hidden
 					img
 						&.post-thumb-img
@@ -435,5 +445,11 @@ main#main
 						margin-top: 5px
 					.posttitle
 						margin: 5px 0
-
+				.small-box
+					.postthumb
+						height: 150px
+					img
+						&.post-thumb-img
+							width: 100%
+							height: auto
 
