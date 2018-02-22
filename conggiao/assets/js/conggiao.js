@@ -1,4 +1,4 @@
-!function() {
+jQuery(document).ready(function($) {
     "use strict";
 
     console.log("Script Loaded");
@@ -70,6 +70,4 @@
       $('html, body').animate({scrollTop:0}, '300');
     });
 
-
-
-}();
+});
