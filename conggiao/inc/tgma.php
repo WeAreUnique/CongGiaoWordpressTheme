@@ -44,7 +44,22 @@ function toilatung_register_required_plugins() {
             'name'              => 'Yoast SEO',
             'slug'              => 'wordpress-seo',
             'required'          => false
+        ),
+        array(
+            'name'              => 'Monarch Plugin',
+            'slug'              => 'monarch',
+            'version'           => '1.3.25',
+            'source'            => get_template_directory() . '/inc/tgma-libs/monarch.zip', // The plugin source.
+            'required'          => false
+        ),
+        array(
+            'name'              => 'WP Tab Widget Pro',
+            'slug'              => 'wp-tab-widget-pro',
+            'version'           => '1.0.6',
+            'source'            => get_template_directory() . '/inc/tgma-libs/wp-tab-widget-pro.zip', // The plugin source.
+            'required'          => false
         )
+        
     );
 
     /*
