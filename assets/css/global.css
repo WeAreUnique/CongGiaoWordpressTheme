@@ -6435,6 +6435,92 @@ main#main section.section .section-content.content-style-3 .small-box img.post-t
     margin: 20px 0;
   }
 }
+.header-section {
+  padding: 30px 0;
+}
+
+.single-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 2px;
+}
+
+.single-meta {
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.single-meta .single-content-meta {
+  margin-top: 5px !important;
+}
+.single-meta .single-content-meta a {
+  color: #6E6C6C;
+}
+.single-meta .single-content-meta span {
+  color: #6E6C6C;
+  margin-right: 10px;
+}
+.single-meta .single-content-meta span:last-child {
+  margin-right: 0px;
+}
+.single-meta .single-content-size {
+  text-align: right;
+}
+.single-meta .single-content-size .content-size {
+  border: 1px solid #efefef;
+  background-color: #fff;
+  padding: 5px 7px;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+.single-meta .single-content-size .content-size:last-child {
+  margin-right: 0px;
+}
+.single-meta .single-content-size .content-size i, .single-meta .single-content-size .content-size .svg-inline--fa {
+  color: #3d3d3e;
+}
+.single-meta .single-content-size .content-size.content-small {
+  font-size: 0.7rem;
+}
+.single-meta .single-content-size .content-size.content-normal {
+  font-size: 0.8rem;
+}
+.single-meta .single-content-size .content-size.content-medium {
+  font-size: 1.1rem;
+}
+.single-meta .single-content-size .content-size.content-large {
+  font-size: 1.4rem;
+}
+
+@media screen and (max-width: 768px) {
+  .single-meta .single-content-size {
+    text-align: center;
+  }
+}
+#comments {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+#related_posts {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+}
+#related_posts .post-thumb {
+  max-height: 180px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  padding: 0;
+}
+#related_posts .post-thumb img.post-thumb-img {
+  width: 100% ;
+}
+#related_posts .post-thumb #primary, #related_posts .post-thumb #sidebar {
+  margin: 20px 0 ;
+}
+
 .archive-posts {
   background-color: #fff;
   margin-top: 0;
