@@ -5,9 +5,7 @@ function enqueue_style_script(){
 	// wp_enqueue_script( $handle, $src = '', $deps = array(), $ver = false, $in_footer = false )
 	wp_deregister_script('jquery');
 	//CSS
-	if (defined('WP_DEBUG') && false === WP_DEBUG) {
-		wp_enqueue_style( 'global', get_template_directory_uri() . '/assets/css/global.css' );
-	}
+	wp_enqueue_style( 'global', get_template_directory_uri() . '/assets/css/global.css' );
 	wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/assets/css/custom.css' );
 	wp_enqueue_style( 'bxslidercss', get_template_directory_uri() . '/assets/css/jquery.bxslider.min.css' );
 	// wp_enqueue_style( 'Montserrat', 'https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;subset=vietnamese');

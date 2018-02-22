@@ -24,9 +24,9 @@
 	<title><?php wp_title(''); ?></title>
 	
 	<?php
-	if (defined('WP_DEBUG') && true === WP_DEBUG) {
-		echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/assets/css/global.css">';
-	}
+	// if (defined('WP_DEBUG') && true === WP_DEBUG) {
+	// 	echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/assets/css/global.css">';
+	// }
 	wp_head(); 
 	?>
 	<script>
