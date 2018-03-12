@@ -24,9 +24,9 @@ add_action('after_setup_theme', function () {
 
     require __DIR__ . '/update-checker/plugin-update-checker.php';
     $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-        'https://github.com/WeAreUnique/CongGiaoWordpressTheme',
+        'https://github.com/WeAreUnique/BBLand',
         __FILE__,
-        'conggiao'
+        'bbland'
     );
     $myUpdateChecker->setBranch('master');
     require_once __DIR__ . '/inc/common/enqueue.php';

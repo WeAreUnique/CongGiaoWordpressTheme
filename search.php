@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying search pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -32,12 +32,8 @@ switch ($catDefault['columns']) {
 ?>
 	<div class="header-section">
 		<div class="container">
-            <h1 class="title is-3 is-spaced">
-            	<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Kết Quả Tìm Kiếm: %s', 'conggiao' ), '<span>' . get_search_query() . '</span>' );
-				?>
-            </h1>
+			<h1 class="title"><?php echo 'Kết quả tìm kiếm: '.get_search_query(); ?></h1>
+            
         </div>
 	</div>
 
@@ -93,7 +89,9 @@ switch ($catDefault['columns']) {
 			</div><!-- #primary -->
 			<?php 
 			if ( is_active_sidebar( 'widget-archive' ) ) {
-				dynamic_sidebar( 'widget-archive' );
+				echo '<aside id="sidebar" class="widget-area column is-3">';
+					dynamic_sidebar( 'widget-archive' );
+				echo '</aside>';
 			}
 			?>
 		</div><!-- Columns -->
