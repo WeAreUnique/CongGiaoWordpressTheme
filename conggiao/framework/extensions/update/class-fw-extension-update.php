@@ -21,7 +21,7 @@ class FW_Extension_Update extends FW_Extension {
 	 */
 	protected function _init() {
 
-		if ( ! current_user_can( 'update_plugins' ) ) {
+		if ( ! current_user_can( 'update_plugins' ) && ! fw_is_cli() ) {
 			return false;
 		}
 
@@ -33,6 +33,7 @@ class FW_Extension_Update extends FW_Extension {
 
 	private function add_actions() {
 
+		add_action( 'admin_menu', array( $this, '_action_admin_menu' ) );
 		add_action( 'admin_notices', array( $this, '_action_admin_notices' ) );
 		add_action( 'network_admin_notices', array( $this, '_action_admin_notices' ) );
 
@@ -48,7 +49,7 @@ class FW_Extension_Update extends FW_Extension {
 
 	private function get_fixed_version( $version ) {
 		// remove from the beginning everything that is not a number: 'v1.2.3' -> '1.2.3', 'ver1.0.0' -> '1.0.0'
-		return preg_replace( '/^[^0-9]+/i', '', $version );;
+		return preg_replace( '/^[^0-9]+/i', '', $version );
 	}
 
 	private function get_wp_fs_tmp_dir() {
@@ -57,12 +58,37 @@ class FW_Extension_Update extends FW_Extension {
 		);
 	}
 
+	public function _action_admin_menu() {
+
+		if ( ! is_multisite() || is_plugin_active_for_network( 'unyson/unyson.php' ) ) {
+			return;
+		}
+
+		add_submenu_page( 'admin.php', esc_html__( 'Unyson updates', 'fw' ), '', 'update_plugins', 'fw-update', array( $this, '_multisite_updates_page' ) );
+	}
+
+	public function _multisite_updates_page() {
+		if ( isset( $_GET['action'] ) && ! empty( $_POST ) ) {
+			if ( $_GET['action'] === 'fw-update-extensions' ) {
+				$this->_action_update_extensions();
+			} else {
+				$this->_action_update_theme();
+			}
+		}
+
+		$this->_action_updates_page_footer();
+	}
+
 	/**
 	 * @internal
 	 */
 	public function _action_updates_page_footer() {
+
+		$url = current_filter() == 'core_upgrade_preamble' ? 'update-core.php' : '?page=fw-update';
+
 		echo $this->render_view( 'updates-list', array(
-			'updates' => $this->get_updates( ! empty( $_GET['force-check'] ) )
+			'updates'      => $this->get_updates( ! empty( $_GET['force-check'] ) ),
+			'form_action'  => self_admin_url( $url )
 		) );
 	}
 
@@ -128,7 +154,7 @@ class FW_Extension_Update extends FW_Extension {
 	 *
 	 * @return array {ext_name => update_data}
 	 */
-	private function get_extensions_with_updates( $force_check = false ) {
+	public function get_extensions_with_updates( $force_check = false ) {
 		$updates                = array();
 		$services               = $this->get_children();
 		$theme_ext_requirements = fw()->theme->manifest->get( 'requirements/extensions' );
@@ -799,8 +825,9 @@ class FW_Extension_Update extends FW_Extension {
 
 	/**
 	 * @internal
+	 * @param string $skin
 	 */
-	public function _action_update_extensions() {
+	public function _action_update_extensions( $skin = '' ) {
 		$nonce_name = '_nonce_fw_ext_update_extensions';
 		if ( ! isset( $_POST[ $nonce_name ] ) || ! wp_verify_nonce( $_POST[ $nonce_name ] ) ) {
 			wp_die( __( 'Invalid nonce.', 'fw' ) );
@@ -835,12 +862,16 @@ class FW_Extension_Update extends FW_Extension {
 				);
 			}
 
-			$skin = new _FW_Ext_Update_Extensions_Upgrader_Skin( array(
-				'title' => __( 'Extensions Update', 'fw' ),
-			) );
+			if ( ! $skin ) {
+				$skin = new _FW_Ext_Update_Extensions_Upgrader_Skin( array(
+					'title' => __( 'Extensions Update', 'fw' ),
+				) );
+			}
 		}
 
-		require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		if ( ! fw_is_cli() ) {
+			require_once( ABSPATH . 'wp-admin/admin-header.php' );
+		}
 
 		$skin->header();
 
@@ -923,18 +954,26 @@ class FW_Extension_Update extends FW_Extension {
 			}
 
 			$skin->after();
+
 		} while ( false );
 
 		$skin->footer();
 
-		require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+		if ( ! fw_is_cli() ) {
+			require_once( ABSPATH . 'wp-admin/admin-footer.php' );
+		}
 	}
 
 	public function _action_admin_notices() {
 
 		$updates = $this->get_updates();
 
-		if ( empty( $updates['extensions'] ) || strpos( get_current_screen()->id, 'update-core' ) !== false ) {
+		if ( ( empty( $updates['extensions'] ) && empty( $updates['theme'] ) )
+		     ||
+		     strpos( get_current_screen()->id, 'update-core' ) !== false
+		     ||
+		     ( isset( $_GET['page'] ) && $_GET['page'] === 'fw-update' ) ) {
+
 			return;
 		}
 
@@ -946,14 +985,25 @@ class FW_Extension_Update extends FW_Extension {
 			break;
 		}
 
+		$slug = is_multisite() && ! is_plugin_active_for_network( 'unyson/unyson.php' ) ? '?page=fw-update' : 'update-core.php#fw-ext-update-extensions';
+
+		if ( ! empty( $updates['extensions'] ) && empty( $updates['theme'] ) ) {
+			$text = 'extensions updates';
+		} elseif ( empty( $updates['extensions'] ) && ! empty( $updates['theme'] ) ) {
+			$text = 'theme update';
+		} else {
+			$text = 'extensions/theme updates';
+		}
+
 		echo
 			'<div class="notice notice-warning">
 				<p>' .
 					sprintf(
-				        esc_html__( 'New extensions updates available. %s', 'fw' ),
+				        esc_html__( 'New %s available. %s', 'fw' ),
+				        $text,
 				        fw_html_tag(
 				        	'a',
-					        array( 'href' => self_admin_url( 'update-core.php' ) . '#fw-ext-update-extensions' ),
+					        array( 'href' => self_admin_url( $slug ) ),
 					        esc_html__( 'Go to Updates page', 'fw' )
 				        )
 			        ) .

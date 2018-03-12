@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<FreeFileSync XmlFormat="8" XmlType="BATCH">
+<FreeFileSync XmlType="BATCH" XmlFormat="9">
     <MainConfig>
         <Comparison>
             <Variant>TimeAndSize</Variant>
@@ -37,9 +37,9 @@
         <PostSyncCommand Condition="Completion"/>
     </MainConfig>
     <BatchConfig>
+        <ProgressDialog Minimized="true" AutoClose="true"/>
         <ErrorDialog>Show</ErrorDialog>
-        <PostSyncAction>Exit</PostSyncAction>
-        <RunMinimized>true</RunMinimized>
+        <PostSyncAction>None</PostSyncAction>
         <LogfileFolder Limit="-1">/Users/toilatung/Sites/conggiao/logs</LogfileFolder>
     </BatchConfig>
 </FreeFileSync>

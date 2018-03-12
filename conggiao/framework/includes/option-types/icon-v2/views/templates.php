@@ -191,9 +191,9 @@ $tabs = fw()->backend->render_options(
 
 		<# _.each(recent_uploads, function (attachment_id) { #>
 			<# var selectedClass = data.current_state['attachment-id'] === attachment_id ? 'selected' : ''; #>
-			<# url = _.min(_.values(wp.media.attachment(attachment_id).get('sizes')), function (size) {
+			<# url = (_.min(_.values(wp.media.attachment(attachment_id).get('sizes')), function (size) {
 				return size.width;
-			}).url; #>
+			}).url || wp.media.attachment(attachment_id).get('url')); #>
 
 			<li
 				data-fw-icon-v2="{{ attachment_id }}"
@@ -236,7 +236,7 @@ $tabs = fw()->backend->render_options(
 		<ul class="fw-icon-v2-library-pack">
 
 		<# _.each(data.icons, function (icon) { #>
-			<# var iconClass = data.css_class_prefix ? data.css_class_prefix + ' ' + icon : icon; #>
+			<# var iconClass = (data.css_class_prefix && data.apply_root_class) ? data.css_class_prefix + ' ' + icon : icon; #>
 			<# var selectedClass = data.current_state['icon-class'] === iconClass ? 'selected' : ''; #>
 			<# var favoriteClass = _.contains(data.favorites, iconClass) ? 'fw-icon-v2-favorite' : '' #>
 
