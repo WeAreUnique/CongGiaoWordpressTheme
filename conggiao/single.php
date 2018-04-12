@@ -10,7 +10,7 @@
 get_header(); 
 $singleDefault = cg_gen_get_single_appearance();
 $isSidebar 	= ($singleDefault['sidebar'] == 'y') ? "sidebar-".$singleDefault['sidebarpost'] : '';
-// printArr($singleDefault, 'singleDefault');
+printArr($singleDefault, 'singleDefault');
 $style = "border-radius: {$singleDefault['radius']}px";
 ?>
 <?php if ( have_posts() ) :  ?>
@@ -24,20 +24,23 @@ $style = "border-radius: {$singleDefault['radius']}px";
 	<?php if ( $singleDefault['sidebar'] == 'n' ) :  ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 	<div class="container">
-		<?php if ( $singleDefault['meta'] == 'y' ) :  ?>
-			<?php include( locate_template('template-parts/single-meta.php') ); ?>
-		<?php endif; ?>
+		<?php if ( $singleDefault['meta'] == 'y' ){
+			include( locate_template('template-parts/single-meta.php') );
+		}
+		?>
 		<main id="main" class="site-main single-content" style="<?php echo $style; ?>">
 			<div class="content is-clearfix">
 				<?php include( locate_template('template-parts/content.php') ); ?>
 			</div>
 		</main>
-		<?php if ($singleDefault['related'] == 'y'){
+		<?php 
+		if ($singleDefault['related'] == 'y'){
             include( locate_template('template-parts/single-related.php') );
-        } ?>
-		<?php if ($singleDefault['comments'] == 'y'){
+        }
+        if ($singleDefault['comments'] == 'y'){
             comments_template();
-        } ?>
+        } 
+        ?>
 	</div>
 	<?php endwhile; ?>
 	<?php else:  ?>

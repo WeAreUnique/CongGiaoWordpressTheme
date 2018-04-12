@@ -43,19 +43,19 @@ function conggiao_slider_post_format($post, $format){
             $html   .=  "<div class='postinfo'>";
 
             if ( $format['show_author']     == 'y' ){
-                $html   .=  "<span class='postauthor'><i class='fas fa-user-circle'></i> ".get_the_author_posts_link()."</span>";
+                $html   .=  "<span class='postauthor'><i class='fa fa-user-circle'></i> ".get_the_author_posts_link()."</span>";
             }
             if ( $format['show_date']       == 'y' ){
-                $html   .=  "<span class='postdate'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                $html   .=  "<span class='postdate'><i class='fa fa-clock'></i> ".get_the_date()."</span>";
             }
             if(function_exists('the_views')) {
                 if ( $format['show_viewer']     == 'y' ){
-                    $html   .=  "<span class='postviews'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
+                    $html   .=  "<span class='postviews'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
                 }
             }
             if ( $format['show_comments']   == 'y' ){
                 $comments_count = wp_count_comments($post->ID);
-                $html   .=  "<span class='postcomment'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                $html   .=  "<span class='postcomment'><i class='fa fa-comments'></i> ".$comments_count->approved."</span>";
             }
 
             $html   .=  "</div>";
@@ -351,19 +351,19 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                             if ( $viewOptions['show_author'] ){
                                 $authorlink = get_the_author_posts_link();
                                 $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$viewOptions['postmetacolor']}'>", $authorlink);
-                                $html   .=  "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-user-circle'></i> ".$result."</span>";
+                                $html   .=  "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-user-circle'></i> ".$result."</span>";
                             }
                             if ( $viewOptions['show_date'] ){
-                                $html   .=  "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                                $html   .=  "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-clock'></i> ".get_the_date()."</span>";
                             }
                             if(function_exists('the_views')) {
                                 if ( $viewOptions['show_viewer']     ){
-                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
+                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
                                 }
                             }
                             if ( $viewOptions['show_comments'] ){
                                 $comments_count = wp_count_comments($post->ID);
-                                $html   .=  "<span class='postcomment' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                                $html   .=  "<span class='postcomment' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-comments'></i> ".$comments_count->approved."</span>";
                             }
 
                             $html   .=  "</div>";
@@ -413,19 +413,19 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                             if ( $viewOptions['show_author']     == 'y' ){
                                 $authorlink = get_the_author_posts_link();
                                 $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$viewOptions['postmetacolor']}'>", $authorlink);
-                                $html   .=  "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-user-circle'></i> ".$result."</span>";
+                                $html   .=  "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-user-circle'></i> ".$result."</span>";
                             }
                             if ( $viewOptions['show_date']       == 'y' ){
-                                $html   .=  "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                                $html   .=  "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-clock'></i> ".get_the_date()."</span>";
                             }
                             if(function_exists('the_views')) {
                                 if ( $viewOptions['show_viewer']     == 'y' ){
-                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
+                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
                                 }
                             }
                             if ( $viewOptions['show_comments']   == 'y' ){
                                 $comments_count = wp_count_comments($post->ID);
-                                $html   .=  "<span class='postcomment' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                                $html   .=  "<span class='postcomment' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-comments'></i> ".$comments_count->approved."</span>";
                             }
 
                             $html   .=  "</div>";
@@ -491,19 +491,19 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                     if ( $format['show_author']    ){
                         $authorlink = get_the_author_posts_link();
                         $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$format['postmetacolor']}'>", $authorlink);
-                        $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fas fa-user-circle'></i> ".$result."</span>";
+                        $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fa fa-user-circle'></i> ".$result."</span>";
                     }
                     if ( $format['show_date']      ){
-                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='fa fa-clock'></i> ".get_the_date()."</span>";
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
                         $comments_count = wp_count_comments($post->ID);
-                        $html   .=  "<span class='postcomment' style='color: {$format['postmetacolor']}'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                        $html   .=  "<span class='postcomment' style='color: {$format['postmetacolor']}'><i class='fa fa-comments'></i> ".$comments_count->approved."</span>";
                     }
 
                     $html   .=  "</div>";
@@ -545,19 +545,19 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                     if ( $format['show_author']    ){
                         $authorlink = get_the_author_posts_link();
                         $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$format['postmetacolor']}'>", $authorlink);
-                        $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fas fa-user-circle'></i> ".$result."</span>";
+                        $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fa fa-user-circle'></i> ".$result."</span>";
                     }
                     if ( $format['show_date']      ){
-                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='fa fa-clock'></i> ".get_the_date()."</span>";
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
                         $comments_count = wp_count_comments($post->ID);
-                        $html   .=  "<span class='postcomment' style='color: {$format['postmetacolor']}'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                        $html   .=  "<span class='postcomment' style='color: {$format['postmetacolor']}'><i class='fa fa-comments'></i> ".$comments_count->approved."</span>";
                     }
 
                     $html   .=  "</div>";
@@ -597,19 +597,19 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                     if ( $format['show_author']    ){
                         $authorlink = get_the_author_posts_link();
                         $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$format['postmetacolor']}'>", $authorlink);
-                        $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fas fa-user-circle'></i> ".$result."</span>";
+                        $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fa fa-user-circle'></i> ".$result."</span>";
                     }
                     if ( $format['show_date']      ){
-                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='far fa-clock'></i> ".get_the_date()."</span>";
+                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='fa fa-clock'></i> ".get_the_date()."</span>";
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fas fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
                         $comments_count = wp_count_comments($post->ID);
-                        $html   .=  "<span class='postcomment' style='color: {$format['postmetacolor']}'><i class='far fa-comments'></i> ".$comments_count->approved."</span>";
+                        $html   .=  "<span class='postcomment' style='color: {$format['postmetacolor']}'><i class='fa fa-comments'></i> ".$comments_count->approved."</span>";
                     }
 
                     $html   .=  "</div>";

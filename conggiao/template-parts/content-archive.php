@@ -31,22 +31,22 @@
 			<div class="postinfo">
 				<?php if ( $catDefault['post_author'] == 'y'){ ?>
 					<span class="postauthor">
-						<i class="fas fa-user-circle"></i> <?php the_author_posts_link(); ?>
+						<i class="fa fa-user-circle"></i> <?php the_author_posts_link(); ?>
 					</span>
 				<?php } ?>
 				<?php if ( $catDefault['post_date'] == 'y'){ ?>
 					<span class="postdate">
-						<i class="far fa-clock"></i> <?php echo get_the_date(); ?>
+						<i class="fa fa-clock"></i> <?php echo get_the_date(); ?>
 					</span>
 				<?php } ?>
 				<?php if ( $catDefault['post_viewer'] == 'y'){ ?>
 					<span class="postviews">
-						<i class="fas fa-eye"></i> <?php the_views(); ?>
+						<i class="fa fa-eye"></i> <?php the_views(); ?>
 					</span>
 				<?php } ?>
 				<?php if ( $catDefault['post_comments'] == 'y'){ ?>
 					<span class="postcomment">
-						<i class="far fa-comments"></i> <?php $comments_count = wp_count_comments(); echo $comments_count->approved; ?>
+						<i class="fa fa-comments"></i> <?php $comments_count = wp_count_comments(); echo $comments_count->approved; ?>
 					</span>
 				<?php } ?>
 			</div>
