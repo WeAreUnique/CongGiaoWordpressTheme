@@ -14,7 +14,7 @@ $numberWd 	= ( $wgNumber['chon'] == 'y' ) ? $wgNumber['number'] : 0;
 $footerInfo = cg_gen_get_footer_info();
 ?>
 	</div><!-- #content -->
-	<div id="gototop"><i class="fas fa-arrow-circle-up"></i></div>
+	<div id="gototop"><i class="fa fa-angle-up"></i></div>
 	<footer id="colophon" class="footer" style="padding: 3rem 1.5rem 1.5rem">
 		<div class="container">
 		<?php 

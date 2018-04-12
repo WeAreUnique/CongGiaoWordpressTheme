@@ -1,6 +1,6 @@
 <?php 
-$orig_post = $post;
-global $post;
+// $orig_post = $post;
+// global $post;
 $categories = get_the_category($post->ID);
 if ($categories) {
     $category_ids = array();
@@ -16,7 +16,7 @@ if ($categories) {
     if( $my_query->have_posts() ) {
         echo '<div id="related_posts"><h3 class="title is-3">Bài Viết Tương Tự</h3><div class="columns is-mobile is-multiline">';
         while( $my_query->have_posts() ) {
-            $my_query->the_post();?>
+            $my_query->the_post(); ?>
             <div class="column is-6-mobile is-4-tablet is-4-desktop"> 
                 <div class="post-thumb">
                     <a href="<?php echo esc_url( get_permalink() ) ?>" title="" rel="bookmark">
@@ -26,11 +26,9 @@ if ($categories) {
                 <?php the_title( '<h4 class="posttitle"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" style="color: #242424;">', '</a></h4>' ); ?>
                
             </div>
-        <?
-        }
-    echo '</div></div>';
+        <?php } echo '</div></div>';
     }
+    wp_reset_query(); 
 }
-$post = $orig_post;
-wp_reset_query(); 
+// $post = $orig_post;
 ?>

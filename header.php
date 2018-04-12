@@ -55,7 +55,7 @@
 
 		<nav id="site-navigation" class="main-navigation <?php echo $headernav['chon']; ?>">
 			<div class="container">
-				<a class="mobile-menu"><i class="fas fa-bars"></i> <strong>Menu</strong></a>
+				<a class="mobile-menu"><i class="fa fa-bars"></i> <strong>Menu</strong></a>
 				<?php
 					wp_nav_menu( array(
 						'theme_location' => 'header-menu',

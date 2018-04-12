@@ -24,11 +24,13 @@ add_action('after_setup_theme', function () {
 
     require __DIR__ . '/update-checker/plugin-update-checker.php';
     $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-        'https://github.com/WeAreUnique/BBLand',
+        'https://github.com/WeAreUnique/CongGiaoWordpressTheme',
         __FILE__,
-        'bbland'
+        'conggiao'
     );
+    $myUpdateChecker->setAuthentication('05b82c6f54f1b8e4ab1e3f04c119627891ff0d04');
     $myUpdateChecker->setBranch('master');
+
     require_once __DIR__ . '/inc/common/enqueue.php';
     require_once __DIR__ . '/inc/common/sidebar.php';
     require_once __DIR__ . '/inc/common/nav.php';
