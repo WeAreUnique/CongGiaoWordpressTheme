@@ -21,6 +21,7 @@
 	<meta name="author" content="Tôi Là Tùng">
 	<meta name="description" content="<?php bloginfo('description'); ?>">
 	<meta property="og:description" content="<?php bloginfo('description'); ?>">
+	<meta name="google-site-verification" content="lzOyODkDACoFFl1RKe7PiCF0lG0AJ5ezHNik9eXo_to" />
 	<title><?php wp_title(''); ?></title>
 	
 	<?php
