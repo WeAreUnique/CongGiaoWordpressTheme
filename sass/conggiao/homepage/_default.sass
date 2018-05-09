@@ -223,21 +223,19 @@ main#main
 				.first-row
 					margin-bottom: 5px
 					article
-						margin-left: 5px
+						margin-left: 0px
 					.wide-box
 						article
 							margin-left: 0px
 				.other-row
 					.small-box
 						article
-							margin-right: 5px
+							margin-right: 0px
 						&:last-child
 							article
 								margin-right: 0px
 				.wide-box
 					overflow: hidden
-					height: 295px
-					margin-top: 5px
 					article
 						height: 300px
 					img
@@ -280,15 +278,18 @@ main#main
 				article
 					position: relative
 					overflow: hidden
+					&.single-post 
+						padding: 5px
+						overflow: hidden
 					a.post-link
 						display: block
 				.postmeta
 					overflow: hidden
 					position: absolute
 					bottom: 0px
-					left: 0px
-					width: 100%
-					background-color: rgba(0,0,0,0.4)
+					left: 5px
+					width: calc(100% - 10px);
+					background-color: rgba(0,0,0,0.3)
 					.postmetawrap
 						padding: 10px
 					.postcats
@@ -455,3 +456,11 @@ main#main
 							width: 100%
 							height: auto
 
++mobile
+	main#main
+		section.section
+			.section-content
+				&.content-style-1
+					.wide-box
+						article
+							height: auto !important

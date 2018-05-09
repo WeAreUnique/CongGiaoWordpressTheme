@@ -16,3 +16,19 @@
       &.show 
             opacity: 1
             visibility: visible
+#content
+      &.site-content
+            padding: 0 20px
++desktop
+      #content
+            &.site-content
+                  padding: 0
+.bb-notification
+      .notification
+            display: none
+            border-radius: 0
+            animation: fadein ease .4s
+            &.is-active
+                  display: block
+            &.is-white
+                  background-color: #FFF

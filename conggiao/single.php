@@ -10,7 +10,7 @@
 get_header(); 
 $singleDefault = cg_gen_get_single_appearance();
 $isSidebar 	= ($singleDefault['sidebar'] == 'y') ? "sidebar-".$singleDefault['sidebarpost'] : '';
-printArr($singleDefault, 'singleDefault');
+// printArr($singleDefault, 'singleDefault');
 $style = "border-radius: {$singleDefault['radius']}px";
 ?>
 <?php if ( have_posts() ) :  ?>

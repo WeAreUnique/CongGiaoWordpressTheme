@@ -41,12 +41,12 @@
 				<?php } ?>
 				<?php if ( $catDefault['post_viewer'] == 'y'){ ?>
 					<span class="postviews">
-						<i class="fa fa-eye"></i> <?php the_views(); ?>
+						<i class="fa fa-eye"></i> <?php the_views($post->ID); ?>
 					</span>
 				<?php } ?>
 				<?php if ( $catDefault['post_comments'] == 'y'){ ?>
 					<span class="postcomment">
-						<i class="fa fa-comments"></i> <?php $comments_count = wp_count_comments(); echo $comments_count->approved; ?>
+						<i class="fa fa-comments"></i> <?php $comments_count = wp_count_comments($post->ID); echo $comments_count->approved; ?>
 					</span>
 				<?php } ?>
 			</div>

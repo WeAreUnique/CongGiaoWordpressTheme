@@ -7,11 +7,11 @@
 			<i class="fa fa-clock"></i> <?php echo get_the_date(); ?>
 		</span>
 		<span class="postviews">
-			<i class="fa fa-eye"></i> <?php the_views(); ?>
+			<i class="fa fa-eye"></i> <?php the_views($post->ID); ?>
 		</span>
 		<span class="postcomment">
 			<a href="#comments" title="Bình Luận">
-				<i class="fa fa-comments"></i> <?php $comments_count = wp_count_comments(); echo $comments_count->approved; ?>
+				<i class="fa fa-comments"></i> <?php $comments_count = wp_count_comments($post->ID); echo $comments_count->approved; ?>
 			</a>
 		</span>
 	</div>

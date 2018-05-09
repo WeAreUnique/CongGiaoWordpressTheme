@@ -11,8 +11,32 @@ jQuery(document).ready(function($) {
     		$('#header-menu').addClass('open');
     	}
     }
+    function SetbbNotificationDisplay(show){
+        if (show==1){
+            $('.bb-notification .notification').each(function( index ) {
+                $(this).addClass('is-active');
+                new Siema({
+                    selector: '.bb-notification',
+                    duration: 400,
+                    easing: 'ease-out',
+                    perPage: 1,
+                    startIndex: 0,
+                    draggable: true,
+                    multipleDrag: false,
+                    loop: false,
+                    rtl: false
+                });
+            });
+        } else { 
+            $('.bb-notification .notification').each(function( index ) {
+                $(this).removeClass('is-active');
+            });
+        }
+    }
 
     /* :: HOMEPAGE */
+
+    SetbbNotificationDisplay(1);
 
     if ($('#homepage-featured').length) {
 
@@ -63,6 +87,10 @@ jQuery(document).ready(function($) {
       } else {
         btnToTop.removeClass('show');
       }
+    });
+    $('.bb-notification button.delete').on( 'click', function(e){
+        e.preventDefault();
+        SetbbNotificationDisplay(0);
     });
 
     btnToTop.on('click', function(e) {

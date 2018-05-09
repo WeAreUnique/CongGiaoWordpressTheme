@@ -1,45 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<FreeFileSync XmlType="BATCH" XmlFormat="9">
-    <MainConfig>
-        <Comparison>
-            <Variant>TimeAndSize</Variant>
-            <Symlinks>Exclude</Symlinks>
-            <IgnoreTimeShift/>
-        </Comparison>
-        <SyncConfig>
-            <Variant>Mirror</Variant>
-            <DetectMovedFiles>false</DetectMovedFiles>
-            <DeletionPolicy>RecycleBin</DeletionPolicy>
-            <VersioningFolder Style="Replace"/>
-        </SyncConfig>
-        <GlobalFilter>
-            <Include>
-                <Item>*</Item>
-            </Include>
-            <Exclude>
-                <Item>/.fseventsd/</Item>
-                <Item>/.Spotlight-V100/</Item>
-                <Item>/.Trashes/</Item>
-                <Item>*/.DS_Store</Item>
-                <Item>*/._.*</Item>
-            </Exclude>
-            <TimeSpan Type="None">0</TimeSpan>
-            <SizeMin Unit="None">0</SizeMin>
-            <SizeMax Unit="None">0</SizeMax>
-        </GlobalFilter>
-        <FolderPairs>
-            <Pair>
-                <Left>/Users/toilatung/Github/CongGiaoWordpressTheme/conggiao</Left>
-                <Right>/Users/toilatung/Sites/conggiao/wp-content/themes/conggiao</Right>
-            </Pair>
-        </FolderPairs>
-        <IgnoreErrors>false</IgnoreErrors>
-        <PostSyncCommand Condition="Completion"/>
-    </MainConfig>
-    <BatchConfig>
+<?xml version="1.0" encoding="utf-8"?>
+<FreeFileSync XmlType="BATCH" XmlFormat="10">
+    <Compare>
+        <Variant>TimeAndSize</Variant>
+        <Symlinks>Exclude</Symlinks>
+        <IgnoreTimeShift/>
+    </Compare>
+    <Synchronize>
+        <Variant>Mirror</Variant>
+        <DetectMovedFiles>false</DetectMovedFiles>
+        <DeletionPolicy>RecycleBin</DeletionPolicy>
+        <VersioningFolder Style="Replace"/>
+    </Synchronize>
+    <Filter>
+        <Include>
+            <Item>*</Item>
+        </Include>
+        <Exclude>
+            <Item>/.fseventsd/</Item>
+            <Item>/.Spotlight-V100/</Item>
+            <Item>/.Trashes/</Item>
+            <Item>*/.DS_Store</Item>
+            <Item>*/._.*</Item>
+        </Exclude>
+        <TimeSpan Type="None">0</TimeSpan>
+        <SizeMin Unit="None">0</SizeMin>
+        <SizeMax Unit="None">0</SizeMax>
+    </Filter>
+    <FolderPairs>
+        <Pair>
+            <Left>/Users/toilatung/Github/CongGiaoWordpressTheme/conggiao</Left>
+            <Right>/Users/toilatung/Sites/giaoxuchinhtoadanang.org/wp-content/themes/conggiao</Right>
+        </Pair>
+        <Pair>
+            <Left>/Users/toilatung/Github/CongGiaoWordpressTheme/conggiao</Left>
+            <Right>/Users/toilatung/Sites/conggiao/wp-content/themes/conggiao</Right>
+        </Pair>
+    </FolderPairs>
+    <Errors Ignore="true" Retry="0" Delay="5"/>
+    <PostSyncCommand Condition="Completion"/>
+    <Batch>
         <ProgressDialog Minimized="true" AutoClose="true"/>
         <ErrorDialog>Show</ErrorDialog>
         <PostSyncAction>None</PostSyncAction>
         <LogfileFolder Limit="-1">/Users/toilatung/Sites/conggiao/logs</LogfileFolder>
-    </BatchConfig>
+    </Batch>
 </FreeFileSync>
