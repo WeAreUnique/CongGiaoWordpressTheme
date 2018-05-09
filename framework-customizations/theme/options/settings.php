@@ -8,11 +8,13 @@
  */
 
 $options = array(
+	fw()->theme->get_options( 'tab-notifications' ),
 	fw()->theme->get_options( 'tab-general' ),
 	fw()->theme->get_options( 'tab-homepage' ),
 	fw()->theme->get_options( 'tab-archives' ),
 	fw()->theme->get_options( 'tab-single' ),
 	fw()->theme->get_options( 'tab-page' ),
+
 );
 
 

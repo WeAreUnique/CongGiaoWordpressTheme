@@ -181,7 +181,7 @@ function _action_theme_footer_wp_print_styles() {
 
     echo '<style type="text/css">'
          . '.footer { '
-         . 'background-color: '. esc_html($gen_footer_bg_color) .'; '
+         . 'background-color: '. esc_html($gen_footer_bg_color) .' !important; '
          . 'color: '. esc_html($gen_footer_txt_color) .'; '
          . '}'
          . '.footer a, .footer p, .footer span, .footer .title{ '

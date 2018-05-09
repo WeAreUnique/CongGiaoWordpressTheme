@@ -167,6 +167,12 @@ add_filter('widget_text', 'shortcode_unautop'); // Remove <p> tags in Dynamic Si
 add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
 add_filter('embed_oembed_discover', '__return_false' ); // Turn off oEmbed auto discovery.
+add_filter( 'get_the_excerpt', 'filter_get_the_excerpt_data' );
+
+function filter_get_the_excerpt_data( $excerpt ) {
+    $excerpt = wp_trim_excerpt($excerpt);
+    return str_replace( "&nbsp","", $excerpt );
+}
 
 
 function conggiao_get_option_setting($k, $v = '', $m = 'theme-settings') {
@@ -192,6 +198,16 @@ function conggiao_seekKey($haystack, $needle) {
             return bbland_seekKey($value, $needle);
         }
     }
+}
+
+function isBetweenDates($dateToCheck, $start_date, $end_date)
+{
+  $start = strtotime($start_date);
+  $end = strtotime($end_date);
+  $date = strtotime($dateToCheck);
+
+  // Check that user date is between start & end
+  return (($date > $start) && ($date < $end));
 }
 
 function printArr($arr,$label=''){
