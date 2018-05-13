@@ -45,7 +45,7 @@ function conggiao_slider_post_format($post, $format){
             }
             if(function_exists('the_views')) {
                 if ( $format['show_viewer']     == 'y' ){
-                    $html   .=  "<span class='postviews'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
+                    $html   .=  "<span class='postviews'><i class='fa fa-eye'></i> ".intval( get_post_meta( $post->ID, 'views', true ) )." lượt xem</span>";
                 }
             }
             if ( $format['show_comments']   == 'y' ){
@@ -353,7 +353,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                             }
                             if(function_exists('the_views')) {
                                 if ( $viewOptions['show_viewer']     ){
-                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
+                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-eye'></i> ".intval( get_post_meta( $post->ID, 'views', true ) )." lượt xem</span>";
                                 }
                             }
                             if ( $viewOptions['show_comments'] ){
@@ -415,7 +415,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                             }
                             if(function_exists('the_views')) {
                                 if ( $viewOptions['show_viewer']     == 'y' ){
-                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
+                                    $html   .=  "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-eye'></i> ".intval( get_post_meta( $post->ID, 'views', true ) )." lượt xem</span>";
                                 }
                             }
                             if ( $viewOptions['show_comments']   == 'y' ){
@@ -493,7 +493,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fa fa-eye'></i> ".intval( get_post_meta( $post->ID, 'views', true ) )." lượt xem</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
@@ -547,7 +547,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fa fa-eye'></i> ".intval( get_post_meta( $post->ID, 'views', true ) )." lượt xem</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
@@ -599,7 +599,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
-                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fa fa-eye'></i> ".the_views(false)."</span>";
+                            $html   .=  "<span class='postviews' style='color: {$format['postmetacolor']}'><i class='fa fa-eye'></i> ".intval( get_post_meta( $post->ID, 'views', true ) )." lượt xem</span>";
                         }
                     }
                     if ( $format['show_comments']  ){
