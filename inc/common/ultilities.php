@@ -1,5 +1,17 @@
 <?php 
 
+
+//Delete All Transition 
+function conggiao_delete_all_transient($post_id ){
+    global $wpdb;
+    $sql = "DELETE FROM $wpdb->options WHERE option_name LIKE '%_transient_%'";
+    $wpdb -> query( $sql );
+}
+
+//Remove Transient after editpost
+add_action( 'save_post', 'conggiao_delete_all_transient' );
+
+
 function debug_to_console( $data ) {
     if ( is_array( $data ) )
         $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
