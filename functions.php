@@ -28,7 +28,7 @@ add_action('after_setup_theme', function () {
         __FILE__,
         'conggiao'
     );
-    $myUpdateChecker->setAuthentication('49b7443f7086f3cadd51b5e72ffbe9989a63c955');
+    $myUpdateChecker->setAuthentication('eed02bb268342b2ce42f8fdc2693d03be1bf3ba8');
     $myUpdateChecker->setBranch('master');
 
     require_once __DIR__ . '/inc/common/enqueue.php';
