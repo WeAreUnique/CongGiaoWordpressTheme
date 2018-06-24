@@ -206,7 +206,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
 
                 // 1 and 2 
                 if ( $number > 2 ){
-                    $html .= "<div class='column is-12-mobile is-4-tablet'>";
+                    $html .= "<div class='column is-12-mobile is-4-tablet right-small-box'>";
                         $html .= "<div class='columns is-gapless is-multiline is-mobile'>";
                             // 1
                             $html .= "<div class='column is-6-mobile is-12-tablet small-box'>";
@@ -226,7 +226,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 } else {
                     // Only 1
                     if ( $number == 2 ){
-                        $html .= "<div class='column is-12-mobile is-4-tablet'>";
+                        $html .= "<div class='column is-12-mobile is-4-tablet right-small-box'>";
                             $html .= "<div class='columns is-gapless is-multiline is-mobile'>";
                                 $html .= "<div class='column is-6-mobile is-12-tablet small-box'>";
                                     setup_postdata( $queryPosts[1] );
@@ -248,7 +248,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                         wp_reset_postdata();
                     $html .= "</div>"; //End 0
                     // 1  2
-                    $html .= "<div class='column is-12-mobile is-4-tablet'>";
+                    $html .= "<div class='column is-12-mobile is-4-tablet right-small-box'>";
                         $html .= "<div class='columns is-gapless is-multiline is-mobile'>";
                             // 1
                             $html .= "<div class='column is-6-mobile is-12-tablet small-box'>";
@@ -269,7 +269,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 // 4 ...
                 $html .= "<div class='columns is-gapless is-paddingless is-mobile is-multiline other-row'>";
                 for ($i=3; $i < $number; $i++) { 
-                    $html .= "<div class='column is-half-mobile is-half-tablet is-one-third-desktop small-box'>";
+                    $html .= "<div class='column is-4-mobile is-4-tablet is-4-desktop small-box'>";
                         setup_postdata( $queryPosts[$i] );
                         $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[$i], $viewOptionGreate1);
                         wp_reset_postdata();
@@ -315,12 +315,12 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 $link   = get_permalink($post->ID);
                 $image  = get_the_post_thumbnail_url($post->ID);
                 $html .= "<div class='columns is-variable is-1 is-mobile wide-box'>";
-                    $html .= "<div class='column is-4'>";
+                    $html .= "<div class='column is-hidden-mobile is-4-tablet is-4-desktop'>";
                         $html .= "<a href='{$link}'>";
                             $html .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
                         $html .= "</a>";
                     $html .= "</div>";
-                    $html .= "<div class='column is-8'>";
+                    $html .= "<div class='column is-12-mobile is-8-tablet is-8-desktop'>";
                         $html   .=  "<div class='postmeta'><div class='postmetawrap'>";
                         if ( $viewOptions['show_cats']){
                             $html   .=  "<div class='postcats'>";
@@ -377,12 +377,12 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 $link   = get_permalink($post->ID);
                 $image  = get_the_post_thumbnail_url($post->ID);
                 $html .= "<div class='columns is-variable is-1 is-mobile wide-box'>";
-                    $html .= "<div class='column is-4'>";
+                    $html .= "<div class='column is-hidden-mobile is-4-tablet is-4-desktop'>";
                         $html .= "<a href='{$link}'>";
                             $html .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
                         $html .= "</a>";
                     $html .= "</div>";
-                    $html .= "<div class='column is-8'>";
+                    $html .= "<div class='column is-12-mobile is-8-tablet is-8-desktop'>";
                         $html   .=  "<div class='postmeta'><div class='postmetawrap'>";
                         if ( $viewOptions['show_cats'] == 'y' ){
                             $html   .=  "<div class='postcats'>";
@@ -433,7 +433,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 $html .= "<div class='columns is-variable is-1 is-mobile is-multiline small-box'>";
                     for ($i=1; $i < $number; $i++) { 
                         setup_postdata( $queryPosts[$i] );
-                        $html .= "<div class='column is-half-mobile is-half-tablet is-one-third-desktop'>";
+                        $html .= "<div class='column is-full-mobile is-half-tablet is-one-third-desktop'>";
                             $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[$i], $viewOptions);
                         $html .= "</div>";
                     }
@@ -459,7 +459,8 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
     switch ($style) {
         case 'style-1':
             $html = "<article class='single-post {$style} post-{$post->ID}'>";
-                $html   .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
+                // $html   .=  "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
+                $html   .=  "<div class='single-post-bg' style='background-image:url({$image});'></div>";
                 $html   .=  "<div class='postmeta'><div class='postmetawrap'>";
 
                 if ( $format['show_cats']){

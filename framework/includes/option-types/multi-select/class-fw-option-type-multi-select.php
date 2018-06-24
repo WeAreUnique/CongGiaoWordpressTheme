@@ -298,8 +298,10 @@ if ( ! class_exists( 'FW_Option_Type_Multi_Select' ) ):
 					);
 					break;
 				case 'taxonomy':
+					global $wp_taxonomies;
+
 					$items = self::query_terms( array(
-						'taxonomy' => array_fill_keys( $names, true ),
+						'taxonomy' => array_intersect_key( array_fill_keys( $names, true ), $wp_taxonomies ),
 						'title'    => $title,
 					) );
 
@@ -374,12 +376,14 @@ if ( ! class_exists( 'FW_Option_Type_Multi_Select' ) ):
 						break;
 					case 'taxonomy' :
 						if ( isset( $option['source'] ) ) {
-							$source = is_array( $option['source'] ) ? $option['source'] : array( $option['source'] );
+
+							global $wp_taxonomies;
+
+							$source = array_intersect( array_keys( $wp_taxonomies ), (array)$option['source'] );
 
 							$items = self::get_terms( $data['value'], $source );
-
 							$terms = get_terms( array(
-								'taxonomy'   => $option['source'],
+								'taxonomy'   => $source,
 								'hide_empty' => false,
 								'exclude'    => $data['value'],
 								'number'     => $option['prepopulate'],
@@ -397,6 +401,7 @@ if ( ! class_exists( 'FW_Option_Type_Multi_Select' ) ):
 							$items,
 							array_fill( 1, count( $items ), $show )
 						);
+
 						break;
 					case 'users' :
 
