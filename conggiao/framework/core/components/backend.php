@@ -181,6 +181,7 @@ final class _FW_Component_Backend {
 				 */
 				11
 			);
+			add_action( 'admin_menu', array( $this, '_action_admin_menu' ) );
 
 			// render and submit options from javascript
 			{
@@ -192,8 +193,38 @@ final class _FW_Component_Backend {
 
 		add_action('save_post', array($this, '_action_save_post'), 7, 3);
 		add_action('wp_restore_post_revision', array($this, '_action_restore_post_revision'), 10, 2);
+		add_action( '_wp_put_post_revision', array( $this, '_action__wp_put_post_revision' ) );
 
 		add_action('customize_register', array($this, '_action_customize_register'), 7);
+	}
+
+	public function _action_admin_menu() {
+
+		$parent_slug = 'index.php';
+		$menu_title  = esc_html__( 'New', 'fw' );
+
+		if ( isset( $GLOBALS['admin_page_hooks'] ) ) {
+			$parent_slug = 'fw-extensions';
+			$menu_title  = esc_html__( 'New', 'fw' );
+		}
+
+		add_submenu_page(
+			$parent_slug,
+			esc_html__( 'New', 'fw' ),
+			$menu_title,
+			'manage_options',
+			'fw-new',
+			array( $this, 'render_about_page' )
+		);
+	}
+
+	public function render_about_page() {
+
+		$file = WP_PLUGIN_DIR . '/unyson/framework/views/about.php';
+
+		if ( file_exists( $file ) ) {
+			include $file;
+		}
 	}
 
 	private function add_filters() {
@@ -860,6 +891,7 @@ final class _FW_Component_Backend {
 				);
 			} while(false);
 		} elseif ($original_post_id = wp_is_post_revision( $post_id )) {
+
 			/**
 			 * Do nothing, the
 			 * - '_wp_put_post_revision'
@@ -873,6 +905,24 @@ final class _FW_Component_Backend {
 			 * - revision restore: do nothing, that is handled by the 'wp_restore_post_revision' action
 			 */
 		}
+	}
+
+	/**
+	 * @param $revision_id
+	 */
+	public function _action__wp_put_post_revision( $revision_id ) {
+		/**
+		 * Copy options meta from post to revision
+		 */
+		fw_set_db_post_option(
+			$revision_id,
+			null,
+			(array) fw_get_db_post_option(
+				wp_is_post_revision( $revision_id ),
+				null,
+				array()
+			)
+		);
 	}
 
 	/**
@@ -1133,7 +1183,17 @@ final class _FW_Component_Backend {
 				$values = array();
 			}
 
-			$values = fw_get_options_values_from_input($options, $values);
+			$filtered_values = apply_filters(
+				'fw:ajax_options_render:values',
+				null,
+				$options,
+				$values
+			);
+
+			$values = $filtered_values ? $filtered_values : array_intersect_key(
+				$values,
+				fw_extract_only_options( $options )
+			);
 		}
 
 		// data

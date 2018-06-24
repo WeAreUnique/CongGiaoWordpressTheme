@@ -1105,7 +1105,7 @@ final class _FW_Extensions_Manager
 		}
 
 		if ( ! FW_WP_Filesystem::is_ready() ) {
-			return new WP_Error( 'fs_not_initialized', esc_html__( 'WP Filesystem is not initialized', 'fw' ) );
+		    FW_WP_Filesystem::init_file_system();
 		}
 
 		$timeout              = function_exists( 'ini_get' ) ? intval( ini_get( 'max_execution_time' ) ) : false;

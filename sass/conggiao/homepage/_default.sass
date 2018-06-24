@@ -221,23 +221,20 @@ main#main
 			padding: 20px 0
 			&.content-style-1
 				.first-row
-					margin-bottom: 5px
-					article
-						margin-left: 0px
-					.wide-box
-						article
-							margin-left: 0px
+					margin-bottom: 5px	
 				.other-row
 					.small-box
-						article
-							margin-right: 0px
 						&:last-child
 							article
 								margin-right: 0px
+						article
+							margin-right: 5px
+						
 				.wide-box
 					overflow: hidden
 					article
 						height: 300px
+						margin-right: 5px
 					img
 						&.post-thumb-img
 							max-height: 300px
@@ -247,6 +244,11 @@ main#main
 							margin-top: 5px
 							font-size: 1.3rem
 							color: #FFF
+				.right-small-box
+					.small-box
+						&:first-child
+							height: 145px
+							margin-bottom: 5px
 				.small-box
 					overflow: hidden
 					height: 150px
@@ -266,6 +268,7 @@ main#main
 							margin-top: 5px
 							a
 								font-size: 0.8rem
+								font-weight: normal
 								color: #FFF
 						.postinfo
 							margin-top: 0
@@ -279,17 +282,25 @@ main#main
 					position: relative
 					overflow: hidden
 					&.single-post 
-						padding: 5px
+						// padding: 5px
 						overflow: hidden
+						.single-post-bg
+							background-color: rgba(0,0,0,.2)
+							background-size: cover
+							position: absolute
+							left: 0
+							right: 0
+							bottom: 0
+							top: 0
 					a.post-link
 						display: block
 				.postmeta
 					overflow: hidden
 					position: absolute
 					bottom: 0px
-					left: 5px
-					width: calc(100% - 10px);
-					background-color: rgba(0,0,0,0.3)
+					left: 0px
+					width: 100%
+					background-color: rgba(0,0,0,0.2)
 					.postmetawrap
 						padding: 10px
 					.postcats
@@ -329,11 +340,13 @@ main#main
 							font-size: 0.9rem
 							color: #fff
 			&.content-style-2
+				.post-thumb-img
+					border-radius: 3px
 				article
 					overflow: hidden
 					.postthumb
 						position: relative
-						height: 150px
+						max-height: 150px
 						overflow: hidden
 					img
 						&.post-thumb-img
@@ -384,7 +397,10 @@ main#main
 								color: #6E6C6C
 								word-wrap: break-word
 			&.content-style-3
+				.post-thumb-img
+					border-radius: 3px
 				article
+
 					.postthumb
 						position: relative
 						max-height: 150px
@@ -393,6 +409,7 @@ main#main
 						&.post-thumb-img
 							width: 100%
 							height: auto
+
 				.postmeta
 					display: block
 					.postcats
@@ -442,6 +459,7 @@ main#main
 						&.post-thumb-img
 							width: 100%
 							height: auto
+							margin-top: 10px
 					.postcats
 						margin-top: 0px
 					.postinfo
@@ -449,8 +467,6 @@ main#main
 					.posttitle
 						margin: 5px 0
 				.small-box
-					.postthumb
-						height: 150px
 					img
 						&.post-thumb-img
 							width: 100%
@@ -461,6 +477,35 @@ main#main
 		section.section
 			.section-content
 				&.content-style-1
-					.wide-box
-						article
-							height: auto !important
+					.first-row
+						.wide-box
+							article
+								margin-bottom: 5px
+								margin-right: 0
+						.right-small-box
+							.small-box
+								&:first-child 
+									article
+										margin-right: 5px
+					.small-box
+						.postmeta
+							background-color: rgba(0,0,0,0.1)
+							.posttitle
+								a
+									font-weight: normal
+									line-height: 1.3em
+									display: block
+				&.content-style-3
+					.postmeta
+						.posttitle
+							margin: 0
+							a 
+								font-size: 1.1rem
+						.postinfo
+							margin-top: 5px
+					.postthumb
+						display: none
+					.postexcerpt
+						display: none !important
+				&.content-style-2
+					

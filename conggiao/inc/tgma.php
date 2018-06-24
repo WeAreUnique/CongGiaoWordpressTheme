@@ -48,14 +48,21 @@ function toilatung_register_required_plugins() {
         array(
             'name'              => 'Monarch Plugin',
             'slug'              => 'monarch',
-            'version'           => '1.3.25',
+            'version'           => '1.4.2',
             'source'            => get_template_directory() . '/inc/tgma-libs/monarch.zip', // The plugin source.
+            'required'          => false
+        ),
+        array(
+            'name'              => 'Bloom',
+            'slug'              => 'monarch',
+            'version'           => '1.3.2',
+            'source'            => get_template_directory() . '/inc/tgma-libs/bloom.zip', // The plugin source.
             'required'          => false
         ),
         array(
             'name'              => 'WP Tab Widget Pro',
             'slug'              => 'wp-tab-widget-pro',
-            'version'           => '1.0.6',
+            'version'           => '1.0.7',
             'source'            => get_template_directory() . '/inc/tgma-libs/wp-tab-widget-pro.zip', // The plugin source.
             'required'          => false
         )
