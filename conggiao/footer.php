@@ -32,7 +32,7 @@ $footerInfo = cg_gen_get_footer_info();
 			}
 		?>
 		
-			<div class="columns footer-info is-mobile">
+			<div class="columns footer-info">
 				<div class="column">
 					<?php echo $footerInfo['left']; ?>
 				</div>
