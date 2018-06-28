@@ -14,7 +14,7 @@ if ($categories) {
 
     $my_query = new wp_query( $args );
     if( $my_query->have_posts() ) {
-        echo '<div id="related_posts"><h3 class="title is-3">Bài Viết Tương Tự</h3><div class="columns is-mobile is-multiline">';
+        echo '<div id="related_posts"><h3 class="title is-4">Bài Viết Tương Tự</h3><div class="columns is-mobile is-multiline">';
         while( $my_query->have_posts() ) {
             $my_query->the_post(); ?>
             <div class="column is-6-mobile is-4-tablet is-4-desktop"> 

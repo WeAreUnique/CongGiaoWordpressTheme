@@ -54,17 +54,6 @@ $url_install_plugin = is_multisite() ? network_admin_url( 'plugin-install.php?s=
 		}
 	</style>
 	<div class="wrap about-wrap full-width-layout" style="margin:0 auto;">
-		<div class="feature-section one-col">
-			<div class="col" style="margin-top: 0;">
-				<h2>Try Brizy: <b>An effortless way</b> to create WordPress pages visually! &#x1F389</h2>
-				<p style="text-align: center;font-size: 16px;"><?php _e( 'No designer or coding skills required.' ); ?></p>
-				<p class="fw-brz">
-					<a class="fw-brz__btn-install" href="<?php echo $url_install_plugin; ?>">
-						<?php _e( 'Install Now | for FREE' ); ?>
-					</a>
-				</p>
-			</div>
-		</div>
 
 		<div class="inline-svg full-width">
 			<iframe width="1200" height="600" src="https://www.youtube.com/embed/KUv-NqDR-8s?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
