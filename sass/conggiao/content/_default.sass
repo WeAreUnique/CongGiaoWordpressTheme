@@ -63,11 +63,13 @@
 	margin-top: 20px
 	background-color: #fff
 	padding: 20px
+	border-radius: 4px
 
 #related_posts
 	margin-top: 20px
 	background-color: #fff
 	padding: 20px
+	border-radius: 4px
 	.post-thumb
 		max-height: 180px
 		overflow: hidden
@@ -81,12 +83,54 @@
 
 .content 
 	.entry-content
-		p 
-			overflow: auto
-		img 
+		p
+			&:after
+				content: ""
+				clear: both
+				display: table
+		.wp-caption
+			max-width: 100% !important
+			border-radius: 4px
+			overflow: hidden
+			margin: 20px 0
+			background-color: #efefef
+			position: relative
+			&:after
+					content: ""
+					clear: both
+					display: table
+			&>img 
+				width: 100%
+			&.aligncenter
+				display: block
+				margin: 0 auto
 			&.alignleft
+				display: block
 				float: left 
-				margin-right: 10px
+				margin-right: 0px
 			&.alignright
+				display: block
+				float: right 
+				margin-right: 0px
+			.wp-caption-text
+				padding: 5px 15px 10px 15px
+				font-weight: italic
+
+		img 
+			&.aligncenter
+				display: block
+				margin: 0 auto
+			&.alignleft
+				content: ""
+				clear: both
+				display: table
 				float: left 
 				margin-right: 10px
+				
+			&.alignright
+				content: ""
+				clear: both
+				display: table
+				float: right 
+				margin-right: 10px
+			
