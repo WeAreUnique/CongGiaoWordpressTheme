@@ -133,7 +133,11 @@ function cg_home_get_section(){
 		if ( $conType['action_show'] == 'c_post' ){
 			$contentArr 	= fw_akg('content_type/c_post',$value);
 
-			$arrVal['sortby']			= $contentArr['sortby'];
+			if ( array_key_exists('is_display', $contentArr) && $contentArr['is_display'] == 'n' ){
+                continue;
+            }
+
+            $arrVal['sortby']			= $contentArr['sortby'];
 			$arrVal['postincats']		= $contentArr['category'];
             $arrVal['style']			= $contentArr['style'];
             $arrVal['num_post']			= $contentArr['num_post'];
@@ -161,6 +165,9 @@ function cg_home_get_section(){
 
 		if ( $conType['action_show'] == 'c_static' ){
 			$contentArr 	= fw_akg('content_type/c_static',$value);
+            if ( array_key_exists('is_display', $contentArr) && $contentArr['is_display'] == 'n' ){
+                continue;
+            }
 			$arrVal['content']		= $contentArr['content'];
             $arrVal['tieude']		= $contentArr['tieude'];
             $arrVal['mota']         = $contentArr['mota'];

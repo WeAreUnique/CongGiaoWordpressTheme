@@ -91,30 +91,31 @@
     
     //printArr(cg_gen_get_archives_default('cats_default'), 'cg_gen_get_cats_default');
 ?>
+	<div class="bb-notification">
+		<?php 
+		$currentNotices = conggiao_notifi_gets_current();
+		
+		$iStt = 0;
+		$numStt = count($currentNotices);
+		foreach ($currentNotices as $notice) { $iStt+=1; ?>
+			<div class="notification <?php echo $notice['type']; ?>">
+				<button class="delete"></button>
+				<article class="media">
+					<figure class="media-left">
+						<?php echo ( $notice['shownoticeicon'] == 'true' ? '<i class="fa fa-bullhorn" aria-hidden="true" style="font-size: 2rem;"></i>' : '' ); ?>
+						<div class="tags">
+							<span class="tag"><?php echo $iStt.' / '.$numStt;?></span>
+						</div>
+					</figure>
+  					<div class="media-content">
+    					<div class="content">
+    						<?php echo $notice['noidung']; ?>
+      					</div>
+  					</div>
+				</article>
+			</div>
+		<?php } ?>
+	</div>
 
 	<div id="content" class="site-content" <?php echo $bgStyle; ?>>
-		<div class="bb-notification">
-			<?php 
-			$currentNotices = conggiao_notifi_gets_current();
-			
-			$iStt = 0;
-			$numStt = count($currentNotices);
-			foreach ($currentNotices as $notice) { $iStt+=1; ?>
-				<div class="notification <?php echo $notice['type']; ?>">
-					<button class="delete"></button>
-					<article class="media">
-						<figure class="media-left">
-							<?php echo ( $notice['shownoticeicon'] == 'true' ? '<i class="fa fa-bullhorn" aria-hidden="true" style="font-size: 2rem;"></i>' : '' ); ?>
-							<div class="tags">
-								<span class="tag"><?php echo $iStt.' / '.$numStt;?></span>
-							</div>
-						</figure>
-	  					<div class="media-content">
-	    					<div class="content">
-	    						<?php echo $notice['noidung']; ?>
-	      					</div>
-	  					</div>
-					</article>
-				</div>
-			<?php } ?>
-		</div>
+	
