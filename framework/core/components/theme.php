@@ -212,8 +212,6 @@ final class _FW_Component_Theme {
 		$noPageAbout = ! ( isset( $_GET['page'] ) && 'fw-new' === $_GET['page'] );
 		$noTransient = false === get_transient( 'fw_brz_admin_notice' );
 		$isBrizy     = ! defined( 'BRIZY_VERSION' ) && ! get_option( 'brizy' );
-
-		
 	}
 
 	/**

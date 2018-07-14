@@ -1730,8 +1730,23 @@ $options = array(
                                     'c_post'        => array(
                                         'tab_box1'      => array(
                                             'type'      => 'tab',
+
                                             'title'     => __('Thiết Lập Nội Dung', 'conggiao'),
                                             'options'   => array(
+                                                'is_display'    => array(
+                                                    'type'      => 'switch',
+                                                    'value'     => 'y',
+                                                    'label'     => __('Cho Hiển Thị', 'conggiao'),
+                                                    'desc'      => __('Cho hiển thị Mục này hay là không?', 'conggiao'),
+                                                    'left-choice'   => array(
+                                                        'value'     => 'n',
+                                                        'label'     => __('KHÔNG HIỂN THỊ', 'conggiao'),
+                                                    ),
+                                                    'right-choice'  => array(
+                                                        'value'     => 'y',
+                                                        'label'     => __('CHO HIỂN THỊ', 'conggiao'),
+                                                    ),
+                                                ),
                                                 'sortby'        => array(
                                                     'label'     => __( 'Hiển thị theo?', 'conggiao' ),
                                                     'type'      => 'radio',
@@ -1989,6 +2004,20 @@ $options = array(
                                             'type'      => 'tab',
                                             'title'     => __('Thiết Lập Nội Dung', 'conggiao'),
                                             'options'   => array(
+                                                'is_display'    => array(
+                                                    'type'      => 'switch',
+                                                    'value'     => 'y',
+                                                    'label'     => __('Cho Hiển Thị', 'conggiao'),
+                                                    'desc'      => __('Cho hiển thị Mục này hay là không?', 'conggiao'),
+                                                    'left-choice'   => array(
+                                                        'value'     => 'n',
+                                                        'label'     => __('KHÔNG HIỂN THỊ', 'conggiao'),
+                                                    ),
+                                                    'right-choice'  => array(
+                                                        'value'     => 'y',
+                                                        'label'     => __('CHO HIỂN THỊ', 'conggiao'),
+                                                    ),
+                                                ),
                                                 'content'           => array( 
                                                     'type'          => 'wp-editor',
                                                     'label'         => __('Nội Dung', 'conggiao'),

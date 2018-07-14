@@ -14,11 +14,11 @@ function enqueue_style_script(){
 	//JS
 	
 	// wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), null, true );
-	wp_enqueue_script( 'lazysite', get_stylesheet_directory_uri() . '/assets/js/lazysizes.min.js', array(), '4.0.2', true );
-	wp_enqueue_script( 'bxsliderjs', get_stylesheet_directory_uri() . '/assets/js/jquery.bxslider.min.js', array('jquery'), '4.2.12', true );
-	wp_enqueue_script( 'siema', get_stylesheet_directory_uri() . '/assets/js/siema.min.js', array(), '1.5.1', true );
+	// wp_enqueue_script( 'lazysite', get_stylesheet_directory_uri() . '/assets/js/lazysizes.min.js', array(), '4.0.2', true );
+	// wp_enqueue_script( 'bxsliderjs', get_stylesheet_directory_uri() . '/assets/js/jquery.bxslider.min.js', array('jquery'), '4.2.12', true );
+	// wp_enqueue_script( 'siema', get_stylesheet_directory_uri() . '/assets/js/siema.min.js', array(), '1.5.1', true );
 	// wp_enqueue_script( 'dyscrollup', get_stylesheet_directory_uri() . '/assets/js/dyscrollup.min.js', array('jquery'), '1.1.13', true );
-	wp_enqueue_script( 'conggiao', get_stylesheet_directory_uri() . '/assets/js/conggiao.js', array('jquery', 'bxsliderjs', 'siema'), null, true );
+	wp_enqueue_script( 'conggiao', get_stylesheet_directory_uri() . '/assets/js/conggiao-min.js', array('jquery'), null, true );
 	
 
 }
