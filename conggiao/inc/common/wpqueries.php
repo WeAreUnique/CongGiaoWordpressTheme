@@ -41,7 +41,7 @@ function conggiao_slider_post_format($post, $format){
                 $html   .=  "<span class='postauthor'><i class='fa fa-user-circle'></i> ".get_the_author_posts_link()."</span>";
             }
             if ( $format['show_date']       == 'y' ){
-                $html   .=  "<span class='postdate'><i class='fa fa-clock-o'></i> ".get_the_date()."</span>";
+                $html   .=  "<span class='postdate'><i class='fa fa-clock-o'></i> ".get_the_date('', $post->ID)."</span>";
             }
             if(function_exists('the_views')) {
                 if ( $format['show_viewer']     == 'y' ){
@@ -349,7 +349,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                                 $html   .=  "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-user-circle'></i> ".$result."</span>";
                             }
                             if ( $viewOptions['show_date'] ){
-                                $html   .=  "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-clock-o'></i> ".get_the_date()."</span>";
+                                $html   .=  "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-clock-o'></i> ".get_the_date('', $post->ID)."</span>";
                             }
                             if(function_exists('the_views')) {
                                 if ( $viewOptions['show_viewer']     ){
@@ -411,7 +411,7 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                                 $html   .=  "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-user-circle'></i> ".$result."</span>";
                             }
                             if ( $viewOptions['show_date']       == 'y' ){
-                                $html   .=  "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-clock-o'></i> ".get_the_date()."</span>";
+                                $html   .=  "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='fa fa-clock-o'></i> ".get_the_date('', $post->ID)."</span>";
                             }
                             if(function_exists('the_views')) {
                                 if ( $viewOptions['show_viewer']     == 'y' ){
@@ -490,7 +490,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                         $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fa fa-user-circle'></i> ".$result."</span>";
                     }
                     if ( $format['show_date']      ){
-                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='fa fa-clock-o'></i> ".get_the_date()."</span>";
+                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='fa fa-clock-o'></i> ".get_the_date('', $post->ID)."</span>";
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
@@ -544,7 +544,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                         $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fa fa-user-circle'></i> ".$result."</span>";
                     }
                     if ( $format['show_date']      ){
-                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='fa fa-clock-o'></i> ".get_the_date()."</span>";
+                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='fa fa-clock-o'></i> ".get_the_date('', $post->ID)."</span>";
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
@@ -596,7 +596,7 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
                         $html   .=  "<span class='postauthor' style='color: {$format['postmetacolor']}'><i class='fa fa-user-circle'></i> ".$result."</span>";
                     }
                     if ( $format['show_date']      ){
-                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='fa fa-clock-o'></i> ".get_the_date()."</span>";
+                        $html   .=  "<span class='postdate' style='color: {$format['postmetacolor']}'><i class='fa fa-clock-o'></i> ".get_the_date('', $post->ID)."</span>";
                     }
                     if(function_exists('the_views')) {
                         if ( $format['show_viewer']    ){
