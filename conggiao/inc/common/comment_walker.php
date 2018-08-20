@@ -48,7 +48,7 @@
 				<div class="media-content">
 			    <div class="content">
 			    	<p>
-			    		<strong><a class="comment-author-link" href="<?php comment_author_url(); ?>" itemprop="author"><?php comment_author(); ?></a></strong> <small><i class="fa fa-clock"></i> <time class="comment-meta-item" datetime="<?php comment_date('Y-m-d') ?>T<?php comment_time('H:iP') ?>" itemprop="datePublished"><?php comment_date() ?>, <a href="#comment-<?php comment_ID() ?>" itemprop="url"><?php comment_time() ?></a></time></small> 
+			    		<strong><a class="comment-author-link" href="<?php comment_author_url(); ?>" itemprop="author"><?php comment_author(); ?></a></strong> <small><i class="far fa-clock"></i> <time class="comment-meta-item" datetime="<?php comment_date('Y-m-d') ?>T<?php comment_time('H:iP') ?>" itemprop="datePublished"><?php comment_date() ?>, <a href="#comment-<?php comment_ID() ?>" itemprop="url"><?php comment_time() ?></a></time></small> 
 			    		<?php if ($comment->comment_approved == '0') : ?>
 							<small>Bình luận của bạn đang được xem xét.</small>
 						<?php endif; ?>

@@ -131,11 +131,12 @@ function cg_home_get_section(){
 		$conType = $value['content_type'];
 		$arrVal['chon'] = $conType['action_show'];
 		if ( $conType['action_show'] == 'c_post' ){
-			$contentArr 	= fw_akg('content_type/c_post',$value);
-
+            $contentArr 	= fw_akg('content_type/c_post',$value);
+            $xemthem        = $contentArr['xemthem']['action_show'];
 			if ( array_key_exists('is_display', $contentArr) && $contentArr['is_display'] == 'n' ){
                 continue;
             }
+            
 
             $arrVal['sortby']			= $contentArr['sortby'];
 			$arrVal['postincats']		= $contentArr['category'];
@@ -145,6 +146,12 @@ function cg_home_get_section(){
             $arrVal['mota']             = $contentArr['mota'];
             $arrVal['lienket']			= $contentArr['lienket'];
             $arrVal['seperator']		= $contentArr['seperator'];
+            $arrVal['xemthem']  		= $xemthem;
+            if ( $xemthem == 'y' ){
+                $arrVal['xemthemtext']  = $contentArr['xemthem']['y']['xemthemtext'];
+                $arrVal['xemthemlink']  = $contentArr['xemthem']['y']['lienket'];
+            }
+            
             $arrVal['show_title']		= $contentArr['show_title'];
             $arrVal['show_exper']		= $contentArr['show_exper'];
             $arrVal['show_cats']		= $contentArr['show_cats'];

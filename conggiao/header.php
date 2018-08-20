@@ -30,9 +30,6 @@
 	// }
 	wp_head(); 
 	?>
-	<script>
-		FontAwesomeConfig = { searchPseudoElements: true };
-	</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -56,11 +53,12 @@
 
 		<nav id="site-navigation" class="main-navigation <?php echo $headernav['chon']; ?>">
 			<div class="container">
-				<a class="mobile-menu"><i class="fa fa-bars"></i> <strong>Menu</strong></a>
+				<a class="mobile-menu"><i class="fas fa-bars"></i> <strong>Menu</strong></a>
 				<?php
 					wp_nav_menu( array(
 						'theme_location' => 'header-menu',
 						'menu_id'        => 'header-menu',
+						'menu_class'	 => 'menu is-clearfix'
 					) );
 				?>
 			</div>
@@ -102,7 +100,7 @@
 				<button class="delete"></button>
 				<article class="media">
 					<figure class="media-left">
-						<?php echo ( $notice['shownoticeicon'] == 'true' ? '<i class="fa fa-bullhorn" aria-hidden="true" style="font-size: 2rem;"></i>' : '' ); ?>
+						<?php echo ( $notice['shownoticeicon'] == 'true' ? '<i class="fas fa-bullhorn" aria-hidden="true" style="font-size: 2rem;"></i>' : '' ); ?>
 						<div class="tags">
 							<span class="tag"><?php echo $iStt.' / '.$numStt;?></span>
 						</div>

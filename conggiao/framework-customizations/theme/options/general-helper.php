@@ -146,7 +146,10 @@ function _action_theme_enqueue_inline_nav_style(){
 			  #masthead #site-navigation.s2 #header-menu li a:hover {
 			    background-color: {$w['hovercolor']};
 			    color: {$w['textcolor']};
-			  }
+				}
+				#site-navigation.s2 #header-menu li.current-menu-parent>a, #site-navigation.s2 #header-menu li.current-post-ancestor>a{
+					background-color: {$w['hovercolor']};
+				}
 			}
 			#masthead #site-navigation.s2 {
 			  border-bottom: 3px solid {$w['hovercolor']};

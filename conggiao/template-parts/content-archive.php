@@ -6,9 +6,10 @@
  *
  * @package CongGiao
  */
+$catRadius = $catDefault['post_radius'] > 0 ? 'border-radius: ' . $catDefault['post_radius'] . 'px; overflow: hidden;' : '';
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php echo ($catRadius != '' ? 'style="' . $catRadius . '"'  : '');  ?> >
 	<?php if ( $catDefault['post_thumb'] == 'y' ){ ?>
 	<div class="post-thumb">
 		<a href="<?php echo esc_url( get_permalink() ) ?>" title="" rel="bookmark">
@@ -31,22 +32,22 @@
 			<div class="postinfo">
 				<?php if ( $catDefault['post_author'] == 'y'){ ?>
 					<span class="postauthor">
-						<i class="fa fa-user-circle"></i> <?php the_author_posts_link(); ?>
+						<i class="fas fa-user-circle"></i> <?php the_author_posts_link(); ?>
 					</span>
 				<?php } ?>
 				<?php if ( $catDefault['post_date'] == 'y'){ ?>
 					<span class="postdate">
-						<i class="fa fa-clock"></i> <?php echo get_the_date(); ?>
+						<i class="far fa-clock"></i> <?php echo get_the_date(); ?>
 					</span>
 				<?php } ?>
 				<?php if ( $catDefault['post_viewer'] == 'y'){ ?>
 					<span class="postviews">
-						<i class="fa fa-eye"></i> <?php the_views($post->ID); ?>
+						<i class="far fa-eye"></i> <?php the_views($post->ID); ?>
 					</span>
 				<?php } ?>
 				<?php if ( $catDefault['post_comments'] == 'y'){ ?>
 					<span class="postcomment">
-						<i class="fa fa-comments"></i> <?php $comments_count = wp_count_comments($post->ID); echo $comments_count->approved; ?>
+						<i class="far fa-comments"></i> <?php $comments_count = wp_count_comments($post->ID); echo $comments_count->approved; ?>
 					</span>
 				<?php } ?>
 			</div>

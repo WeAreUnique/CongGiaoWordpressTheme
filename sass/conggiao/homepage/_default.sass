@@ -2,6 +2,7 @@
 	padding-top: 30px
 .homepage
 	padding-top: 30px
+	width: 100%
 #primary
 	order: 1
 	-webkit-box-flex: 1
@@ -194,11 +195,28 @@ main#main
 					left: 0
 					position: absolute
 					height: 3px
+				.main-title
+					.title
+						margin-bottom: 10px
+				.xemthem
+					position: absolute
+					right: 5px
+					top: 10px
+					a 
+						font-size: 0.9rem
+						color: #242424
 			&.sep-style-2
 				.main-title
 					padding: 10px 0 10px 10px
 					border-left: 5px solid #75D0ED
 					border-bottom: 1px solid #75D0ED
+				.xemthem
+					position: absolute
+					right: 5px
+					top: 10px
+					a 
+						font-size: 0.9rem
+						color: #242424
 			&.sep-style-3
 				padding: 10px 0
 				.main-title
@@ -207,6 +225,13 @@ main#main
 					.subtitle
 						display: inline-block
 						margin-left: 10px
+				.xemthem
+					position: absolute
+					right: 5px
+					top: 10px
+					a 
+						font-size: 0.9rem
+						color: #242424
 			&.sep-style-4
 				padding: 10px 0
 				.main-title
@@ -217,128 +242,60 @@ main#main
 						span
 							background-color: #fff
 							padding-right: 10px
+				.xemthem
+					position: absolute
+					right: 5px
+					top: 10px
+					a 
+						font-size: 0.9rem
+						color: #242424
 		.section-content
 			padding: 20px 0
 			&.content-style-1
-				.first-row
-					margin-bottom: 5px	
-				.other-row
-					.small-box
-						&:last-child
-							article
-								margin-right: 0px
-						article
-							margin-right: 5px
-						
-				.wide-box
+				.post-item
+					display: block
 					overflow: hidden
-					article
-						height: 300px
-						margin-right: 5px
-					img
-						&.post-thumb-img
-							max-height: 300px
-							width: 100%
-					.posttitle
-						a
-							margin-top: 5px
-							font-size: 1.3rem
-							color: #FFF
-				.right-small-box
-					.small-box
-						&:first-child
-							height: 145px
-							margin-bottom: 5px
-				.small-box
-					overflow: hidden
-					height: 150px
-					article
-						height: 150px
-					img
-						&.post-thumb-img
-							max-height: 150px
-							width: 100%
+					position: relative
+					background-repeat: no-repeat
+					background-size: cover !important
+					background-position: center center
+					margin: 5px 0
+					width: 100%
+					height: 250px
 					.postmeta
-						overflow: hidden
-						.postmetawrap
-							padding: 5px
-						.postexcerpt
-							display: none
-						.posttitle
-							margin-top: 5px
-							a
-								font-size: 0.8rem
-								font-weight: normal
-								color: #FFF
+						padding: 10px
+						margin: 0
+						position: absolute
+						width: 100%
+						bottom: 0
+						left: 0
+						background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 85%, rgba(0,0,0,0) 100%)
+						color: #FFF
+						.postcats
+							margin-bottom: 5px
+							a 
+								display: block
+								float: left
+								padding: 3px 5px
+								margin-bottom: 2px
+								background-color: #fff
+								color: #4A4A4A
+								margin-right: 2px
+								font-size: 0.75rem
+								line-height: 1rem
+								&:last-child
+									margin-right: 0
+						.post-title
+							line-height: 1.2
+							margin: 0
+							font-size: 1rem
 						.postinfo
-							margin-top: 0
+							margin-top: 5px
+							font-size: 0.9rem
 							span
 								margin-right: 5px
-							.postauthor, .postdate, .postviews, .postcomment
-								font-size: 0.8rem
-							a
-								font-size: 0.8rem
-				article
-					position: relative
-					overflow: hidden
-					&.single-post 
-						// padding: 5px
-						overflow: hidden
-						.single-post-bg
-							background-color: rgba(0,0,0,.2)
-							background-size: cover
-							position: absolute
-							left: 0
-							right: 0
-							bottom: 0
-							top: 0
-					a.post-link
-						display: block
-				.postmeta
-					overflow: hidden
-					position: absolute
-					bottom: 0px
-					left: 0px
-					width: 100%
-					background-color: rgba(0,0,0,0.2)
-					.postmetawrap
-						padding: 10px
-					.postcats
-						display: block
-						margin-top: 5px
-						a 
-							display: inline-block
-							padding: 3px 5px
-							background-color: #fff
-							color: #4A4A4A
-							margin-right: 5px
-							font-size: 0.7rem
-							line-height: 1rem
-							&:last-child
-								margin-right: 0
-					.posttitle
-						display: block
-						margin-top: 10px
-						margin-bottom: 5px
-						a 
-							color: #fff 
-							font-weight: bold
-					.postexcerpt
-						color: #fff 
-						font-size: 0.9rem
-
-					.postinfo
-						margin-top: 5px
-						span
-							margin-right: 10px
-							&:last-child
-								margin-right: 0
-						.postauthor, .postdate, .postviews, .postcomment
-							font-size: 0.9rem
-							color: #fff
-						a
-							font-size: 0.9rem
-							color: #fff
+								&:last-child
+									margin-right: 0
 			&.content-style-2
 				.post-thumb-img
 					border-radius: 3px
@@ -371,7 +328,7 @@ main#main
 							display: block
 							margin: 10px 0
 							a 
-								font-size: 1.2rem
+								font-size: 1rem
 								font-weight: bold 
 								color: #4A4A4A
 						.postexcerpt
@@ -402,13 +359,15 @@ main#main
 				article
 
 					.postthumb
+						float: left
 						position: relative
-						max-height: 150px
+						max-width: 100px
 						overflow: hidden
 					img
 						&.post-thumb-img
 							width: 100%
 							height: auto
+							margin-top: 8px
 
 				.postmeta
 					display: block
@@ -429,14 +388,14 @@ main#main
 						display: block
 						margin: 10px 0
 						a 
-							font-size: 1.2rem
+							font-size: 1rem
 							font-weight: bold 
 							color: #4A4A4A
 					.postexcerpt
 						display: block
 						margin-top: 5px
 						color: #6E6C6C
-						font-size: 0.9rem
+						font-size: 0.8rem
 					.postinfo
 						display: block
 						margin-top: 10px
@@ -446,12 +405,12 @@ main#main
 							&:last-child
 								margin-right: 0
 						.postauthor, .postdate, .postviews, .postcomment
-							font-size: 0.9rem
+							font-size: 0.8rem
 							color: #6E6C6C
 						.svg-inline--fa
 							color: #6E6C6C
 						a
-							font-size: 0.9rem
+							font-size: 0.8rem
 							color: #6E6C6C
 							word-wrap: break-word
 				.wide-box
@@ -459,7 +418,7 @@ main#main
 						&.post-thumb-img
 							width: 100%
 							height: auto
-							margin-top: 10px
+							margin-top: 5px
 					.postcats
 						margin-top: 0px
 					.postinfo
@@ -467,45 +426,373 @@ main#main
 					.posttitle
 						margin: 5px 0
 				.small-box
+					.postthumb
+						margin-right: 8px
 					img
 						&.post-thumb-img
 							width: 100%
 							height: auto
+			&.content-style-4
+				display: block
+				.post-item
+					&.post-large
+						height: 250px
+						background-repeat: no-repeat
+						background-size: cover !important
+						background-position: center center
+						position: relative
+						.postcats
+							padding: 0 10px 7px 10px
+							position: absolute
+							bottom: 0
+							left: 0
+							right: 0
+							a 
+								display: block
+								float: left
+								padding: 3px 5px
+								margin-bottom: 2px
+								background-color: #fff
+								color: #4A4A4A
+								margin-right: 2px
+								font-size: 0.8rem
+								line-height: 1rem
+								&:last-child
+									margin-right: 0
+					&.post-large-meta
+						display: block
+						padding-bottom: 20px
+						border-bottom: 1px solid #eee
+						.postmeta
+							.posttitle
+								a
+									display: block
+									font-size: 1.2rem
+									font-weight: bold
+									padding: 10px 0
+							.postinfo
+								margin-top: 10px
+								font-size: 0.9rem
+								span
+									margin-right: 5px
+									&:last-child
+										margin-right: 0
+							.postexcerpt
+								font-size: 0.9rem
+					&.post-small
+						display: block
+						margin-top: 10px
+						.post-left
+							max-width: 110px
+							float: left
+							margin-right: 10px
+							img 
+								border-radius: 3px
 
-+mobile
+
+					&.post-small-1
+						margin-top: 30px	
+
++tablet
 	main#main
 		section.section
 			.section-content
 				&.content-style-1
-					.first-row
-						.wide-box
-							article
-								margin-bottom: 5px
-								margin-right: 0
-						.right-small-box
-							.small-box
-								&:first-child 
-									article
-										margin-right: 5px
-					.small-box
-						.postmeta
-							background-color: rgba(0,0,0,0.1)
-							.posttitle
-								a
-									font-weight: normal
-									line-height: 1.3em
-									display: block
+					&.is-show-tablet
+						display: grid
+						height: 500px
+						grid-template-columns: 1fr 1fr 1fr
+						grid-template-rows: 1fr 1fr 1fr
+						grid-gap: 0px 0px
+						grid-template-areas: "post-large post-large post-small-1" "post-large post-large post-small-2" "post-small-3 post-small-4 post-small-5"
+						.post-item
+							margin: 3px
+							display: grid
+							.postmeta
+								position: absolute
+								bottom: 0
+								left: 0
+								right: 0
+								background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 85%, rgba(0,0,0,0) 100%)
+								color: #FFF
+							&.post-large
+								grid-area: post-large
+								width: auto
+								height: auto
+								.postmeta
+									padding: 15px
+									.postcats
+										margin-bottom: 5px
+										a 
+											display: block
+											float: left
+											padding: 3px 5px
+											margin-bottom: 2px
+											background-color: #fff
+											color: #4A4A4A
+											margin-right: 2px
+											font-size: 0.8rem
+											line-height: 1rem
+											&:last-child
+												margin-right: 0
+									.posttitle
+										line-height: 1.2
+										font-size: 1.1rem
+										a
+											font-weight: bold
+									.postexcerpt
+										margin-top: 5px
+										font-size: 0.9rem
+									.postinfo
+										margin-top: 5px
+										font-size: 0.9rem
+										span
+											margin-right: 5px
+											&:last-child
+												margin-right: 0
+							&.post-small
+								width: auto
+								height: auto
+								.postmeta
+									padding: 10px
+									.postcats
+										display: none
+										margin-bottom: 5px
+										a 
+											display: block
+											float: left
+											padding: 3px 5px
+											margin-bottom: 2px
+											background-color: #fff
+											color: #4A4A4A
+											margin-right: 2px
+											font-size: 0.75rem
+											line-height: 1rem
+											&:last-child
+												margin-right: 0
+									.posttitle
+										line-height: 1.2
+										font-size: 1rem
+										a
+											font-weight: bold
+									.postexcerpt
+										display: none
+										margin-top: 5px
+										font-size: 0.82rem
+									.postinfo
+										margin-top: 5px
+										font-size: 0.85rem
+										span
+											margin-right: 5px
+											&:last-child
+												margin-right: 0
+							&.post-small-1
+								grid-area: post-small-1
+							&.post-small-2
+								grid-area: post-small-2
+							&.post-small-3
+								grid-area: post-small-3
+							&.post-small-4
+								grid-area: post-small-4
+							&.post-small-5
+								grid-area: post-small-5
+
 				&.content-style-3
-					.postmeta
-						.posttitle
-							margin: 0
-							a 
-								font-size: 1.1rem
-						.postinfo
-							margin-top: 5px
-					.postthumb
-						display: none
-					.postexcerpt
-						display: none !important
-				&.content-style-2
-					
+					article
+						.postthumb
+							float: none
+							max-height: 150px
+							max-width: 100%
+				
++desktop
+	main#main
+		section.section
+			.section-content
+				&.content-style-1
+					display: grid
+					height: 500px
+					grid-template-columns: 1fr 1fr 1fr
+					grid-template-rows: 1fr 1fr 1fr
+					grid-gap: 0px 0px
+					grid-template-areas: "post-large post-large post-small-1" "post-large post-large post-small-2" "post-small-3 post-small-4 post-small-5"
+					.post-item
+						margin: 3px
+						display: grid
+						.postmeta
+							position: absolute
+							bottom: 0
+							left: 0
+							right: 0
+							background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 85%, rgba(0,0,0,0) 100%)
+							color: #FFF
+						&.post-large
+							grid-area: post-large
+							width: auto
+							height: auto
+							.postmeta
+								padding: 15px
+								.postcats
+									margin-bottom: 5px
+									a 
+										display: block
+										float: left
+										padding: 3px 5px
+										margin-bottom: 2px
+										background-color: #fff
+										color: #4A4A4A
+										margin-right: 2px
+										font-size: 0.8rem
+										line-height: 1rem
+										&:last-child
+											margin-right: 0
+								.posttitle
+									line-height: 1.2
+									font-size: 1.1rem
+									a
+										font-weight: bold
+								.postexcerpt
+									margin-top: 5px
+									font-size: 0.9rem
+								.postinfo
+									margin-top: 5px
+									font-size: 0.9rem
+									span
+										margin-right: 5px
+										&:last-child
+											margin-right: 0
+						&.post-small
+							width: auto
+							height: auto
+							.postmeta
+								padding: 10px
+								.postcats
+									display: none
+									margin-bottom: 5px
+									a 
+										display: block
+										float: left
+										padding: 3px 5px
+										margin-bottom: 2px
+										background-color: #fff
+										color: #4A4A4A
+										margin-right: 2px
+										font-size: 0.75rem
+										line-height: 1rem
+										&:last-child
+											margin-right: 0
+								.posttitle
+									line-height: 1.2
+									font-size: 1rem
+									a
+										font-weight: bold
+								.postexcerpt
+									display: none
+									margin-top: 5px
+									font-size: 0.82rem
+								.postinfo
+									margin-top: 5px
+									font-size: 0.85rem
+									span
+										margin-right: 5px
+										&:last-child
+											margin-right: 0
+						&.post-small-1
+							grid-area: post-small-1
+						&.post-small-2
+							grid-area: post-small-2
+						&.post-small-3
+							grid-area: post-small-3
+						&.post-small-4
+							grid-area: post-small-4
+						&.post-small-5
+							grid-area: post-small-5
+				&.content-style-3
+					article
+						.postthumb
+							float: none
+							max-height: 150px
+				&.content-style-4
+					display: grid
+					padding: 0
+					margin: 20px 0
+					height: 500px
+					grid-template-columns: 1fr 1fr 1fr
+					grid-template-rows: 1fr 1fr 1fr 1fr 1fr
+					grid-gap: 0px 0px
+					grid-template-areas: "post-large post-large post-small-1" "post-large post-large post-small-2" "post-large post-large post-small-3" "post-large post-large post-small-4" "post-large-meta post-large-meta post-small-5"
+					.post-item
+						margin: 0
+						display: grid
+						position: relative
+						&.post-large
+							height: auto
+							grid-area: post-large
+							background-repeat: no-repeat
+							background-size: cover !important
+							background-position: center center
+							margin: 0 10px 0 0
+							.postcats
+								padding: 0 10px 7px 10px
+								position: absolute
+								bottom: 0
+								left: 0
+								right: 0
+								a 
+									display: block
+									float: left
+									padding: 3px 5px
+									margin-bottom: 2px
+									background-color: #fff
+									color: #4A4A4A
+									margin-right: 2px
+									font-size: 0.8rem
+									line-height: 1rem
+									&:last-child
+										margin-right: 0
+						&.post-large-meta
+							grid-area: post-large-meta
+							margin: 0 10px 0 0
+							height: calc(500px/5)
+							border: none
+							.postmeta
+								padding: 0
+								.posttitle
+									a
+										display: block
+										font-size: 1.3rem
+										font-weight: bold
+										padding: 0.3rem 0
+								.postexcerpt
+									font-size: 0.9rem
+								.postinfo
+									margin-top: 10px
+									font-size: 0.9rem
+									span
+										margin-right: 10px
+										&:last-child
+											margin-right: 0
+						&.post-small
+							height: calc(500px/5)
+							overflow: hidden
+							margin-top: 0
+							.post-left
+								max-width: 90px
+								margin-right: 7px
+								float: left
+								img 
+									border-radius: 2px
+							.post-content
+								margin-top: -2px
+								.posttitle
+									font-size: 0.9rem
+										
+						&.post-small-1
+							grid-area: post-small-1
+						&.post-small-2
+							grid-area: post-small-2
+						&.post-small-3
+							grid-area: post-small-3
+						&.post-small-4
+							grid-area: post-small-4
+						&.post-small-5
+							grid-area: post-small-5

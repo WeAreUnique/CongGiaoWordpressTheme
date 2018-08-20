@@ -16,11 +16,11 @@
 		"oAP": "\/.gitignore",
 		"oF": 0
 		},
-	"\/BatchRun.ffs_batch": {
+	"\/conggiao\/.sync.ffs_db": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/BatchRun.ffs_batch",
+		"oAP": "\/conggiao\/.sync.ffs_db",
 		"oF": 0
 		},
 	"\/conggiao\/404.php": {
@@ -487,6 +487,28 @@
 		"oIPL": 0,
 		"opt": 0,
 		"oT": 1,
+		"q": 100
+		},
+	"\/conggiao\/assets\/images\/layouts\/homepage_section_style4.jpg": {
+		"ft": 16384,
+		"iS": 175712,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/conggiao\/assets\/images\/layouts\/homepage_section_style4.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/conggiao\/assets\/images\/layouts\/homepage_section_style4_thumb.jpg": {
+		"ft": 16384,
+		"iS": 29682,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/conggiao\/assets\/images\/layouts\/homepage_section_style4_thumb.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
 		"q": 100
 		},
 	"\/conggiao\/assets\/images\/layouts\/image-layout-thumb.png": {
@@ -5424,7 +5446,7 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/js\/jquery.bxslider-min.js",
 		"oF": 0,
 		"sC": 3,
@@ -5444,7 +5466,7 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/js\/lazysizes-min.js",
 		"oF": 0,
 		"sC": 3,
@@ -5494,7 +5516,7 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/js\/slick-min.js",
 		"oF": 0,
 		"sC": 3,
@@ -6807,6 +6829,26 @@
 "hooks": [
 	],
 "manualImportLinks": {
+	"\/js\/conggiao.js": [
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/lazysizes.js",
+			"position": 0,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/jquery.bxslider.js",
+			"position": 1,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/slick.js",
+			"position": 2,
+			"type": 0
+			}
+		]
 	},
 "projectAttributes": {
 	"creationDate": 553228504,
@@ -7211,8 +7253,8 @@
 			}
 		},
 	"esLintConfigFileHandlingType": 0,
-	"esLintECMAVersion": 7,
-	"esLintEnvironmentsMask": 1,
+	"esLintECMAVersion": 5,
+	"esLintEnvironmentsMask": 8192,
 	"esLintRules": {
 		"accessor-pairs": {
 			"active": 0,

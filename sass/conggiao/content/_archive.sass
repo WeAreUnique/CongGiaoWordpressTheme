@@ -1,22 +1,26 @@
 .archive-posts
-	background-color: #fff
 	margin-top: 0
-	padding: 20px
+	padding: 0
+	.column
+		padding-top: 0
 	.post-thumb, .posttitle, .postmeta, .postexcerpt, .postinfo
 		display: block
 		overflow: hidden
+	.post-thumb
+		max-height: 175px
 	.posttitle
-		padding: 5px 0
+		padding: 15px
 		a
 			color: #4A4A4A
 			font-weight: 600
 	.postmeta
-		font-size: 1rem
+		font-size: 0.9rem
+		padding: 0 15px
 		color: #6E6C6C
 	.postinfo
 		color: #6E6C6C
 		span
-			font-size: 1rem
+			font-size: 0.9rem
 			margin-right: 10px
 			&:last-child
 				margin-right: 0
@@ -27,40 +31,22 @@
 		text-align: justify
 	.c1
 		.post-thumb
-			max-height: 300px
 			img
 				&.post-thumb-img
 					width: 100%
 		.posttitle
-			padding: 10px 0
 			a
-				font-size: 1.7rem
+				font-size: 1rem
 	.c2
 		.post-thumb
-			max-height: 250px
 			img
 				&.post-thumb-img
 					width: 100%
 		.posttitle
-			padding: 10px 0
 			a
-				font-size: 1.4rem
+				font-size: 1rem
 	.c3
 		.post-thumb
-			max-height: 200px
-			img
-				&.post-thumb-img
-					width: 100%
-		.posttitle
-			a
-				font-size: 1.2rem
-		.postinfo
-			span
-				margin-right: 5px
-				font-size: 0.9rem
-	.c4
-		.post-thumb
-			max-height: 150px
 			img
 				&.post-thumb-img
 					width: 100%
@@ -70,7 +56,23 @@
 		.postinfo
 			span
 				margin-right: 5px
-				font-size: 0.9rem
+				font-size: 0.85rem
+	.c4
+		.post-thumb
+			img
+				&.post-thumb-img
+					width: 100%
+		.posttitle
+			a
+				font-size: 1rem
+		.postinfo
+			span
+				margin-right: 5px
+				font-size: 0.85rem
+	article
+		background-color: #fff
+		padding-bottom: 10px
+
 +mobile
 	.archive-posts
 		.posttitle

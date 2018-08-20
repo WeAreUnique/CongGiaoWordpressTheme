@@ -13,6 +13,7 @@
 			display: block
 			a
 				display: table
+				width: 100%
 			img
 				display: block
 				width: 100%
@@ -31,8 +32,7 @@
 		#header-menu
 			display: none
 			width: 100%
-			padding: 0 15px
-			font-weight: bold
+			padding: 0
 			a
 				color: #fff
 			&.open
@@ -44,7 +44,7 @@
 				margin: 0
 				a
 					display: block
-					padding: 5px 0
+					padding: 5px 15px
 					.svg-inline--fa
 						margin-right: 0.5em
 				.sub-menu
@@ -75,7 +75,7 @@
 							width: 0
 							border-top-color: #ddd
 				li
-					display: inline-block
+					float: left
 					position: relative
 					a
 						display: block
@@ -99,6 +99,7 @@
 						margin-left: 0
 						li 
 							display: block
+							float: none
 							a
 								padding: 10px 15px
 						.sub-menu 

@@ -47,8 +47,8 @@ jQuery(document).ready(function($) {
             //console.log( "Height: "+sliderHeight+" Box Wide: "+(sliderHeight/2) );
             $('.slider1-content').bxSlider({
                 wrapperClass: 'bx-conggiao',
-                nextText: '<i class="fa fa-angle-right"></i>',
-                prevText: '<i class="fa fa-angle-left"></i>',
+                nextText: '<i class="fas fa-angle-right"></i>',
+                prevText: '<i class="fas fa-angle-left"></i>',
             });
         }
         // END Slider - Style 1
@@ -60,8 +60,8 @@ jQuery(document).ready(function($) {
             //console.log( "Height: "+sliderHeight+" Box Wide: "+(sliderHeight/2) );
             $('.slider2-content').bxSlider({
                 wrapperClass: 'bx-conggiao',
-                nextText: '<i class="fa fa-angle-right"></i>',
-                prevText: '<i class="fa fa-angle-left"></i>',
+                nextText: '<i class="fas fa-angle-right"></i>',
+                prevText: '<i class="fas fa-angle-left"></i>',
             });
         }
         // END Slider - Style 2

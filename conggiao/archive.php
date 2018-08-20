@@ -9,6 +9,7 @@
 
 get_header(); 
 $catDefault = cg_gen_get_archives_default('other_default');
+
 $isSidebar 	= ($catDefault['sidebar'] == 'y') ? "sidebar-".$catDefault['sidebarpost'] : '';
 $columnDiv	= "<div class='column is-12-mobile is-6-tablet is-4-desktop'>";
 switch ($catDefault['columns']) {
@@ -33,7 +34,7 @@ switch ($catDefault['columns']) {
 	<div class="header-section">
 		<div class="container">
             <h1 class="title is-2 is-spaced"><?php if ( $catDefault['title'] == 'y' ): the_archive_title(); endif; ?></h1>
-            <h2 class="subtitle is-6"><?php if ( $catDefault['exper'] == 'y' ): the_archive_description(); endif; ?></h2>
+            <?php if ( $catDefault['exper'] == 'y' ): the_archive_description('<h2 class="subtitle is-6">', '</h2>'); endif; ?>
         </div>
 	</div>
 

@@ -20,7 +20,7 @@ $isSidebar 		= ($homesidebar['chon'] == 'y') ? "sidebar-".$homesidebar['pos'] : 
 			<p class="control has-icons-right">
 		    <input type="text" name="s" placeholder="Nhập nội dung muốn tìm kiếm" class="is-rounded input is-large"/>
 		    <span class="icon is-small is-right">
-		    	<i class="fa fa-search"></i>
+		    	<i class="fas fa-search"></i>
 		    </span>
 		  </p>
 	        
