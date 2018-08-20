@@ -1688,18 +1688,38 @@ $options = array(
                         'label'             => __('Danh Sách Mục', 'conggiao'),
                         'desc'              => __('Đây là các Mục nội dung sẻ hiển thị ở trang chủ, 1 mục sẻ hiển thị nhiều bài viết theo chuyên mục nào đó.<br />Nhấn vào <strong>Thêm Mục Mới</strong> để thêm.', 'conggiao'),
                         'template'          => ''.
-                        '{{ console.log(content_type) }}'.
+                        '{{ //console.log(content_type) }}'.
                         '{{ if (content_type.action_show == "c_post"){ }}'.
-                            '<b>Loại: </b>Danh Sách Bài Viết<br>'.
-                            '<b>Tiêu Đề: </b> {{- content_type.c_post.tieude }}<br>'.
-                            '{{ if (content_type.c_post.sortby == "views"){ }}'.
-                                '<b>Sắp Theo: </b>Lượt Xem<br>'.
-                        '{{ } else { }}'.
-                            '<b>Sắp Theo: </b>Bài Mới<br>'.
-                        '{{ } } }}'.
+                            '{{ if (content_type.c_post.is_display == "n"){ }}'.
+                                '<div class="homepage_section_disable">'.
+                                    '<b>Loại: </b>Danh Sách Bài Viết<br>'.
+                                    '<b>Tiêu Đề: </b> {{- content_type.c_post.tieude }}<br>'.
+                                    '{{ if (content_type.c_post.sortby == "views"){ }}'.
+                                        '<b>Sắp Theo: </b>Lượt Xem<br>'.
+                                    '{{ } else { }}'.
+                                        '<b>Sắp Theo: </b>Bài Mới<br>'.
+                                    '{{ } }}'.
+                                '</div>'.
+                            '{{ } else { }}'.
+                                '<b>Loại: </b>Danh Sách Bài Viết<br>'.
+                                '<b>Tiêu Đề: </b> {{- content_type.c_post.tieude }}<br>'.
+                                '{{ if (content_type.c_post.sortby == "views"){ }}'.
+                                    '<b>Sắp Theo: </b>Lượt Xem<br>'.
+                                '{{ } else { }}'.
+                                    '<b>Sắp Theo: </b>Bài Mới<br>'.
+                                '{{ } }}'.
+                            '{{ } }}'.
+                        '{{ } }}'.
                         '{{ if (content_type.action_show == "c_static"){ }}'.
-                            '<b>Loại: </b>Nội Dung<br>'.
-                            '<b>Tiêu Đề: </b> {{- content_type.c_static.tieude }}<br>'.
+                            '{{ if (content_type.c_static.is_display == "n"){ }}'.
+                                '<div class="homepage_section_disable">'.
+                                    '<b>Loại: </b>Nội Dung<br>'.
+                                    '<b>Tiêu Đề: </b> {{- content_type.c_static.tieude }}<br>'.
+                                '</div>'.
+                            '{{ } else { }}'.
+                                '<b>Loại: </b>Nội Dung<br>'.
+                                '<b>Tiêu Đề: </b> {{- content_type.c_static.tieude }}<br>'.
+                            '{{ } }}'.
                         '{{ } }}'
                         ,
                         'popup-title'       => 'Danh Mục',
@@ -1791,6 +1811,10 @@ $options = array(
                                                             'small'     => get_template_directory_uri() .'/assets/images/layouts/homepage_section_style3_thumb.png',
                                                             'large'     => get_template_directory_uri() .'/assets/images/layouts/homepage_section_style3.png',
                                                         ),
+                                                        'style-4'       => array(
+                                                            'small'     => get_template_directory_uri() .'/assets/images/layouts/homepage_section_style4_thumb.jpg',
+                                                            'large'     => get_template_directory_uri() .'/assets/images/layouts/homepage_section_style4.jpg',
+                                                        ),
                                                     ),
                                                 ),
                                                 'num_post'      => array(
@@ -1829,6 +1853,45 @@ $options = array(
                                                         'style-2'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style2.png',
                                                         'style-3'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style3.png',
                                                         'style-4'       => get_template_directory_uri() .'/assets/images/layouts/header_sep_style4.png',
+                                                    ),
+                                                ),
+                                                'xemthem'      => array(
+                                                    'type'          => 'multi-picker',
+                                                    'label'         => false,
+                                                    'desc'          => false,
+                                                    'show_borders'  => false,
+                                                    'picker'        => array(
+                                                        'action_show'   => array(
+                                                            'type'      => 'switch',
+                                                            'value'     => 'n',
+                                                            'label'     => __('Hiển thị Xem Thêm', 'conggiao'),
+                                                            'desc'      => __('Bạn có muốn hiển thị nút xem thêm ở góc phải tiêu đề không?', 'conggiao'),
+                                                            'left-choice'   => array(
+                                                                'value'     => 'n',
+                                                                'label'     => __('KHÔNG', 'conggiao'),
+                                                            ),
+                                                            'right-choice'  => array(
+                                                                'value'     => 'y',
+                                                                'label'     => __('CÓ', 'conggiao'),
+                                                            ),
+                                                        )
+                                                    ),
+                                                    'choices'       => array(
+                                                        'n'         => array(),
+                                                        'y'         => array(
+                                                            'xemthemtext'   => array(
+                                                                'type'      => 'text',
+                                                                'label'     => 'Nội Dung',
+                                                                'desc'      => 'Thay đổi nội dung nút xem thêm?',
+                                                                'value'     => 'Xem Thêm'
+                                                            ),
+                                                            'lienket'       => array(
+                                                                'type'      => 'text', 
+                                                                'label'     => 'Liên Kết',  
+                                                                'desc'      => __('Liên kết khi nhấn vào <strong>Xem Thêm</strong>', 'conggiao'),
+                                                            )
+
+                                                        )
                                                     ),
                                                 ),
                                             ),

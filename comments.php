@@ -70,10 +70,10 @@ if ( post_password_required() ) {
 		    <p class="control has-icons-left has-icons-right">
 		        <input class="input" id="author" name="author" type="text" placeholder="Tên Hiển Thị" value="' . esc_attr( $commenter['comment_author'] ) .'">
 		        <span class="icon is-small is-left">
-		            <i class="fa fa-user-circle"></i>
+		            <i class="fas fa-user-circle"></i>
 		        </span>
 		        <span class="icon is-small is-right">
-		            <i class="fa fa-certificate"></i>
+		            <i class="fas fa-certificate"></i>
 		        </span>
 		    </p>
 		</div>',
@@ -81,10 +81,10 @@ if ( post_password_required() ) {
 		    <p class="control has-icons-left has-icons-right">
 		        <input class="input" id="email" name="email" type="email" value="'.esc_attr(  $commenter['comment_author_email'] ).'" placeholder="Địa chỉ Email (sẻ không hiển thị)">
 		        <span class="icon is-small is-left">
-		            <i class="fa fa-envelope"></i>
+		            <i class="far fa-envelope"></i>
 		        </span>
 		        <span class="icon is-small is-right">
-		            <i class="fa fa-certificate"></i>
+		            <i class="fas fa-certificate"></i>
 		        </span>
 		    </p>
 		</div>',
@@ -92,7 +92,7 @@ if ( post_password_required() ) {
 		    <p class="control has-icons-left has-icons-right">
 		        <input class="input" id="url" name="url" type="text" value="'.esc_attr(  $commenter['comment_author_url'] ).'" placeholder="Địa chỉ Website">
 		        <span class="icon is-small is-left">
-		            <i class="fa fa-globe"></i>
+		            <i class="fas fa-globe-asia"></i>
 		        </span>
 		    </p>
 		</div>',

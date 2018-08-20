@@ -14,7 +14,7 @@ $numberWd 	= ( $wgNumber['chon'] == 'y' ) ? $wgNumber['number'] : 0;
 $footerInfo = cg_gen_get_footer_info();
 ?>
 	</div><!-- #content -->
-	<div id="gototop"><i class="fa fa-angle-up"></i></div>
+	<div id="gototop"><i class="fas fa-angle-up"></i></div>
 	<footer id="colophon" class="footer" style="padding: 3rem 1.5rem 1.5rem">
 		<div class="container">
 		<?php 
@@ -43,7 +43,7 @@ $footerInfo = cg_gen_get_footer_info();
 			<?php 
 			if ( $footerInfo['credit'] == 1 ){
 				echo '<hr>';
-				echo '<div class="site-info has-text-centered">';
+				echo '<div class="site-info has-text-centered" style="opacity: 0.3;">';
 				echo 'Giao diện được phát triển và chia sẻ miễn phí, nhấn vào <a href="https://github.com/WeAreUnique/CongGiaoWordpressTheme" target="_blank">Đây</a> để theo dõi. <span class="sep"> | </span> Thiết kế: <a href="https://bbland.net" target="_blank">BBLand Blog</a>';
 				echo '</div><!-- .site-info -->';
 			}

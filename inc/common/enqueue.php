@@ -8,7 +8,7 @@ function enqueue_style_script(){
 	wp_enqueue_style( 'global', get_template_directory_uri() . '/assets/css/global.css' );
 	wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/assets/css/custom.css' );
 	wp_enqueue_style( 'bxslidercss', get_template_directory_uri() . '/assets/css/jquery.bxslider.min.css' );
-	wp_enqueue_style( 'fa', get_template_directory_uri() . '/assets/css/font-awesome.min.css' );
+	wp_enqueue_style( 'fa520', 'https://use.fontawesome.com/releases/v5.2.0/css/all.css', array(), '5.2.0');
 	// wp_enqueue_style( 'Montserrat', 'https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;subset=vietnamese');
 
 	//JS
