@@ -5486,7 +5486,7 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/js\/ls.bgset-min.js",
 		"oF": 0,
 		"sC": 3,
@@ -5506,7 +5506,7 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/js\/ls.object-fit-min.js",
 		"oF": 0,
 		"sC": 3,
@@ -5526,7 +5526,7 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/js\/ls.parent-fit-min.js",
 		"oF": 0,
 		"sC": 3,
@@ -5546,7 +5546,7 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/js\/ls.respimg-min.js",
 		"oF": 0,
 		"sC": 3,
@@ -6892,20 +6892,44 @@
 	"\/js\/conggiao.js": [
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/lazysizes.js",
+			"linkedFileAbbreviatedPath": "\/js\/ls.bgset.js",
 			"position": 0,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/jquery.bxslider.js",
+			"linkedFileAbbreviatedPath": "\/js\/ls.parent-fit.js",
 			"position": 1,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/slick.js",
+			"linkedFileAbbreviatedPath": "\/js\/ls.object-fit.js",
 			"position": 2,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/ls.respimg.js",
+			"position": 3,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/lazysizes.js",
+			"position": 4,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/jquery.bxslider.js",
+			"position": 5,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/slick.js",
+			"position": 6,
 			"type": 0
 			}
 		]
