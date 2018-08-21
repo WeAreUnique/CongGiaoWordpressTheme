@@ -117,6 +117,8 @@ function conggiao_homepage_section_post_format($section, $withContainer = false)
         'show_comments' => ($section['show_comments'] == 'y') ? true : false,
         'posttitlecolor' => $section['posttitlecolor'],
         'postmetacolor' => $section['postmetacolor'],
+        'cats_bgcolor' => $section['headingcolor'],
+        'cats_color' => $section['bgcolor'],
     );
 
     //printArr($contentArgs, 'contentArgs');
@@ -136,13 +138,13 @@ function conggiao_homepage_section_header_format($title, $titleColor, $des, $lin
             $html = "<div class='section-header sep-{$sepStyle}' style='border-bottom: 1px solid {$sepColor};'>";
             $html .= "<div class='main-title'>";
             $html .= "<h2 class='title is-5' style='color: $titleColor;'>";
-            $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
-            $html .= "</h2>";
             if ($xemthem != '') {
                 $html .= "<span class='xemthem'>";
                 $html .= "<a href='{$xemthemlink}' title='{$title}'>{$xemthem}</a>";
                 $html .= "</span>";
             }
+            $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
+            $html .= "</h2>";
             $html .= "</div>";
             $html .= "<div class='sep-{$sepStyle}-bottom' style='border-bottom: 3px solid {$sepColor}'><p class='title is-4' style='opacity: 0;'>{$title}</p></div>";
             $html .= "</div>";
@@ -152,13 +154,14 @@ function conggiao_homepage_section_header_format($title, $titleColor, $des, $lin
             $html = "<div class='section-header sep-{$sepStyle}'>";
             $html .= "<div class='main-title' style='border-left: 5px solid {$sepColor}; border-bottom: 1px solid {$sepColor}'>";
             $html .= "<h2 class='title is-5'>";
-            $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
-            $html .= "</h2>";
             if ($xemthem != '') {
                 $html .= "<span class='xemthem'>";
                 $html .= "<a href='{$xemthemlink}' title='{$title}'>{$xemthem}</a>";
                 $html .= "</span>";
             }
+            $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
+            $html .= "</h2>";
+
             $html .= "</div>";
             $html .= "</div>";
             break;
@@ -167,14 +170,15 @@ function conggiao_homepage_section_header_format($title, $titleColor, $des, $lin
             $html = "<div class='section-header sep-{$sepStyle}'>";
             $html .= "<div class='main-title'>";
             $html .= "<h2 class='title is-5'>";
-            $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
-            $html .= "</h2>";
-            $html .= "<h3 class='subtitle is-6'>{$des}</h3>";
             if ($xemthem != '') {
                 $html .= "<span class='xemthem'>";
                 $html .= "<a href='{$xemthemlink}' title='{$title}'>{$xemthem}</a>";
                 $html .= "</span>";
             }
+            $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'>{$title}</a>" : $title;
+            $html .= "</h2>";
+            $html .= "<h3 class='subtitle is-6'>{$des}</h3>";
+
             $html .= "</div>";
             $html .= "</div>";
             break;
@@ -183,13 +187,14 @@ function conggiao_homepage_section_header_format($title, $titleColor, $des, $lin
             $html = "<div class='section-header sep-{$sepStyle}'>";
             $html .= "<div class='main-title'>";
             $html .= "<h2 class='title is-5'>";
-            $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'><span style='background-color: {$bgcolor}'>{$title}</span></a>" : "<span style='background-color: {$bgcolor}'>{$title}</span>";
-            $html .= "</h2>";
             if ($xemthem != '') {
                 $html .= "<span class='xemthem'>";
                 $html .= "<a href='{$xemthemlink}' title='{$title}'>{$xemthem}</a>";
                 $html .= "</span>";
             }
+            $html .= ($link != '') ? "<a style='color: $titleColor;' href='{$link}' title='{$title}'><span style='background-color: {$bgcolor}'>{$title}</span></a>" : "<span style='background-color: {$bgcolor}'>{$title}</span>";
+            $html .= "</h2>";
+
             $html .= "</div>";
             $html .= "</div>";
             break;
@@ -283,17 +288,18 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 $html .= "<div class='columns is-variable is-1 is-mobile wide-box'>";
                 $html .= "<div class='column is-4-mobile is-4-tablet is-4-desktop'>";
                 $html .= "<a href='{$link}'>";
-                $html .= "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
+                $html .= "<img class='post-thumb-img lazyload' data-sizes='auto' data-src='{$image}' alt='{$title}'>";
                 $html .= "</a>";
                 $html .= "</div>";
                 $html .= "<div class='column is-8-mobile is-8-tablet is-8-desktop'>";
                 $html .= "<div class='postmeta'><div class='postmetawrap'>";
                 if ($viewOptions['show_cats']) {
                     $html .= "<div class='postcats'>";
+                    $catStyle = "style='border: none; background-color: {$viewOptions['cats_bgcolor']}; color: {$viewOptions['cats_color']};'";
                     foreach (get_the_category($post->ID) as $category) {
                         $catLink = get_category_link($category->cat_ID);
                         $catName = $category->cat_name;
-                        $html .= "<a href='{$catLink}'>{$catName}</a>";
+                        $html .= "<a href='{$catLink}' title='{$catName}' {$catStyle}>{$catName}</a>";
                     }
                     $html .= "</div>";
                 }
@@ -343,17 +349,18 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 $html .= "<div class='columns is-variable is-1 is-mobile wide-box'>";
                 $html .= "<div class='column is-4-mobile is-4-tablet is-4-desktop'>";
                 $html .= "<a href='{$link}'>";
-                $html .= "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
+                $html .= "<img class='post-thumb-img lazyload' data-sizes='auto' data-src='{$image}' alt='{$title}'>";
                 $html .= "</a>";
                 $html .= "</div>";
                 $html .= "<div class='column is-8-mobile is-8-tablet is-8-desktop'>";
                 $html .= "<div class='postmeta'><div class='postmetawrap'>";
                 if ($viewOptions['show_cats'] == 'y') {
                     $html .= "<div class='postcats'>";
+                    $catStyle = "style='border: none; background-color: {$viewOptions['cats_bgcolor']}; color: {$viewOptions['cats_color']};'";
                     foreach (get_the_category($post->ID) as $category) {
                         $catLink = get_category_link($category->cat_ID);
                         $catName = $category->cat_name;
-                        $html .= "<a href='{$catLink}'>{$catName}</a>";
+                        $html .= "<a href='{$catLink}' title='{$catName}' {$catStyle}>{$catName}</a>";
                     }
                     $html .= "</div>";
                 }
@@ -426,48 +433,49 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 $html .= '<div class="post-item post-large" style="background: url(' . $image . ');">';
                 if ($viewOptions['show_cats']) {
                     $html .= "<div class='postcats is-clearfix'>";
-                    foreach (get_the_category($queryPosts[0]->ID) as $category) {
+                    $catStyle = "style='border: none; background-color: {$viewOptions['cats_bgcolor']}; color: {$viewOptions['cats_color']};'";
+                    foreach (get_the_category($post->ID) as $category) {
                         $catLink = get_category_link($category->cat_ID);
                         $catName = $category->cat_name;
-                        $html .= "<a href='{$catLink}'>{$catName}</a>";
+                        $html .= "<a href='{$catLink}' title='{$catName}' {$catStyle}>{$catName}</a>";
                     }
                     $html .= "</div>";
                 }
                 $html .= "</div>";
                 $html .= '<div class="post-item post-large-meta">';
 
-                    $html .= "<div class='postmeta {$style} post-{$queryPosts[0]->ID}'><div class='postmetawrap'>";
-                    if ($viewOptions['show_title']) {
-                        $html .= "<h2 class='posttitle'>";
-                        $html .= "<a href='{$link}' style='color: {$viewOptions['posttitlecolor']}'>{$title}</a>";
-                        $html .= "</h2>";
-                    }
-                    if ($viewOptions['show_exper']) {
-                        $html .= "<p class='postexcerpt' style='color: {$viewOptions['postmetacolor']}'>";
-                        $html .= get_the_excerpt($queryPosts[0]->ID);
-                        $html .= "</p>";
-                    }
-                    $html .= "<div class='postinfo'>";
+                $html .= "<div class='postmeta {$style} post-{$queryPosts[0]->ID}'><div class='postmetawrap'>";
+                if ($viewOptions['show_title']) {
+                    $html .= "<h2 class='posttitle'>";
+                    $html .= "<a href='{$link}' style='color: {$viewOptions['posttitlecolor']}'>{$title}</a>";
+                    $html .= "</h2>";
+                }
+                if ($viewOptions['show_exper']) {
+                    $html .= "<p class='postexcerpt' style='color: {$viewOptions['postmetacolor']}'>";
+                    $html .= get_the_excerpt($queryPosts[0]->ID);
+                    $html .= "</p>";
+                }
+                $html .= "<div class='postinfo'>";
 
-                    if ($viewOptions['show_author']) {
-                        $authorlink = get_the_author_posts_link();
-                        $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$viewOptions['postmetacolor']}'>", $authorlink);
-                        $html .= "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-user-circle'></i> " . $result . "</span>";
+                if ($viewOptions['show_author']) {
+                    $authorlink = get_the_author_posts_link();
+                    $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$viewOptions['postmetacolor']}'>", $authorlink);
+                    $html .= "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-user-circle'></i> " . $result . "</span>";
+                }
+                if ($viewOptions['show_date']) {
+                    $html .= "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-clock'></i> " . get_the_date('', $queryPosts[0]->ID) . "</span>";
+                }
+                if (function_exists('the_views')) {
+                    if ($viewOptions['show_viewer']) {
+                        $html .= "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-eye'></i> " . intval(get_post_meta($queryPosts[0]->ID, 'views', true)) . " lượt xem</span>";
                     }
-                    if ($viewOptions['show_date']) {
-                        $html .= "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-clock'></i> " . get_the_date('', $queryPosts[0]->ID) . "</span>";
-                    }
-                    if (function_exists('the_views')) {
-                        if ($viewOptions['show_viewer']) {
-                            $html .= "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-eye'></i> " . intval(get_post_meta($queryPosts[0]->ID, 'views', true)) . " lượt xem</span>";
-                        }
-                    }
-                    if ($viewOptions['show_comments']) {
-                        $comments_count = wp_count_comments($queryPosts[0]->ID);
-                        $html .= "<span class='postcomment' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-comments'></i> " . $comments_count->approved . "</span>";
-                    }
-                    $html .= "</div>";
-                    $html .= "</div></div>";
+                }
+                if ($viewOptions['show_comments']) {
+                    $comments_count = wp_count_comments($queryPosts[0]->ID);
+                    $html .= "<span class='postcomment' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-comments'></i> " . $comments_count->approved . "</span>";
+                }
+                $html .= "</div>";
+                $html .= "</div></div>";
                 $html .= "</div>";
                 wp_reset_postdata();
             } else {
@@ -480,54 +488,55 @@ function conggiao_homepage_get_posts_content_format($style, $args, $viewOptions,
                 $html .= '<div class="post-item post-large" style="background: url(' . $image . ');">';
                 if ($viewOptions['show_cats']) {
                     $html .= "<div class='postcats is-clearfix'>";
-                    foreach (get_the_category($queryPosts[0]->ID) as $category) {
+                    $catStyle = "style='border: none; background-color: {$viewOptions['cats_bgcolor']}; color: {$viewOptions['cats_color']};'";
+                    foreach (get_the_category($post->ID) as $category) {
                         $catLink = get_category_link($category->cat_ID);
                         $catName = $category->cat_name;
-                        $html .= "<a href='{$catLink}'>{$catName}</a>";
+                        $html .= "<a href='{$catLink}' title='{$catName}' {$catStyle}>{$catName}</a>";
                     }
                     $html .= "</div>";
                 }
                 $html .= "</div>";
                 $html .= '<div class="post-item post-large-meta">';
-                    $html .= "<div class='postmeta {$style} post-{$queryPosts[0]->ID}'><div class='postmetawrap'>";
-                        $html .= "<div class='postinfo'>";
-                            if ($viewOptions['show_author']) {
-                                $authorlink = get_the_author_posts_link();
-                                $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$viewOptions['postmetacolor']}'>", $authorlink);
-                                $html .= "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-user-circle'></i> " . $result . "</span>";
-                            }
-                            if ($viewOptions['show_date']) {
-                                $html .= "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-clock'></i> " . get_the_date('', $queryPosts[0]->ID) . "</span>";
-                            }
-                            if (function_exists('the_views')) {
-                                if ($viewOptions['show_viewer']) {
-                                    $html .= "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-eye'></i> " . intval(get_post_meta($queryPosts[0]->ID, 'views', true)) . " lượt xem</span>";
-                                }
-                            }
-                            if ($viewOptions['show_comments']) {
-                                $comments_count = wp_count_comments($queryPosts[0]->ID);
-                                $html .= "<span class='postcomment' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-comments'></i> " . $comments_count->approved . "</span>";
-                            }
-                        $html .= "</div>";
-                        if ($viewOptions['show_title']) {
-                            $html .= "<h2 class='posttitle'>";
-                            $html .= "<a href='{$link}' style='color: {$viewOptions['posttitlecolor']}'>{$title}</a>";
-                            $html .= "</h2>";
-                        }
-                        if ($viewOptions['show_exper']) {
-                            $html .= "<p class='postexcerpt' style='color: {$viewOptions['postmetacolor']}'>";
-                            $html .= get_the_excerpt($queryPosts[0]->ID);
-                            $html .= "</p>";
-                        }
-                    
-                    $html .= "</div></div>";
+                $html .= "<div class='postmeta {$style} post-{$queryPosts[0]->ID}'><div class='postmetawrap'>";
+                $html .= "<div class='postinfo'>";
+                if ($viewOptions['show_author']) {
+                    $authorlink = get_the_author_posts_link();
+                    $result = preg_replace("/(<a\b[^><]*)>/i", "$1 style='color: {$viewOptions['postmetacolor']}'>", $authorlink);
+                    $html .= "<span class='postauthor' style='color: {$viewOptions['postmetacolor']}'><i class='fas fa-user-circle'></i> " . $result . "</span>";
+                }
+                if ($viewOptions['show_date']) {
+                    $html .= "<span class='postdate' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-clock'></i> " . get_the_date('', $queryPosts[0]->ID) . "</span>";
+                }
+                if (function_exists('the_views')) {
+                    if ($viewOptions['show_viewer']) {
+                        $html .= "<span class='postviews' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-eye'></i> " . intval(get_post_meta($queryPosts[0]->ID, 'views', true)) . " lượt xem</span>";
+                    }
+                }
+                if ($viewOptions['show_comments']) {
+                    $comments_count = wp_count_comments($queryPosts[0]->ID);
+                    $html .= "<span class='postcomment' style='color: {$viewOptions['postmetacolor']}'><i class='far fa-comments'></i> " . $comments_count->approved . "</span>";
+                }
+                $html .= "</div>";
+                if ($viewOptions['show_title']) {
+                    $html .= "<h2 class='posttitle'>";
+                    $html .= "<a href='{$link}' style='color: {$viewOptions['posttitlecolor']}'>{$title}</a>";
+                    $html .= "</h2>";
+                }
+                if ($viewOptions['show_exper']) {
+                    $html .= "<p class='postexcerpt' style='color: {$viewOptions['postmetacolor']}'>";
+                    $html .= get_the_excerpt($queryPosts[0]->ID);
+                    $html .= "</p>";
+                }
+
+                $html .= "</div></div>";
                 $html .= "</div>";
                 wp_reset_postdata();
 
                 for ($i = 1; $i < $maxPost; $i++) {
                     setup_postdata($queryPosts[$i]);
                     $html .= '<div class="post-item post-small post-small-' . $i . ' is-clearfix">';
-                        $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[$i], $viewOptions);
+                    $html .= conggiao_homepage_get_single_post_content_format($style, $queryPosts[$i], $viewOptions);
                     $html .= "</div>"; //End 0
                     wp_reset_postdata();
                 }
@@ -552,10 +561,11 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
 
             if ($format['show_cats']) {
                 $html .= "<div class='postcats is-clearfix'>";
+                $catStyle = "style='border: none; background-color: {$format['cats_bgcolor']}; color: {$format['cats_color']};'";
                 foreach (get_the_category($post->ID) as $category) {
                     $catLink = get_category_link($category->cat_ID);
                     $catName = $category->cat_name;
-                    $html .= "<a href='{$catLink}'>{$catName}</a>";
+                    $html .= "<a href='{$catLink}' title='{$catName}' {$catStyle}>{$catName}</a>";
                 }
                 $html .= "</div>";
             }
@@ -596,17 +606,18 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
 
         case 'style-2':
             $html = "<article class='single-post {$style} post-{$post->ID}'>";
-            $html .= "<div class='postthumb'>";
-            $html .= "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
+            $html .= "<div class='postthumb lazyload' data-sizes='auto' data-bgset='{$image}'>";
+            // $html .= "<img class='post-thumb-img lazyload' data-sizes='auto' data-parent-fit='cover' data-src='{$image}' alt='{$title}'>";
             $html .= "</div>";
             $html .= "<div class='postmeta'><div class='postmetawrap'>";
 
             if ($format['show_cats']) {
                 $html .= "<div class='postcats'>";
+                $catStyle = "style='border: none; background-color: {$format['cats_bgcolor']}; color: {$format['cats_color']};'";
                 foreach (get_the_category($post->ID) as $category) {
                     $catLink = get_category_link($category->cat_ID);
                     $catName = $category->cat_name;
-                    $html .= "<a href='{$catLink}'>{$catName}</a>";
+                    $html .= "<a href='{$catLink}' title='{$catName}' {$catStyle}>{$catName}</a>";
                 }
                 $html .= "</div>";
             }
@@ -649,16 +660,18 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
 
         case 'style-3':
             $html = "<article class='single-post {$style} post-{$post->ID}'>";
-            $html .= "<div class='postthumb'>";
-            $html .= "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
+            $html .= "<div class='postthumb lazyload' data-sizes='auto' data-bgset='{$image}'>";
+            // $html .= "<div class='postthumb'>";
+            // $html .= "<img class='post-thumb-img lazyload' data-sizes='auto' data-src='{$image}' alt='{$title}'>";
             $html .= "</div>";
             $html .= "<div class='postmeta'><div class='postmetawrap'>";
             if ($format['show_cats']) {
                 $html .= "<div class='postcats'>";
+                $catStyle = "style='border: none; background-color: {$format['cats_bgcolor']}; color: {$format['cats_color']};'";
                 foreach (get_the_category($post->ID) as $category) {
                     $catLink = get_category_link($category->cat_ID);
                     $catName = $category->cat_name;
-                    $html .= "<a href='{$catLink}'>{$catName}</a>";
+                    $html .= "<a href='{$catLink}' title='{$catName}' {$catStyle}>{$catName}</a>";
                 }
                 $html .= "</div>";
             }
@@ -700,16 +713,16 @@ function conggiao_homepage_get_single_post_content_format($style, $post, $format
             break;
         case 'style-4':
             $html = "<div class='{$style} post-{$post->ID}'>";
-                $html .= "<div class='post-left is-clearfix'>";
-                    $html .= "<img class='post-thumb-img lazyload' data-src='{$image}' alt='{$title}'>";
-                $html .= "</div>";
-                $html .= "<div class='post-content'>";
-                    if ($format['show_title']) {
-                        $html .= "<h2 class='posttitle'>";
-                        $html .= "<a href='{$link}' style='color: {$format['posttitlecolor']}'>{$title}</a>";
-                        $html .= "</h2>";
-                    }
-                $html .= "</div>";
+            $html .= "<div class='post-left is-clearfix'>";
+            $html .= "<img class='post-thumb-img lazyload' data-sizes='auto' data-src='{$image}' alt='{$title}'>";
+            $html .= "</div>";
+            $html .= "<div class='post-content'>";
+            if ($format['show_title']) {
+                $html .= "<h2 class='posttitle'>";
+                $html .= "<a href='{$link}' style='color: {$format['posttitlecolor']}'>{$title}</a>";
+                $html .= "</h2>";
+            }
+            $html .= "</div>";
             $html .= "</div>";
             break;
         default:
